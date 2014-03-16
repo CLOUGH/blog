@@ -1,0 +1,14 @@
+body
+{
+	margin: 0;
+	padding: 0;
+}
+
+.page-header{
+	height: 100px;
+	background-color: #564F8A;
+	border-bottom: 4px solid rgba(0,0,0,.3);
+}
+.page-header  nav{
+	padding-top: 57px
+}
