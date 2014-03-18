@@ -1,3 +1,9 @@
+*{
+	margin: 0;
+}
+html, body {
+  height: 100%;
+}
 body
 {
 	margin: 0;
@@ -21,4 +27,22 @@ body
 .page-container{
 	padding-right: 20px;
 	padding-left:20px;
+}
+
+.page-footer{
+	background-color: #2e2a49;
+}
+.wrapper
+{
+	min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+.wrapper:after {
+  content: "";
+  display: block;
+}
+.page-footer, .wrapper:after {
+  /* .push must be the same height as footer */
+  height: 142px; 
 }

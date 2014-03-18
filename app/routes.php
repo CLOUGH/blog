@@ -11,4 +11,5 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', ['uses'=>'HomeController@index','as'=>'home.index']);
+Route::resource('blogs', 'BlogsController');

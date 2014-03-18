@@ -9,6 +9,7 @@
 	    <i class="home icon"></i> 
 	    Home
 	</a>
+	<a class="item" href="{{route('blogs.index')}}">Blogs</a>
 	<a class="item">Portfolio</a>
 	<a class="item">About</a>
 	<a class="item">Contact</a>
@@ -41,14 +42,6 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
-			<form>
-	            <textarea name="editor1" id="editor1" rows="10" cols="80">
-	                This is my textarea to be replaced with CKEditor.
-	            </textarea>
-	            <script>
-	                CKEDITOR.replace( 'editor1' );
-	            </script>
-	        </form>
 		</div>	
 
 		<div class="ui two wide column">
