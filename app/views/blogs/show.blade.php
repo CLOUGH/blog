@@ -17,16 +17,19 @@
 @stop
 
 @section('content')
-	<div class="ui grid">
-		@include('blogs.edit-bar', array('active_views'=>$active_views,'blog'=>$blog))
+	<div class="ui grid page-main-content">
+		
 
 		<div class="ui one wide column">	
 		</div>
 		
 		<div class="ui fourteen wide column content-area">
-			<h2 class="ui header">{{$blog->title}}</h2>
-			<div class="blog-body">
-				{{$blog->body}}
+		@include('blogs.edit-bar', array('active_views'=>$active_views,'blog'=>$blog))
+			<div class="content">
+				<h2 class="ui header">{{$blog->title}}</h2>
+				<div class="blog-body">
+					{{$blog->body}}
+				</div>
 			</div>
 		</div>	
 

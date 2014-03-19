@@ -17,14 +17,19 @@
 @stop
 
 @section('content')
+
 	<div class="ui grid">
 		<div class="ui one wide column">
 			
 		</div>
-		<div class="ui fourteen wide column content-area">
-			
+		<div class="ui twelve wide column">
+			<div>
+				<a href="{{route('blogs.create')}}">
+					<button class="ui small purple button">Create</button>
+				</a>
+			</div>
 			@foreach ($blogs as $blog)
-				<div class="ui segment blog-post">
+				<div class="ui blog-post">
 					<div class="blog-header">
 						<h2>{{HTML::linkRoute('blogs.show', $blog->title,$blog->id)}}</h2>
 					</div>
@@ -43,10 +48,7 @@
 					
 				</div>
 			@endforeach
-			<br/>
-			<a href="{{route('blogs.create')}}">
-			<button class="ui small purple button">Create</button>
-			</a>
+			
 		</div>	
 		<div class="ui one wide column">
 			
