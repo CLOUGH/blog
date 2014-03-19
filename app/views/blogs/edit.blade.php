@@ -18,16 +18,25 @@
 
 @section('content')
 	<div class="ui grid">
-		<div class="ui one wide column">
-			
+		@include('blogs.edit-bar', array($active_views))
+
+		<div class="ui one wide column">	
 		</div>
+
 		<div class="ui fourteen wide column content-area">
-			<h2 class="ui header">Edit Blog</h2>
-			
+			<h2 class="ui header">Edit Blog</h2>	
 			{{ Form::model($blog, array('method'=>'put','route'=>array('blogs.update', $blog->id),'class'=>'ui form')) }}
 				<div class="field">
 					{{Form::label('Title')}}
 					{{Form::text('title')}}
+				</div>				
+				<div class="ui input focus">
+					{{Form::label('Image')}}
+					{{Form::text('image')}}
+				</div>
+				<div class="ui field">
+					{{Form::label('Description')}}
+					{{Form::textarea('description')}}
 				</div>
 				<div class="field">
 					{{Form::textarea('body', null, ['id'=>'blog-body'])}}
@@ -40,8 +49,8 @@
 				</div>
 	        {{Form::close()}}
 		</div>	
-		<div class="ui one wide column">
-			
+
+		<div class="ui one wide column">			
 		</div>
 	</div>
 	

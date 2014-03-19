@@ -18,9 +18,11 @@
 
 @section('content')
 	<div class="ui grid">
-		<div class="ui one wide column">
-			
+		@include('blogs.edit-bar', array('active_views'=>$active_views,'blog'=>$blog))
+
+		<div class="ui one wide column">	
 		</div>
+		
 		<div class="ui fourteen wide column content-area">
 			<h2 class="ui header">{{$blog->title}}</h2>
 			<div class="blog-body">

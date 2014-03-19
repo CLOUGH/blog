@@ -22,23 +22,27 @@
 			
 		</div>
 		<div class="ui fourteen wide column content-area">
-			<table class="ui table">
-				<tr>
-					<th>Title</th>
-					<th>Actions</th>
-				</tr>
+			
 			@foreach ($blogs as $blog)
-				<tr>
-					<td>{{HTML::linkRoute('blogs.show', $blog->title,$blog->id)}}</td>
-					<td>
-						<a href="{{route('blogs.edit',$blog->id)}}" style="text-decoration: none;color:black">
-							<i class="edit icon"></i>
-							Edit
-						</a>
-					</td>
-				</tr>
+				<div class="ui segment blog-post">
+					<div class="blog-header">
+						<h2>{{HTML::linkRoute('blogs.show', $blog->title,$blog->id)}}</h2>
+					</div>
+					
+					@if ($blog->image!="")
+						<div class="blog-image">
+							<img src="{{$blog->image}}">
+						</div>
+					@endif 
+						
+					<div class="column  blog-body">
+						{{$blog->description}}
+					</div>
+					<div class="blog-footer">
+					</div>
+					
+				</div>
 			@endforeach
-			</table>
 			<br/>
 			<a href="{{route('blogs.create')}}">
 			<button class="ui small purple button">Create</button>

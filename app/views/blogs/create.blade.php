@@ -23,11 +23,19 @@
 		</div>
 		<div class="ui fourteen wide column content-area">
 			<h2 class="ui header">Create Blog</h2>
-			
+
 			{{Form::open(['route'=>'blogs.store','class'=>'ui form'])}}
 				<div class="field">
 					{{Form::label('Title')}}
 					{{Form::input('text', 'blog-title')}}
+				</div>
+				<div class="ui field">
+					{{Form::label('Image')}}
+					{{Form::text('blog-image')}}
+				</div>
+				<div class="ui field">
+					{{Form::label('Description')}}
+					{{Form::textarea('blog-description')}}
 				</div>
 				<div class="field">
 					{{Form::textarea('blog-body', null, ['id'=>'blog-body'])}}

@@ -3,11 +3,14 @@
 }
 html, body {
   height: 100%;
+  font-size: 15px;
 }
 body
 {
 	margin: 0;
 	padding: 0;
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+	color: #555555;		
 }
 
 .page-header{
@@ -45,4 +48,30 @@ body
 .page-footer, .wrapper:after {
   /* .push must be the same height as footer */
   height: 142px; 
+}
+
+.blog-post .blog-body
+{
+	overflow: hidden;
+}
+.blog-post .blog-image
+{
+	text-align: center;
+}
+.blog-post .blog-image img
+{
+	width:700px;
+	padding: 10px;
+}
+.blog-post
+{
+	padding: 10px;
+}
+.blog-post .blog-header
+{
+	margin-bottom: 10px;
+}
+.blog-post .blog-header h2 a 
+{
+	text-decoration: none;
 }

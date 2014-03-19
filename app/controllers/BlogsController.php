@@ -31,8 +31,9 @@ class BlogsController extends \BaseController {
 	public function store()
 	{
 		$input_data = Input::all();
-		Blog::store($input_data);
-		return  Redirect::route('blogs.index');
+		$new_blog = Blog::createBlog($input_data);
+
+		return  Redirect::route('blogs.show',$new_blog->id);
 	}
 
 	/**
@@ -44,7 +45,11 @@ class BlogsController extends \BaseController {
 	public function show($id)
 	{
 		$blog = Blog::find($id);
-		return View::make('blogs.show')->with('blog',$blog);
+		$active_views = array('main-menu'=>array(),
+			'edit-bar'=>array('show'=>'active', 'edit'=>''));
+
+		return View::make('blogs.show')->with('blog',$blog)
+			->with('active_views',$active_views);
 	}
 
 	/**
@@ -56,7 +61,11 @@ class BlogsController extends \BaseController {
 	public function edit($id)
 	{
 		$blog = Blog::find($id);
-		return View::make('blogs.edit')->with('blog',$blog);
+		$active_views = array('main-menu'=>array(),
+			'edit-bar'=>array('show'=>'', 'edit'=>'active'));
+
+		return View::make('blogs.edit')->with('blog',$blog)
+			->with('active_views',$active_views);
 	}
 
 	/**
@@ -69,10 +78,8 @@ class BlogsController extends \BaseController {
 	{
 		$input_data = Input::all();
 		$blog = Blog::find($id);
-		$blog->title = $input_data['title'];
-		$blog->body = $input_data['body'];
-		$blog->save();
-		return Redirect::route('blogs.index');
+		$blog->updateData($input_data);
+		return Redirect::route('blogs.show',$id);
 	}
 
 	/**
@@ -83,7 +90,9 @@ class BlogsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$blog = Blog::find($id);
+		$blog->delete();
+		return Redirect::route('blogs.index');
 	}
 
 }

@@ -10,6 +10,7 @@
 		{{HTML::script('js/jquery-1.11.0.min.js')}}
 		{{HTML::script('js/semantic.min.js')}}
 		{{HTML::script('ckeditor/ckeditor.js')}}
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
