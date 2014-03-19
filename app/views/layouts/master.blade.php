@@ -35,6 +35,12 @@
 	        </div>
 	    </div>
         <div class="page-footer">
+        	<p style="color: #d7d9d7;text-align:center">
+        		Created by Warren Clough <br/>
+        		Follow me @ <a style="color: #d7d9d7; text:decoration:none" href="https://github.com/clough">Github</a>
+        		<br/>
+        		Source for this website can be found @ <a style="color: #d7d9d7; text:decoration:none" href="https://github.com/clough/blog">My Blog</a>
+        	</p>
         	
         </div>
     </body>
