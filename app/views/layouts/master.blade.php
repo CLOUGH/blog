@@ -29,8 +29,7 @@
 	        <div class="banner">
 	        </div>
 	        <div class="ui grid page page-container">
-	        	<div class="column">
-		        		
+	        	<div class="column">		        		
 		        	@yield('content')
 	        	</div>		            
 	        </div>
