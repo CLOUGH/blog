@@ -8,7 +8,7 @@
 		{{HTML::style('css/semantic.min.css')}}
 		{{HTML::style('css/main-style.css')}}
 		{{HTML::script('js/jquery-1.11.0.min.js')}}
-		{{HTML::script('js/semantic.min.js')}}
+		{{HTML::script('js/semantic.js')}}
 		{{HTML::script('ckeditor/ckeditor.js')}}
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700" rel="stylesheet" type="text/css">
 	</head>
@@ -19,7 +19,7 @@
 
 		    	<div class="ui one column stackable left aligned page grid">
 		    		<nav class="ui purple inverted menu">
-		    			<h2 class="header item">My Blog</h2>
+		    			<h2 class="header item"><a href="{{route('home.index')}}">My Blog</a></h2>
 		    			<div class="right menu">	    				
 			        		@yield('nav-bar')
 		    			</div>

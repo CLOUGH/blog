@@ -12,7 +12,10 @@ body
 	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
 	color: #555555;		
 }
-
+.menu h2 a
+{
+	text-decoration: none;
+}
 .page-header{
 	height: 100px;
 	background-color: #564F8A;
@@ -31,6 +34,7 @@ body
 	padding-right: 20px;
 	padding-left:20px;
 	background-color: #f0f2f0;
+	
 }
 .page-container .column{
 }
@@ -101,4 +105,51 @@ body
 {
 	padding:30px 30px 30px 30px;
 
+}
+.page-comments > .comment
+{
+	margin: 10px auto 10px 10px;
+	border-bottom: 3px solid #ddd;
+	background-color: white;
+	overflow: hidden;
+	padding-bottom: 20px;
+	margin-left: 7.1%;
+}
+.comment .profile-pic img
+{
+	margin-top: 10px;
+}
+.comment-content .head
+{
+	margin-bottom: 10px;
+}
+.comment  .accordion  .content
+{
+	padding-left: 25px !important;
+	padding-right: 25px !important;
+}
+div.comment form textarea
+{
+	min-height: 1em !important;
+	height: 5em !important;
+	overflow: hidden
+}
+.new-blog-comment.comment  form textarea
+{
+	min-height: 1em !important;
+	height: 10em !important;
+	overflow: hidden
+}
+.comment  .comment-content > div.body
+{
+	width:96%;
+}
+.reply-comment
+{
+	margin-left: 30px;
+}
+.reply-comment .profile-pic img
+{
+	height: 50px;
+	float: right;
 }

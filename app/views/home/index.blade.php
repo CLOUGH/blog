@@ -5,14 +5,7 @@
 @stop
 
 @section('nav-bar')
-	<a class="active item">
-	    <i class="home icon"></i> 
-	    Home
-	</a>
-	<a class="item" href="{{route('blogs.index')}}">Blogs</a>
-	<a class="item">Portfolio</a>
-	<a class="item">About</a>
-	<a class="item">Contact</a>
+	@include('layouts.navbar',array($navbar))
 @stop
 
 @section('content')

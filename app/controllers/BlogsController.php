@@ -7,10 +7,16 @@ class BlogsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function __construct()
+	{
+		$this->navbar = array('home'=>'','blog'=>'active','contact'=>'','about'=>'');
+	}
+
 	public function index()
 	{
 		$blogs = Blog::all();
-		return  View::make('blogs.index')->with('blogs',$blogs);
+		return  View::make('blogs.index')->with('blogs',$blogs)
+			->with('navbar',$this->navbar);
 	}
 
 	/**
@@ -20,7 +26,7 @@ class BlogsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('blogs.create');
+		return View::make('blogs.create')->with('navbar',$this->navbar);
 	}
 
 	/**
@@ -49,7 +55,8 @@ class BlogsController extends \BaseController {
 			'edit-bar'=>array('show'=>'active', 'edit'=>''));
 
 		return View::make('blogs.show')->with('blog',$blog)
-			->with('active_views',$active_views);
+			->with('active_views',$active_views)
+			->with('navbar',$this->navbar);;
 	}
 
 	/**
@@ -65,7 +72,8 @@ class BlogsController extends \BaseController {
 			'edit-bar'=>array('show'=>'', 'edit'=>'active'));
 
 		return View::make('blogs.edit')->with('blog',$blog)
-			->with('active_views',$active_views);
+			->with('active_views',$active_views)
+			->with('navbar',$this->navbar);
 	}
 
 	/**
