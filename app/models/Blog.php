@@ -30,8 +30,11 @@ class Blog extends \Eloquent {
 		//$excerpt = DB::table('blogs')->select(DB::raw('LEFT(body,100) as excerpt'))->where('id','=',$this->id)->get();
 		//return $excerpt['excerpt'];
 
-		//dd($excerpt);
+		//dd($excerpt);		
+	}
 
-		
+	public function blogComment()
+	{
+		return $this->hasMany('BlogComment');
 	}
 }

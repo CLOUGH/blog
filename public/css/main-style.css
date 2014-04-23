@@ -121,7 +121,7 @@ body
 }
 .comment-content .head
 {
-	margin-bottom: 10px;
+	margin-bottom:5px;
 }
 .comment  .accordion  .content
 {
@@ -136,16 +136,22 @@ div.comment form textarea
 }
 .new-blog-comment.comment  form textarea
 {
+
 	min-height: 1em !important;
 	height: 10em !important;
 	overflow: hidden
+}
+.new-blog-comment
+{
+	padding-top: 20px;
 }
 .comment  .comment-content > div.body
 {
 	width:96%;
 }
 .reply-comment
-{
+{	
+
 	margin-left: 30px;
 }
 .reply-comment .profile-pic img

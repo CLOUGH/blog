@@ -7,6 +7,15 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 	 *
 	 * @return \Symfony\Component\HttpKernel\HttpKernelInterface
 	 */
+	public function setUp()
+	{
+		parent::setUp();
+		$this->prepareForTests();
+	}
+	private function prepareForTests()
+	{
+		Artisan::call("migrate");
+	}
 	public function createApplication()
 	{
 		$unitTesting = true;

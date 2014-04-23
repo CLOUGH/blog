@@ -42,6 +42,24 @@ class BlogsController extends \BaseController {
 		return  Redirect::route('blogs.show',$new_blog->id);
 	}
 
+
+	public function storeComment()
+	{
+		$input_data = Input::all();
+		//TODO: Implement addComment
+		$blog_comment = Comment::storeBlogComment($input_data);
+
+		return Redirect::route('blogs.show',$input_data['blog-id']);
+	}
+
+	public function storeReplyComment()
+	{
+		$data = Input::all();
+		$reply_comment = Comment::storeReplyComment($data);
+
+		return Redirect::route('blogs.show',$data['blog-id']);
+	}
+
 	/**
 	 * Display the specified resource.
 	 *
@@ -50,13 +68,17 @@ class BlogsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$blog = Blog::find($id);
+		$blog = Blog::with('blogComment')->find($id);
+		$blog_comments = $blog->blogComment;
+	
+
 		$active_views = array('main-menu'=>array(),
 			'edit-bar'=>array('show'=>'active', 'edit'=>''));
 
 		return View::make('blogs.show')->with('blog',$blog)
 			->with('active_views',$active_views)
-			->with('navbar',$this->navbar);;
+			->with('navbar',$this->navbar)
+			->with('blog_comments',$blog_comments);;
 	}
 
 	/**
@@ -102,5 +124,7 @@ class BlogsController extends \BaseController {
 		$blog->delete();
 		return Redirect::route('blogs.index');
 	}
+
+
 
 }
