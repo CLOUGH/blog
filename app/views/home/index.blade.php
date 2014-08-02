@@ -1,45 +1,37 @@
-@extends('layouts.master')
+@extends('layouts.main')
 
 @section('title')
 	Home
 @stop
 
-@section('nav-bar')
-	@include('layouts.navbar',array($navbar))
-@stop
-
 @section('content')
-	<div class="ui grid">
-		<div class="ui two wide column">
-			
+	<div class="banner ui page grid">
+		<div class="ui fourteen wide column">
+			<h2>Warren Clough Blog</h2>
+			<p>Here i'll give you the run down on my latest projects and ones to come. </p>
 		</div>
-		<div class="ui twelve wide column content-area">
-			<div class="content">
-				<h2>Hi there!</h2>
-				<p>
-					
+	</div>
+	<div class="ui page grid content center">  
 
-				</p>
-				<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-				<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-			</div>
-		</div>	
-
-		<div class="ui two wide column">
+		<div class="ui twelve wide column container" id="home-container">
+			<div class="content-area">
+				@foreach ($blogPosts as $blogPost)
+					<div class="blog-post ui segment"> 
+						<div class="header">
+							<h2>{{HTML::linkRoute('blog.show', $blogPost->title,$blogPost->id)}}</h2>
+						</div>
+						@if(false)
+							<div class="image">
+								<img src="{{$blogPost->image}}">
+							</div>
+						@endif
+						<div class="body">
+							{{$blogPost->description}}
+						</div>
+						<div class="footer"></div>
+					</div>
+				@endforeach				
+			</div>	
 		</div>
 	</div>
 	

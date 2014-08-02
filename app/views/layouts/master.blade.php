@@ -20,8 +20,7 @@
 		    	<div class="ui one column stackable left aligned page grid">
 		    		<nav class="ui purple inverted menu">
 		    			<h2 class="header item"><a href="{{route('home.index')}}">My Blog</a></h2>
-		    			<div class="right menu">	    				
-			        		@yield('nav-bar')
+		    			<div class="right menu">
 		    			</div>
 					</nav>
 		        </div>

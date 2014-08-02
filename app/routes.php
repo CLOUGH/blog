@@ -16,6 +16,10 @@ Event::listen('illuminate.query', function($sql)
 });
 
 Route::get('/', array('uses'=>'HomeController@index','as'=>'home.index'));
-Route::resource('blogs', 'BlogsController');
-Route::post('/blogs/store_comment',array('uses'=>'BlogsController@storeComment', 'as'=>'blog.store_comment'));
+Route::get('/home', array('uses'=>'HomeController@index','as'=>'home.index'));
+Route::get('/login',array('uses'=>'HomeController@showLogin','as'=>'home.login'));
+Route::post('/login',array('uses'=>'HomeController@doLogin','as'=>'home.login'));
+
+Route::resource('blog', 'BlogsController');
+Route::post('/blog/store_comment',array('uses'=>'BlogsController@storeComment', 'as'=>'blog.store_comment'));
 Route::post('/blog/store_reply_comment',array('uses'=>'BlogsController@storeReplyComment', 'as'=>'blog.store_reply_comment'));

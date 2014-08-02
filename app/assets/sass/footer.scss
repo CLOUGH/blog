@@ -1,0 +1,20 @@
+$footer-font-color: white;
+$footer-background-color: #08659A;
+$footer-height: 300px;
+
+.page-footer{
+	height: $footer-height;
+	color:$footer-font-color;
+	background: $footer-background-color;
+
+	.contact-info{
+		padding-top:100px;
+		margin-left:auto;
+		margin-right: auto;
+		font-size: 14px !important;
+		a{
+			text-decoration: none;
+
+		}
+	}
+}

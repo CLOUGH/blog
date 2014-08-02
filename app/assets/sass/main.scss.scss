@@ -1,0 +1,102 @@
+//Import footer settings
+@import "footer";
+@import "fonts";
+
+html, body{
+	height:100%;
+}
+body {
+	margin: 0px;
+	padding:0px;
+	font-family: "Raleway", sans-serif;
+}
+$error-message-margin-bottom: 30px;
+$login-container-margin: 50px;
+$wrapper-margin:$footer-height;
+$header-margin-height: 50px;
+.wrapper
+{
+	min-height:100%;
+	margin: 0 auto -$wrapper-margin;
+	overflow: hidden;
+	padding-top:43px;
+	.content{
+		padding-bottom: $footer-height;
+		
+		overflow: hidden;
+
+		& > div{
+			display: block !important;
+			margin:0px auto !important;
+		}
+		#login-container{
+			
+			padding:$login-container-margin 0;
+			width:500px;
+
+			.error.message{
+				margin-bottom: $error-message-margin-bottom;
+			}
+			.submit-field
+			{
+				text-align: right;
+			}
+			.blue.button
+			{
+				background-color: $footer-background-color;
+			}
+			.header{
+				margin-bottom: $header-margin-height;
+			}
+		}
+
+		.blog-post{
+			margin-top: 20px;
+			.header a{
+				text-decoration: none;
+			}
+		}
+		
+		
+	}
+	.banner{
+		background-image:url("http://blog.vuze.com/wp-content/uploads/2013/12/coding_classes_bootcamps.jpg");
+		color:white;
+		height: 450px;
+		background-position: center center;
+		background-size: cover;
+		padding:100px;
+		& > div.column
+		{
+			padding-top:200px;
+			display: block;
+			margin:0px auto;
+		}
+		h2{
+			font-family: "Raleway", sans-serif;
+			font-size: 60px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+	}
+	.push{
+		height: $footer-height;
+	}
+}
+
+.navbar.ui.menu{
+	position:fixed;
+	width:100%;
+	background:#2E2E2E;
+	margin-bottom: 0px;
+	border-radius: 0px;
+	opacity: 1;
+	color: #999;
+
+	& > div{
+		display: block !important;
+		margin:0px auto !important;
+	}
+}
+
+

@@ -16,14 +16,14 @@
 		</div>
 		<div class="ui twelve wide column">
 			<div>
-				<a href="{{route('blogs.create')}}">
+				<a href="{{route('blog.create')}}">
 					<button class="ui small purple button">Create</button>
 				</a>
 			</div>
 			@foreach ($blogs as $blog)
 				<div class="ui blog-post">
 					<div class="blog-header">
-						<h2>{{HTML::linkRoute('blogs.show', $blog->title,$blog->id)}}</h2>
+						<h2>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h2>
 					</div>
 					
 					@if ($blog->image!="")
