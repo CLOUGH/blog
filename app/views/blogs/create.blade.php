@@ -1,57 +1,57 @@
-@extends('layouts.master')
+@extends('layouts.main')
 
 @section('title')
 	Creat New Blog
 @stop
 
-@section('nav-bar')
-	<a class="item" href="{{route('home.index')}}">
-	    <i class="home icon"></i>
-	    Home
-	</a>
-
-	<a class="item">Portfolio</a>
-	<a class="item active" href="{{route('blogs.index')}}">Blogs</a>
-	<a class="item">About</a>
-	<a class="item">Contact</a>
-@stop
 
 @section('content')
-	<div class="ui grid">
-		<div class="ui one wide column">
-			
+	@if(Auth::check())
+		<div class="row">
+			<div class="large-12 columns">
+				<dl class="sub-nav">
+					<dd><a href="{{route('blog.index')}}">View</a></dd>
+					<dd class="active"><a href="{{route('blog.create')}}">Create</a></dd>
+				</dl>
+			</div>
 		</div>
-		<div class="ui fourteen wide column content-area">
-			<div class="content">
-				<h2 class="ui header">Create Blog</h2>
-
-				{{Form::open(['route'=>'blogs.store','class'=>'ui form'])}}
-					<div class="field">
-						{{Form::label('Title')}}
-						{{Form::input('text', 'blog-title')}}
-					</div>
-					<div class="ui field">
-						{{Form::label('Image')}}
-						{{Form::text('blog-image')}}
-					</div>
-					<div class="ui field">
-						{{Form::label('Description')}}
-						{{Form::textarea('blog-description')}}
-					</div>
-					<div class="field">
-						{{Form::textarea('blog-body', null, ['id'=>'blog-body'])}}
-			            <script>
-			                CKEDITOR.replace( 'blog-body',{height: 500});
-			            </script>
-			        </div>
-		            <div>
-						{{ Form::submit('Save',['class'=>'ui purple submit button']) }}
-					</div>
-		        {{Form::close()}}
-		    </div>
-		</div>	
-
-		<div class="ui one wide column">
+	@endif
+	<div class="row">
+		<div class="large-12 columns" role="content">
+		{{Form::open(['route'=>'blog.store','class'=>'ui form'])}}
+			<div class="row">
+				<div class="columns large-12">
+					{{Form::label('Title')}}
+					{{Form::input('text', 'blog-title')}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="columns large-12">
+					{{Form::label('Image')}}
+					{{Form::text('blog-image')}}
+				</div>		
+			</div>
+			<div class="row">
+				<div class="columns large-12">
+					{{Form::label('Description')}}
+					{{Form::textarea('blog-description')}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="columns large-12">
+					{{Form::textarea('blog-body', null, ['id'=>'blog-body'])}}
+					<script>
+		                CKEDITOR.replace( 'blog-body',{height: 500});
+		            </script>
+		        </div>
+			</div>
+				
+            <div class="row">
+            	<div class="columns large-12 text-right" > 
+					{{ Form::submit('Save',['class'=>'ui purple submit button']) }}
+				</div>
+			</div>
+        {{Form::close()}}
 		</div>
 	</div>
 	

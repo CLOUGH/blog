@@ -1,41 +1,46 @@
-@extends('layouts.main')
+@extends('layouts.default')
 
 @section('title')
 	Login
 @stop
 
 
-@section('content')
-	<div class="ui page grid content">  
-		<div class="column container" id="login-container">
-			<h2 class="header">Login</h2>
+@section('content') 
+	<div class="row" id="login-container">
+		<div class="large-6 columns large-centered">
+			<h2 class="">Login</h2>
 
 			@if ($errors->has())
-				<div class="ui error message">
-					@foreach ($errors->all() as $error)
-					    <div>{{ $error }}</div>
-					@endforeach
-				</div>			
+				@foreach ($errors->all() as $error)
+					<div class="alert-box alert">
+						{{ $error }}
+						<a href="#" class="close">&times;</a>
+					</div>	
+				@endforeach		
 			@endif
 			
-			<form class="ui form" method="post" action="{{ route('home.login') }}">
-				<div class="field">
-					<label>Username</label>
-					<div class="ui input">
-						<input type="text" placeholder="Username" name="username" value="{{Input::old('username')}}">
+			<form method="post" action="{{ route('home.login') }}">
+				<div class="row">
+					<div class="large-8 columns">
+						<label>Username
+							<input type="text" placeholder="Username" name="username" value="{{Input::old('username')}}">
+						</label>
 					</div>
-				</div>
-				<div class="field">
-					<label>Password</label>
-					<div class="ui input">
-						<input type="password" placeholder="Password" name="password">
-					</div>
-				</div>
-				<div class="submit-field">
-					<input type="submit" value="Login" class="ui blue button">
-					
 				</div>
 				
+				<div class="row">
+					<div class="large-8 columns">
+						<label>Password
+							<input type="password" placeholder="Password" name="password">
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-6 large-center columns">
+						<input type="submit" value="Login" class="button">
+					</div>
+				</div>
+
 				
 			</form>
 		</div>

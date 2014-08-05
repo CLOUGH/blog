@@ -1,34 +1,41 @@
-@extends('layouts.master')
+@extends('layouts.main')
 
 @section('title')
 	{{$blog->title}}
 @stop
 
-@section('nav-bar')
-	@include('layouts.navbar',array($navbar))
-@stop
 
 @section('content')
-	<div class="ui grid page-main-content">
-		
-
-		<div class="ui one wide column">	
-		</div>
-		
-		<div class="ui fourteen wide column content-area">
-		@include('blogs.edit-bar', array('active_views'=>$active_views,'blog'=>$blog))
-			<div class="content">
-				<h2 class="ui header">{{$blog->title}}</h2>
-				<div class="blog-body">
-					{{$blog->body}}
-				</div>
+	@if(Auth::check())
+		<div class="row">
+			<div class="large-12 columns">
+				<dl class="sub-nav">
+					<dd class="active"><a href="{{route('blog.show',array($blog->id))}}">View</a></dd>
+					<dd><a href="{{route('blog.edit',array($blog->id))}}">Edit</a></dd>
+					<dd><a href="{{route('blog.destroy',array($blog->id))}}">Delete</a></dd>
+				</dl>
 			</div>
-		</div>	
-
-		<div class="ui one wide column">
 		</div>
+	@endif
+	<div class="row">
+	   	<div class="content large-12 columns">
+		        
+	     	<article>
+				<h3>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h3>
+				<div class="row">
+					@if($blog->image!='')
+						<img src="{{$blog->image}}"/>
+					@endif
+					<div class="large-12 columns">
+						{{$blog->body}}
+					</div>
+							
+				</div>
+			</article>
+	   	</div>
 	</div>
-	<div class=" ui grid page-comments">
+	<!-- TODO: IMPLEMENT COMMENT FEATURE -->
+	<!--div class=" ui grid page-comments">
 		@foreach ($blog_comments as $blog_comment)
 			<div class="ui thirteen wide column comment">
 				<div class="ui two column grid">
@@ -132,5 +139,5 @@
 				my_accordion.trigger('click');
 			});
 		</script>
-	</div>
+	</div-->
 @stop

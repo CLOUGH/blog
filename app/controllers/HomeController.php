@@ -3,16 +3,51 @@
 class HomeController extends BaseController {
 	public function __construct()
 	{
-		$this->navbar = array('home'=>'','blog'=>'active');
+		$this->navbar = array('home'=>'active','blog'=>'','about'=>'');
 
 	}
 	public function index(){
 		$blogPosts = Blog::all();
 
 		$data = [];
+		$page = Page::where('route',"=",'home')->first();
 		return View::make('home.index', $data)
 			->with('navbar',$this->navbar)
-			->with('blogPosts',$blogPosts);
+			->with('blogPosts',$blogPosts)
+			->with('page',$page);
+	}
+
+	public function edit()
+	{
+		$blogPosts = Blog::all();
+
+		$data = [];
+		$page = Page::where('route',"=",'home')->first();
+		return View::make('home.edit', $data)
+			->with('navbar',$this->navbar)
+			->with('blogPosts',$blogPosts)
+			->with('page',$page);
+
+	}
+	public function destory($id)
+	{
+
+	}
+	public function update()
+	{
+		$page = Page::all();
+		$input_data = Input::all();
+		if($page->isEmpty())
+		{
+			$input_data['route'] = 'home';
+			$page = Page::create($input_data);
+		}
+		else
+		{
+			$page = Page::where('route',"=",'home')->first();
+			$page->update($input_data);
+		}
+		return Redirect::route('home.index');
 	}
 	public function showLogin()
 	{
@@ -55,6 +90,12 @@ class HomeController extends BaseController {
 			}
 
 		}
+	}
+
+	public function logout()
+	{
+		Auth::logout();
+		return Redirect::route('home.index');
 	}
 
 }

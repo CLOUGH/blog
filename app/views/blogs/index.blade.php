@@ -1,50 +1,46 @@
-@extends('layouts.master')
+@extends('layouts.main')
 
 @section('title')
 	Blogs
 @stop
-
-@section('nav-bar')
-	@include('layouts.navbar',array($navbar))
+@section('banner-img')
 @stop
-
 @section('content')
-
-	<div class="ui grid">
-		<div class="ui one wide column">
-			
-		</div>
-		<div class="ui twelve wide column">
-			<div>
-				<a href="{{route('blog.create')}}">
-					<button class="ui small purple button">Create</button>
-				</a>
+	@if(Auth::check())
+		<div class="row">
+			<div class="large-12 columns">
+				<dl class="sub-nav">
+					<dd class="active"><a href="{{route('blog.index')}}">View</a></dd>
+					<dd><a href="{{route('blog.create')}}">Create</a></dd>
+				</dl>
 			</div>
-			@foreach ($blogs as $blog)
-				<div class="ui blog-post">
-					<div class="blog-header">
-						<h2>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h2>
-					</div>
-					
-					@if ($blog->image!="")
-						<div class="blog-image">
-							<img src="{{$blog->image}}">
-						</div>
-					@endif 
-						
-					<div class="column  blog-body">
+		</div>
+	@endif
+	<div class="row">
+		<div class="large-9 columns" role="content">
+		@foreach ($blogs as $blog)
+			<article>
+				<h3>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h3>
+				<div class="row">
+					@if($blog->image!='')
+						<img src="{{$blog->image}}"/>
+					@endif
+					<div class="large-12 columns">
 						{{$blog->description}}
 					</div>
-					<div class="blog-footer">
-					</div>
-					
+							
 				</div>
-			@endforeach
-			
-		</div>	
-		<div class="ui one wide column">
-			
+			</article>
+		@endforeach
+				
 		</div>
-	</div>
-	
+		<aside class="large-3 columns">
+			<h5>Blogs</h5>
+			<ul class="side-nav">
+				@foreach ($blogs as $blogPost)
+		   			<li>{{HTML::linkRoute('blog.show', $blogPost->title,$blogPost->id)}}</li> 
+		   		@endforeach
+			</ul>
+		</aside>
+	</div>	
 @stop

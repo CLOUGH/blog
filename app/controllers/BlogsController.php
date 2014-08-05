@@ -9,7 +9,9 @@ class BlogsController extends \BaseController {
 	 */
 	public function __construct()
 	{
-		$this->navbar = array('home'=>'','blog'=>'active','contact'=>'','about'=>'');
+		$this->beforeFilter('auth',array( 'only'=>array('create')));
+		$this->navbar = array('home'=>'','blog'=>'active','about'=>'');
+
 	}
 
 	public function index()
@@ -39,7 +41,7 @@ class BlogsController extends \BaseController {
 		$input_data = Input::all();
 		$new_blog = Blog::createBlog($input_data);
 
-		return  Redirect::route('blogs.show',$new_blog->id);
+		return  Redirect::route('blog.show',$new_blog->id);
 	}
 
 
@@ -49,7 +51,7 @@ class BlogsController extends \BaseController {
 		//TODO: Implement addComment
 		$blog_comment = Comment::storeBlogComment($input_data);
 
-		return Redirect::route('blogs.show',$input_data['blog-id']);
+		return Redirect::route('blog.show',$input_data['blog-id']);
 	}
 
 	public function storeReplyComment()
@@ -57,7 +59,7 @@ class BlogsController extends \BaseController {
 		$data = Input::all();
 		$reply_comment = Comment::storeReplyComment($data);
 
-		return Redirect::route('blogs.show',$data['blog-id']);
+		return Redirect::route('blog.show',$data['blog-id']);
 	}
 
 	/**
@@ -109,7 +111,7 @@ class BlogsController extends \BaseController {
 		$input_data = Input::all();
 		$blog = Blog::find($id);
 		$blog->updateData($input_data);
-		return Redirect::route('blogs.show',$id);
+		return Redirect::route('blog.show',$id);
 	}
 
 	/**
@@ -122,7 +124,7 @@ class BlogsController extends \BaseController {
 	{
 		$blog = Blog::find($id);
 		$blog->delete();
-		return Redirect::route('blogs.index');
+		return Redirect::route('blog.index');
 	}
 
 
