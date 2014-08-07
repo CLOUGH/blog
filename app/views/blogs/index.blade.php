@@ -4,6 +4,7 @@
 	Blogs
 @stop
 @section('banner-img')
+	<img src="{{URL::asset('')}}images/blog-banner.png">
 @stop
 @section('content')
 	@if(Auth::check())

@@ -49,15 +49,16 @@ class BlogsController extends \BaseController {
 	{
 		$input_data = Input::all();
 		//TODO: Implement addComment
-		$blog_comment = Comment::storeBlogComment($input_data);
+		$blog = Blog::findOrFail($input_data['blog-id']);
 
+		$blog_comment = $blog->storeComment($input_data);
 		return Redirect::route('blog.show',$input_data['blog-id']);
 	}
 
 	public function storeReplyComment()
 	{
 		$data = Input::all();
-		$reply_comment = Comment::storeReplyComment($data);
+		$reply_comment = Blog::storeReplyComment($data);
 
 		return Redirect::route('blog.show',$data['blog-id']);
 	}
@@ -70,17 +71,11 @@ class BlogsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$blog = Blog::with('blogComment')->find($id);
-		$blog_comments = $blog->blogComment;
+		$blog = Blog::with('comment')->find($id);
 	
 
-		$active_views = array('main-menu'=>array(),
-			'edit-bar'=>array('show'=>'active', 'edit'=>''));
-
 		return View::make('blogs.show')->with('blog',$blog)
-			->with('active_views',$active_views)
-			->with('navbar',$this->navbar)
-			->with('blog_comments',$blog_comments);;
+			->with('navbar',$this->navbar);
 	}
 
 	/**
@@ -92,11 +87,8 @@ class BlogsController extends \BaseController {
 	public function edit($id)
 	{
 		$blog = Blog::find($id);
-		$active_views = array('main-menu'=>array(),
-			'edit-bar'=>array('show'=>'', 'edit'=>'active'));
 
 		return View::make('blogs.edit')->with('blog',$blog)
-			->with('active_views',$active_views)
 			->with('navbar',$this->navbar);
 	}
 

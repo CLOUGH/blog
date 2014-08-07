@@ -22,18 +22,69 @@ class Blog extends \Eloquent {
 		$this->description=$data['description'];
 		$this->save();
 	}
+	public function storeComment($data)
+	{
+
+		DB::beginTransaction();
+		$comment=null;
+		$blog_comment=null;
+
+		try{
+
+			$comment = new Comment();
+			$comment->comment = $data['comment'];
+			$comment->author = $data['author'];
+			$comment->save();
+
+			$blog_comment = new BlogComment();
+			$blog_comment->blog_id  = $this->id;
+			$blog_comment->comment_id = $comment->id;
+			$blog_comment->save();
+
+
+		}catch(Exception $e){
+			echo "Error: $e";
+			DB::rollback();
+			return $e;
+		}
+		DB::commit();
+
+		return $comment;
+	}
+	public function storeReplyComment($data)
+	{
+		DB::beginTransaction();
+		$comment = null;
+		$reply_comment = null;
+
+
+		try{
+			$comment = new Comment();
+			$comment->comment= $data['comment'];
+			$comment->author = $data['author'];
+			$comment->save();		
+
+			$reply_comment = new ReplyComment();
+			$reply_comment->reply_comment_id = $comment->id;
+			$reply_comment->comment_id =  $data['comment-id'];
+			$reply_comment->save();
+
+		}catch(Exception $e)
+		{
+			DB::rollback();
+			return $e;
+		}
+		DB::commit();
+
+		return $comment;
+	}
 
 	public function bodyExcerpt(){
 
-		return substr($this->body, 0, 1500);
-		//use this way if using mysql-db
-		//$excerpt = DB::table('blogs')->select(DB::raw('LEFT(body,100) as excerpt'))->where('id','=',$this->id)->get();
-		//return $excerpt['excerpt'];
-
-		//dd($excerpt);		
+		return substr($this->body, 0, 1500);	
 	}
 
-	public function blogComment()
+	public function comment()
 	{
 		return $this->hasMany('BlogComment');
 	}

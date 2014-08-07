@@ -4,7 +4,7 @@
 	Home
 @stop
 @section('banner-img')
-	<img src="{{URL::asset('')}}images/about_img_copy.jpg">
+	<img src="{{URL::asset('')}}images/about_img.png">
 @stop
 
 @section('content')

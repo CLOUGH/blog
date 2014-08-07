@@ -32,8 +32,65 @@
 							
 				</div>
 			</article>
+			<hr>
 	   	</div>
 	</div>
+	<div class="row">
+		<div class="columns large-11 large-centered">
+
+		@foreach($blog->comment as $blogComment)
+			<div class="comment">
+				<div class="row">
+					<div class="columns small-9">
+						<h5>{{$blogComment->comment->author}}</h5>
+					</div>
+					<div class="columns small-3">
+						{{$blogComment->comment->updated_at}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="columns large-12">
+						{{$blogComment->comment->comment}}
+					</div>
+				</div> 
+			</div>
+			
+		@endforeach
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="columns large-12">
+		<hr>
+		<h4>Comment</h4>
+		{{ Form::open(array('route'=>'blog.store_comment', 'class'=>'ui form fluid basic accordion')) }}
+			<div class="row">
+				<div class="medium-8 columns">
+					<label>Name Displayed
+						{{ Form::text('author', 'Anonymous User') }}
+					</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-11 columns"> 
+					<label>Comment
+						{{ Form::textarea("comment") }}
+					</label>
+				</div>
+			</div>		
+			{{ Form::hidden('blog-id',$blog->id) }}
+			<div class="row">
+				<div class="columns large-12">
+					{{ Form::submit('Comment', array('class'=>'button')) }}	
+				</div>
+			</div> 
+					
+		{{ Form::close() }}
+
+		</div>
+	</div>
+	</div>
+<?php /*
 	<!-- TODO: IMPLEMENT COMMENT FEATURE -->
 	<!--div class=" ui grid page-comments">
 		@foreach ($blog_comments as $blog_comment)
@@ -132,12 +189,5 @@
 				</div>				
 			{{ Form::close() }}
 		</div>
-		<script type="text/javascript">
-			$('.ui.accordion').accordion();
-			$(".comment .comment-content .head  i").click(function(e){
-				var my_accordion = $(e.target).closest('.comment').find('.accordion .title');
-				my_accordion.trigger('click');
-			});
-		</script>
-	</div-->
+	</div-->?*/?>
 @stop
