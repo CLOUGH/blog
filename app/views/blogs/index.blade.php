@@ -21,15 +21,19 @@
 		<div class="large-9 columns" role="content">
 		@foreach ($blogs as $blog)
 			<article>
-				<h3>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h3>
 				<div class="row">
-					@if($blog->image!='')
-						<img src="{{$blog->image}}"/>
-					@endif
-					<div class="large-12 columns">
-						{{$blog->description}}
+					<div class="columns large-12" >
+						<h3>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h3>
 					</div>
-							
+				</div>
+				<div class="row">
+					<div class="columns large-12" >
+						@if($blog->image!='')
+							<img src="{{$blog->image}}"/>
+						@endif						
+						{{$blog->description}}
+					
+					</div>							
 				</div>
 			</article>
 		@endforeach

@@ -23,9 +23,6 @@
 	     	<article>
 				<h3>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h3>
 				<div class="row">
-					@if($blog->image!='')
-						<img src="{{$blog->image}}"/>
-					@endif
 					<div class="large-12 columns">
 						{{$blog->body}}
 					</div>
