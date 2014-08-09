@@ -20,7 +20,17 @@
 	   	<div class="content large-12 columns">
 		        
 	     	<article>
-				<h3>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h3>
+	     		<div class="row">
+	     			<div class="columns small-8">
+	     				<h3>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h3>
+	     			</div>
+	     			<div class="columns small-4">
+	     				<div class="last-updated">
+			     			<h5><small>Updated {{HelperFunction::timeAgo($blog->updated_at)}}</small></h5>
+			     		</div>
+	     			</div>
+	     		</div>
+				
 				<div class="row">
 					<div class="large-12 columns">
 						{{$blog->body}}
@@ -41,7 +51,9 @@
 						<h5>{{$blogComment->comment->author}}</h5>
 					</div>
 					<div class="columns small-3">
-						{{$blogComment->comment->updated_at}}
+						<div class="text-right"> 
+							<small>{{HelperFunction::timeAgo($blogComment->comment->updated_at)}}</small>
+						</div>
 					</div>
 				</div>
 				<div class="row">

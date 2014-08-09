@@ -22,9 +22,15 @@
 		@foreach ($blogs as $blog)
 			<article>
 				<div class="row">
-					<div class="columns large-12" >
+					<div class="columns small-8" >
 						<h3>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h3>
 					</div>
+					<div class="columns small-4 small-right">
+						<div class="text-right">
+			     			<h5><small>Updated {{HelperFunction::timeAgo($blog->updated_at)}}</small></h5>
+			     		</div>
+			     	</div>
+		      
 				</div>
 				<div class="row">
 					<div class="columns large-12" >
