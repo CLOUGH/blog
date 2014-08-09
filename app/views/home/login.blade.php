@@ -7,7 +7,7 @@
 
 @section('content') 
 	<div class="row" id="login-container">
-		<div class="large-6 columns large-centered">
+		<div class="medium-6 columns small-centered">
 			<h2 class="">Login</h2>
 
 			@if ($errors->has())
@@ -21,7 +21,7 @@
 			
 			<form method="post" action="{{ route('home.login') }}">
 				<div class="row">
-					<div class="large-8 columns">
+					<div class="medium-8 columns">
 						<label>Username
 							<input type="text" placeholder="Username" name="username" value="{{Input::old('username')}}">
 						</label>
@@ -29,7 +29,7 @@
 				</div>
 				
 				<div class="row">
-					<div class="large-8 columns">
+					<div class="medium-8 columns">
 						<label>Password
 							<input type="password" placeholder="Password" name="password">
 						</label>

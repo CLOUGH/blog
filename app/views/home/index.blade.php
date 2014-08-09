@@ -20,7 +20,10 @@
 	@endif
 	<div class="row">
 	   	<div class="content large-9 columns">
-		        
+     		<div class="last-updated">
+     			<h5><small>Updated {{HelperFunction::timeAgo($page->updated_at)}}</small></h5>
+     		</div>
+		      
 	     	{{empty($page)?'':$page->content}}
 	   	</div>
 	   	<div class="sidebar large-3 columns">

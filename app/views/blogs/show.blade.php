@@ -4,7 +4,6 @@
 	{{$blog->title}}
 @stop
 
-
 @section('content')
 	@if(Auth::check())
 		<div class="row">
