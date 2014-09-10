@@ -6,8 +6,8 @@ class Blog extends \Eloquent {
 	public static function createBlog($data){
 		$blog = new Blog();
 		$blog->title = $data['blog-title'];
-		$blog->image = $data['blog-image'];
-		$blog->description=$data['blog-description'];
+		//$blog->image = $data['blog-image'];
+		//$blog->description=$data['blog-description'];
 		$blog->body = $data['blog-body'];
 		$blog->save();
 
@@ -18,8 +18,8 @@ class Blog extends \Eloquent {
 
 		$this->title = $data['title'];
 		$this->body = $data['body'];
-		$this->image = $data['image'];
-		$this->description=$data['description'];
+		//$this->image = $data['image'];
+		//$this->description=$data['description'];
 		$this->save();
 	}
 	public function storeComment($data)

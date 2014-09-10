@@ -33,12 +33,9 @@
 		      
 				</div>
 				<div class="row">
-					<div class="columns large-12" >
-						@if($blog->image!='')
-							<img src="{{$blog->image}}"/>
-						@endif						
-						{{$blog->description}}
-					
+					<div class="columns large-12" >	
+						{{HelperFunction::blogPostSnippet($blog->blog)}}					
+						{{$blog->body}}
 					</div>							
 				</div>
 			</article>

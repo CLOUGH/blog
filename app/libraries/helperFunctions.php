@@ -28,6 +28,10 @@ class HelperFunction {
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
   }
+  public static function blogPostSnippet($content){
+    return preg_match("/<img .+<\/img>/", $content);
+    
+  }
 }
 
 ?>

@@ -12,8 +12,8 @@
 			<div class="row">
 				<div class="large-12 columns">
 					<dl class="sub-nav">
-						<dd class="active"><a href="{{route('blog.show',array($blog->id))}}">View</a></dd>
-						<dd><a href="{{route('blog.edit',array($blog->id))}}">Edit</a></dd>
+						<dd><a href="{{route('blog.show',array($blog->id))}}">View</a></dd>
+						<dd class="active"><a href="{{route('blog.edit',array($blog->id))}}">Edit</a></dd>
 						<dd><a href="{{route('blog.destroy',array($blog->id))}}">Delete</a></dd>
 					</dl>
 				</div>
@@ -23,15 +23,7 @@
 				<div class="field">
 					{{Form::label('Title')}}
 					{{Form::text('title')}}
-				</div>				
-				<div class="ui input focus">
-					{{Form::label('Image')}}
-					{{Form::text('image')}}
-				</div>
-				<div class="ui field">
-					{{Form::label('Description')}}
-					{{Form::textarea('description')}}
-				</div>
+				</div>								
 				<div class="field">
 					{{Form::textarea('body', null, ['id'=>'blog-body'])}}
 		            <script>
