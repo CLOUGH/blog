@@ -35,7 +35,7 @@
 				<div class="row">
 					<div class="columns large-12" >	
 						{{HelperFunction::blogPostSnippet($blog->blog)}}					
-						{{$blog->body}}
+						
 					</div>							
 				</div>
 			</article>
