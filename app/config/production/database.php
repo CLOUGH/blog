@@ -6,7 +6,6 @@
 	// $password = $url["pass"];
 	// $database = substr($url["path"], 1);
 	 return array (
-	 	'default' => 'sqlite',
 	 	'sqlite' => array(
 			'driver'   => 'sqlite',
 			'database' => __DIR__.'/../database/production.sqlite',
