@@ -26,8 +26,8 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	// 'development' => array('CLOUGH-MAC.local','homestead'),
-	'local' => array('your-machine-name'),
+	'local' => array('CLOUGH-MAC.local','homestead'),
+	'production'  => array('*.com'),
 
 ));
 
