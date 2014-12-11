@@ -17,7 +17,7 @@ class CreateBlogsTable extends Migration {
 			$table->string('title');
 			$table->string('image',1000);
 			$table->text('description');
-			$table->binary('body');
+			$table->text('body');
 			$table->timestamps();
 		});
 	}
