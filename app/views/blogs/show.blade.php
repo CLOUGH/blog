@@ -22,7 +22,7 @@
 	     	<article>
 	     		<div class="row">
 	     			<div class="columns small-8">
-	     				<h3>{{HTML::linkRoute('blog.show', $blog->title,$blog->id)}}</h3>
+	     				
 	     			</div>
 	     			<div class="columns small-4">
 	     				<div class="last-updated">
@@ -38,9 +38,12 @@
 							
 				</div>
 			</article>
-			<hr>
+			@if(empty($blog->comment))
+				<hr>
+			@endif
 	   	</div>
 	</div>
+
 	<div class="row">
 		<div class="columns large-11 large-centered">
 
@@ -89,7 +92,7 @@
 			{{ Form::hidden('blog-id',$blog->id) }}
 			<div class="row">
 				<div class="columns large-12">
-					{{ Form::submit('Comment', array('class'=>'button')) }}	
+					{{ Form::submit('Comment', array('class'=>'button small')) }}	
 				</div>
 			</div> 
 					

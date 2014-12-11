@@ -20,37 +20,30 @@
 			</div>
 			@endif
 	   		{{ Form::model($blog, array('method'=>'put','route'=>array('blog.update', $blog->id),'class'=>'ui form')) }}
-				<div class="field">
-					{{Form::label('Title')}}
-					{{Form::text('title')}}
-				</div>								
-				<div class="field">
-					{{Form::textarea('body', null, ['id'=>'blog-body'])}}
-		            <script>
-		                CKEDITOR.replace( 'blog-body',{height: 500});
-		            </script>
-		        </div>
-		        <div>
-					{{ Form::submit('Update',['class'=>'ui purple submit button']) }}
+	   			<div class="row">
+	   				<div class="columns large-12">
+						<div class="field">
+							{{Form::label('Title')}}
+							{{Form::text('title')}}
+						</div>			
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns" style="margin-bottom:20px">			
+						<div class="field">
+							{{Form::textarea('body', null, ['id'=>'blog-body'])}}				            
+				        </div>
+				    </div>
+				</div>
+		        <div class="row right">
+		        	<div class="columns large-12"> 
+						{{ Form::submit('Update',array('class'=>'ui small submit button'))}}
+					</div>
 				</div>
 		    {{Form::close()}}
 	   	</div>
-	</div>
-	<!--div class="ui grid">
-		
-
-		<div class="ui one wide column">	
-		</div>
-
-		<div class="ui fourteen wide column content-area">
-			<div class="content">
-				<h2 class="ui header">Edit Blog</h2>	
-				
-		    </div>
-		</div>	
-
-		<div class="ui one wide column">			
-		</div>
-	</div-->
-	
+	</div>	
+	<script>
+        CKEDITOR.replace( 'blog-body',{height: 500});
+    </script>
 @stop

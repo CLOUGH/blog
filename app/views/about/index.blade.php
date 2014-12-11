@@ -1,10 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-	Home
-@stop
-@section('banner-img')
-	<img src="{{URL::asset('')}}images/about_img.png">
+	About
 @stop
 
 @section('content')

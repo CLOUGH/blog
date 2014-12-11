@@ -23,8 +23,17 @@
 	<div class="row">
 	   	<div class="content large-9 columns">
 	   		{{ Form::model($page, array('method'=>'post','route'=>array('home.update'))) }}
-	   			{{Form::textarea('content',null, ['id'=>'content'])}}
-	   			{{ Form::submit('Update',array('class'=>'button')) }}
+	   			<div class="row" style="margin-bottom: 20px;">
+	   				<div class="columns large-12" >
+		   				{{Form::textarea('content',null, ['id'=>'content'])}}
+		   			</div>
+	   			</div>
+	   			<div class="row right" >
+	   				<div class="columns large-12" >
+	   					{{ Form::submit('Update',array('class'=>'button small')) }}
+	   				</div>
+	   			</div>
+	   			
 	   		{{Form::close()}}
 	     	<script>
             	CKEDITOR.replace( 'content',{height: 500});

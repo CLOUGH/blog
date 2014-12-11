@@ -2,10 +2,7 @@
 
 @section('title')
 	Blogs
-@stop
-@section('banner-img')
-	<img src="{{URL::asset('')}}images/blog-banner.png">
-@stop
+@stop 
 @section('content')
 	@if(Auth::check())
 		<div class="row">
@@ -34,7 +31,8 @@
 				</div>
 				<div class="row">
 					<div class="columns large-12" >	
-						{{HelperFunction::blogPostSnippet($blog->blog)}}					
+						{{HelperFunction::sumarize($blog->description,1000)}} ...
+						{{HTML::linkRoute('blog.show', "Read More",$blog->id)}}				
 						
 					</div>							
 				</div>
