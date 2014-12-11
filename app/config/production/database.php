@@ -11,9 +11,11 @@
 
 		'connections' => array(
 			'sqlite' => array(
-				'database' => __DIR__.'/../database/production.sqlite',
+				'driver'   => 'sqlite',
+				'database' => __DIR__.'/../../database/production.sqlite',
 				'prefix'   => '',
-			)
+			),
+
 			// 'pgsql' => array(
 			// 	'driver'   => 'pgsql',
 			// 	'host'     => $host,
