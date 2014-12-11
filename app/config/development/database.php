@@ -15,22 +15,17 @@
 		| choice installed on your machine before you begin development.
 		|
 		*/
-		'sqlite' => array(
-			'driver'   => 'sqlite',
-			'database' => __DIR__.'/../database/production.sqlite',
-			'prefix'   => '',
+		'connections' => array(
+			'pgsql' => array(
+				'driver'   => 'pgsql',
+				'host'     => 'localhost',
+				'database' => 'blog',
+				'username' => 'homestead',
+				'password' => 'secret',
+				'charset'  => 'utf8',
+				'prefix'   => '',
+				'schema'   => 'public',
+			)
 		)
-		// 'connections' => array(
-		// 	'pgsql' => array(
-		// 		'driver'   => 'pgsql',
-		// 		'host'     => 'localhost',
-		// 		'database' => 'blog',
-		// 		'username' => 'homestead',
-		// 		'password' => 'secret',
-		// 		'charset'  => 'utf8',
-		// 		'prefix'   => '',
-		// 		'schema'   => 'public',
-		// 	)
-		// )
  	);
 ?>
