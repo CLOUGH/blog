@@ -23,8 +23,18 @@ Route::get('/login',array('uses'=>'HomeController@showLogin','as'=>'home.login')
 Route::get('/logout',array('uses'=>'HomeController@logout','as'=>'home.logout','before'=>'auth'));
 Route::post('/login',array('uses'=>'HomeController@doLogin','as'=>'home.login'));
 
+//Blog routes
 Route::resource('blog', 'BlogsController');
 Route::post('/blog/store_comment',array('uses'=>'BlogsController@storeComment', 'as'=>'blog.store_comment'));
 Route::post('/blog/store_reply_comment',array('uses'=>'BlogsController@storeReplyComment', 'as'=>'blog.store_reply_comment'));
 
+
+//About page routes
 Route::resource('about','AboutController');
+
+//Dashboard page routes
+Route::get('/dashboard',array('uses'=>'DashboardController@index','as'=>'dashboard.index','before'=>'auth'));
+
+
+//User routes
+Route::post('/user/updateUserPassword', array('uses'=>'UserController@updateUserPassword','as'=>'user.updateUserPassword','before'=>'auth'));

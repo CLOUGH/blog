@@ -64,4 +64,42 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	    return 'remember_token';
 	}
 
+	public function validateNewPassword($password_data)
+	{
+		//check if the password sent is not empty
+		if(strlen($password_data['current_password'])==0 ||strlen($password_data['new_password'])<=0  )
+		{
+			return array("error"=>true,"message"=>"The password lenght must be grater than 0.");
+		}
+
+		//The current password does not match the one in the database for the current user
+		if(!Hash::check($password_data['current_password'],$this->password))
+			return array("error"=>true,"message"=>"The current password entered is incorrect.");
+
+		//The confirm password did not match 
+		if($password_data['new_password']!=$password_data['confirm_password'])
+			return array("error"=>true,"message"=>"The password did not match.");
+
+		//The password is the same as the old
+		if(Hash::check($password_data['new_password'],$this->password))
+			return array("error"=>true,"message"=>"The new password entered is the same as the current password.");
+
+		return array('error'=>false,'message'=>'The password entered is valid.');
+
+	}
+	public function updateUserPassword($password)
+	{
+		$result = array();
+		try {
+			$this->password = Hash::make($password);
+			$this->save();
+
+			$result=array('error'=>false,'message'=>'The password was updated succesfully.');
+		}catch(Exception $e)
+		{
+			$result=array('error'=>true,'message'=>'An error occured while trying to update password.');
+		}
+		return $result;
+	}
+
 }

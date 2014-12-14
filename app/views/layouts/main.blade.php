@@ -9,6 +9,7 @@
 		</title>
 		{{HTML::style('foundation5/css/normalize.css')}}
 		{{HTML::style('foundation5/css/foundation.css')}}
+		{{HTML::style('foundation5/icons/foundation-icons.css')}}
 		{{HTML::style('css/main.scss.min.css')}}
 		{{HTML::script('foundation5/js/vendor/modernizr.js')}}
 		{{HTML::script('ckeditor/ckeditor.js')}}
@@ -27,16 +28,18 @@
 				<!-- Right Nav Section --> 
 				<ul class="right">
 					@foreach ($navbar as $name =>$active)
-						<li class="{{$active}}"><a href="{{ route($name.'.index') }}">{{ucfirst($name)}}</a>	</li>
+						<li class="{{$active}}"><a href="{{ route($name.'.index') }}">{{ucfirst($name)}}</a></li>
 					@endforeach
 					@if(Auth::check())
-						<li class="has-dropdown">
+						<li><a href="{{route('dashboard.index')}}">Dashboard</a></li>
+						<li><a href="{{route('home.logout')}}"><i class="fi-power"></i> Logout</a></li>
+						<!-- <li class="has-dropdown">
 							<a href="#">Admin</a> 
 							<ul class="dropdown">
 								<li><a class="button" href="{{route('home.logout')}}">Logout</a></li>
 								<li><a href="#">Setup</a></li>
 							</ul>
-						</li>
+						</li> -->
 					@endif
 				</ul>
 			</section>
