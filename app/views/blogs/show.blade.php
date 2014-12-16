@@ -38,7 +38,7 @@
 							
 				</div>
 			</article>
-			@if(empty($blog->comment))
+			@if(empty($blog->comments))
 				<hr>
 			@endif
 	   	</div>
@@ -47,7 +47,7 @@
 	<div class="row">
 		<div class="columns large-11 large-centered">
 
-		@foreach($blog->comment as $blogComment)
+		@foreach($blog->comments as $blogComment)
 			<div class="comment">
 				<div class="row">
 					<div class="columns small-9">
@@ -100,8 +100,15 @@
 
 		</div>
 	</div>
+	<div class="row">
+		<div class="columns large-12">
+		</div>
 	</div>
+
 <?php /*
+@foreach($blog->comments as $comment)
+			
+			@endforeach
 	<!-- TODO: IMPLEMENT COMMENT FEATURE -->
 	<!--div class=" ui grid page-comments">
 		@foreach ($blog_comments as $blog_comment)

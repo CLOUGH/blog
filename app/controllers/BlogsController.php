@@ -71,7 +71,7 @@ class BlogsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$blog = Blog::with('comment')->find($id);
+		$blog = Blog::with('comments')->find($id);
 	
 
 		return View::make('blogs.show')->with('blog',$blog)

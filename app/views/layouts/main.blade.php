@@ -8,7 +8,7 @@
 			@yield('title')
 		</title>
 		{{HTML::style('foundation5/css/normalize.css')}}
-		{{HTML::style('foundation5/css/foundation.css')}}
+		{{HTML::style('foundation5/css/foundation.min.css')}}
 		{{HTML::style('foundation5/icons/foundation-icons.css')}}
 		{{HTML::style('css/main.scss.min.css')}}
 		{{HTML::script('foundation5/js/vendor/modernizr.js')}}
@@ -16,10 +16,10 @@
 	</head>
 
 	<body>
-		<nav class="top-bar" data-topbar role="navigation">
+		<nav class="top-bar main-nav" data-topbar role="navigation">
 			<ul class="title-area">
 				<li class="name">
-					<h1><a href="#">Warren Clough Site</a></h1>
+					<h1><a href="#">My Site</a></h1>
 				</li>
 				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone --> 
 				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -28,18 +28,11 @@
 				<!-- Right Nav Section --> 
 				<ul class="right">
 					@foreach ($navbar as $name =>$active)
-						<li class="{{$active}}"><a href="{{ route($name.'.index') }}">{{ucfirst($name)}}</a></li>
+						<li class="{{$active}}"><a href="{{ route($name.'.index') }}">{{strtoupper($name)}}</a></li>
 					@endforeach
 					@if(Auth::check())
-						<li><a href="{{route('dashboard.index')}}">Dashboard</a></li>
-						<li><a href="{{route('home.logout')}}"><i class="fi-power"></i> Logout</a></li>
-						<!-- <li class="has-dropdown">
-							<a href="#">Admin</a> 
-							<ul class="dropdown">
-								<li><a class="button" href="{{route('home.logout')}}">Logout</a></li>
-								<li><a href="#">Setup</a></li>
-							</ul>
-						</li> -->
+						<li><a href="{{route('dashboard.index')}}">DASHBOARD</a></li>
+						<li><a href="{{route('home.logout')}}"><i class="fi-power"></i> LOGOUT</a></li>
 					@endif
 				</ul>
 			</section>
@@ -82,7 +75,7 @@
 		</footer>
 		{{HTML::script('foundation5/js/vendor/jquery.js')}}
         {{HTML::script('foundation5/js/foundation.min.js')}}
-        {{HTML::script('js/foundation/foundation.topbar.js')}}
+        {{HTML::script('foundation5/js/foundation/foundation.topbar.js')}}
         
 		{{HTML::script('js/main.min.js')}}
 		<script type="text/javascript">

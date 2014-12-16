@@ -84,7 +84,7 @@ class Blog extends \Eloquent {
 		return substr($this->body, 0, 1500);	
 	}
 
-	public function comment()
+	public function comments()
 	{
 		return $this->hasMany('BlogComment');
 	}

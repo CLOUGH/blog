@@ -8,7 +8,8 @@
 			@yield('title')
 		</title>
 		{{HTML::style('foundation5/css/normalize.css')}}
-		{{HTML::style('css/dashboard.css')}}
+		{{HTML::style('css/dashboard.min.css')}}
+		{{HTML::style('css/main.scss.min.css')}}
 		{{HTML::style('foundation5/css/foundation.css')}}
 		{{HTML::style('foundation5/icons/foundation-icons.css')}}
 		{{HTML::script('foundation5/js/vendor/modernizr.js')}}
@@ -20,7 +21,7 @@
 		<nav class="top-bar main-nav" data-topbar role="navigation">
 			<ul class="title-area">
 				<li class="name">
-					<h1><a href="#">MY SITE</a></h1>
+					<h1><a href="#">My Site</a></h1>
 				</li>
 				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone --> 
 				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -39,33 +40,33 @@
 			</section>
 		</nav>
 		<div>
-			<div class="columns medium-2 navigation-sidebar">
+			<div class="columns hide-for-small-only medium-2 navigation-sidebar">
 				<dl class="tabs vertical" data-tab>
 					<dd>
 						<a href="#pages-settings">
-							<span class="icon"></span>
+							<span class="icon"><i class="fi-page medium"> </i></span>
 							<span class="title">PAGES</span>
 						</a>
 					</dd>
 					<dd class="active">
 						<a href="#user-settings">
-							<span class="icon"><i class="fi-torsos-all medium"> </i></span>
+							<span class="icon"><i class="fi-torso medium"> </i></span>
 							<span class="title">USER</span>
 						</a>
 					</dd>
 					<dd>						
 						<a href="#social-settings">
-							<span class="icon"></span>
+							<span class="icon"><i class="fi-torsos-all medium"> </i></span>
 							<span class="title">SOCIAL</span>
 						</a>
 					</dd>
 				</dl>
 			</div>
-			<div class="columns medium-10 main-content">
+			<div class="columns small-12 medium-10 main-content">
 				<div class="tabs-content vertical">
 					<!-- User Settings -->
 					<div class="content active" id="user-settings">
-						<form class="columns small-8" method="POST" action="{{route('user.updateUserPassword')}}">
+						<form class="columns small-12 medium-12 large-10 large-centered" method="POST" action="{{route('user.updateUserPassword')}}">
 							<fieldset class="">
     							<legend><h4>Change Password</h4></legend>
     							@if (Session::has('password_validation_error')) 
