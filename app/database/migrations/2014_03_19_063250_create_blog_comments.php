@@ -13,11 +13,10 @@ class CreateBlogComments extends Migration {
 	public function up()
 	{
 		Schema::create('blog_comments', function(Blueprint $table) {
+			$table->increments('id');
 			$table->integer('blog_id')->refrences('id')->on('blogs')->onDelete('cascade');
 			$table->integer('comment_id')->refrences('id')->on('commnets')->onDelete('cascade');
 			$table->timestamps();
-
-			$table->primary(array('blog_id','comment_id'));
 		});
 	}
 

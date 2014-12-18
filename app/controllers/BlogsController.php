@@ -47,11 +47,13 @@ class BlogsController extends \BaseController {
 
 	public function storeComment()
 	{
-		$input_data = Input::all();
-		//TODO: Implement addComment
+		$input_data =array (
+			'blog-id'=>Input::get('blog-id'),
+			'comment'=>Input::get('comment'),
+			'author'=>Input::get('author')
+		);
 		$blog = Blog::findOrFail($input_data['blog-id']);
-
-		$blog_comment = $blog->storeComment($input_data);
+		$blog->storeComment($input_data);
 		return Redirect::route('blog.show',$input_data['blog-id']);
 	}
 

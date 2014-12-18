@@ -6,8 +6,6 @@ class Blog extends \Eloquent {
 	public static function createBlog($data){
 		$blog = new Blog();
 		$blog->title = $data['blog-title'];
-		//$blog->image = $data['blog-image'];
-		//$blog->description=$data['blog-description'];
 		$blog->body = $data['blog-body'];
 		$blog->save();
 
@@ -18,38 +16,34 @@ class Blog extends \Eloquent {
 
 		$this->title = $data['title'];
 		$this->body = $data['body'];
-		//$this->image = $data['image'];
-		//$this->description=$data['description'];
 		$this->save();
 	}
 	public function storeComment($data)
 	{
-
 		DB::beginTransaction();
-		$comment=null;
-		$blog_comment=null;
 
 		try{
-
-			$comment = new Comment();
-			$comment->comment = $data['comment'];
-			$comment->author = $data['author'];
-			$comment->save();
-
-			$blog_comment = new BlogComment();
-			$blog_comment->blog_id  = $this->id;
-			$blog_comment->comment_id = $comment->id;
-			$blog_comment->save();
-
-
-		}catch(Exception $e){
-			echo "Error: $e";
-			DB::rollback();
-			return $e;
+			$newComment = Comment::create([
+				"comment"=>$data['comment'],
+				"author"=>$data['author']
+			]);
+		}catch(\Exception $e)
+		{
+		    DB::rollback();
+		    throw $e;
 		}
-		DB::commit();
 
-		return $comment;
+		try{
+			$newBlogComment = BlogComment::create([
+				"blog_id"=>$this->id,
+				"comment_id"=>$newComment->id
+			]);
+		}catch(\Exception $e)
+		{
+		    DB::rollback();
+		    throw $e;
+		}
+		DB::commit();	
 	}
 	public function storeReplyComment($data)
 	{

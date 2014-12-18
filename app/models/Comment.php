@@ -1,7 +1,7 @@
 <?php
 
 class Comment extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = ['comment','author'];
 	protected $table = "comments";
 
 	public function blog(){
