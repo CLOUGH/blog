@@ -31,6 +31,7 @@
 				<div class="row">
 					<div class="large-12 columns" style="margin-bottom:20px">			
 						<div class="field">
+							{{Form::label('Body')}}
 							{{Form::textarea('body', null, ['id'=>'blog-body'])}}				            
 				        </div>
 				    </div>

@@ -26,33 +26,22 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="columns large-12">
-					{{Form::label('Image')}}
-					{{Form::text('blog-image')}}
-				</div>		
-			</div>
-			<div class="row">
-				<div class="columns large-12">
-					{{Form::label('Description')}}
-					{{Form::textarea('blog-description')}}
-				</div>
-			</div>
-			<div class="row">
-				<div class="columns large-12">
+				<div class="columns large-12" style="margin-bottom: 20px">
+					{{Form::label('Body')}}
 					{{Form::textarea('blog-body', null, ['id'=>'blog-body'])}}
-					<script>
-		                CKEDITOR.replace( 'blog-body',{height: 500});
-		            </script>
 		        </div>
 			</div>
 				
             <div class="row">
             	<div class="columns large-12 text-right" > 
-					{{ Form::submit('Save',['class'=>'ui purple submit button']) }}
+					{{ Form::submit('Save',['class'=>'ui small submit button']) }}
 				</div>
 			</div>
         {{Form::close()}}
 		</div>
 	</div>
+	<script>
+		CKEDITOR.replace( 'blog-body',{height: 500});
+	</script>
 	
 @stop

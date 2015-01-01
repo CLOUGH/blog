@@ -1,14 +1,17 @@
 <?php
 
 class Blog extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = ['body','title'];
 
+	/**
+	 * @param $data
+	 * @return Blog
+	 */
 	public static function createBlog($data){
-		$blog = new Blog();
-		$blog->title = $data['blog-title'];
-		$blog->body = $data['blog-body'];
-		$blog->save();
-
+		$blog = Blog::create([
+			'body' => $data['blog-body'],
+			'title'=> $data['blog-title']
+		]);
 		return $blog;
 	}
 	public function updateData($data)

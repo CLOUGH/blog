@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('title')
-	Blogs
-@stop 
+	Blog
+@stop
 @section('content')
 	@if(Auth::check())
 		<div class="row">
@@ -31,7 +31,7 @@
 				</div>
 				<div class="row">
 					<div class="columns large-12" >	
-						{{HelperFunction::sumarize($blog->description,1000)}} ...
+						{{HelperFunction::sumarize($blog->body,1000)}} ...
 						{{HTML::linkRoute('blog.show', "Read More",$blog->id)}}				
 						
 					</div>							
