@@ -63,11 +63,9 @@
 		         </div>
 		         <div class="small-6 columns">
 		            <ul class="inline-list right">
-		               <li><a href="https://github.com/clough"><img src="{{URL::asset('')}}images/github.png"></a></li>
-		               <li><a href="mailto:clough.warren@gmail.com"><img src="{{URL::asset('')}}images/gmail.png"></a></li>
-		               <li><a href="http://twitter.com/warren_clough"><img src="{{URL::asset('')}}images/twitter.png" style="height: 40px;"></a></li>
-		               <!--li><a href="http://laravel.com"><img src="images/laravel.png"></a></li>
-		               <li><a href="http://laravel.com"><img src="images/foundation.png"></a></li-->
+						<li><a href="https://github.com/clough" style="color:black;line-height: 0px;font-size: 36px;"><i class="fi-social-github "></i></a></li>
+						<li><a href="mailto:clough.warren@gmail.com" style="color:black;line-height: 0px;font-size: 36px;"><i class="fi-mail "></i></a></li>
+						<li><a href="http://twitter.com/warren_clough" style="color:black;line-height: 0px;font-size: 36px;"><i class="fi-social-twitter"></i></a></li>
 		            </ul>
 		         </div>
 		      </div>

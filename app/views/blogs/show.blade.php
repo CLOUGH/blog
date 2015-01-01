@@ -21,10 +21,13 @@
 		        
 	     	<article>
 	     		<div class="row">
-	     			<div class="columns small-8">
-	     				
-	     			</div>
-	     			<div class="columns small-4">
+					<div class="column large-1">
+						<h5><small>{{$blog->visibility->name}}</small></h5>
+					</div>
+					<div class="column large-1">
+						<h5><small>{{$blog->status->name}}</small></h5>
+					</div>
+	     			<div class="columns large-4">
 	     				<div class="last-updated">
 			     			<h5><small>Updated {{HelperFunction::timeAgo($blog->updated_at)}}</small></h5>
 			     		</div>

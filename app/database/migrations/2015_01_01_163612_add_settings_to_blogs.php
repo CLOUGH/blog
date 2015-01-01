@@ -14,8 +14,8 @@ class AddSettingsToBlogs extends Migration {
 	{
 		Schema::table('blogs', function(Blueprint $table)
 		{
-			$table->unsignedInteger('status_id')->default(0);
-			$table->unsignedInteger('visibility_id')->default(0);
+			$table->unsignedInteger('status_id')->refrences('id')->on('status')->onDelete('cascade');;
+			$table->unsignedInteger('visibility_id')->refrences('id')->on('visibility')->onDelete('cascade');;
 			$table->unsignedInteger('featured_img')->default(0);
 			$table->dateTime('published')->default(DB::raw('now()::timestamp(0)'));
 			$table->unsignedInteger('author_id')->default(0);

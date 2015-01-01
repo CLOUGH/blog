@@ -20,6 +20,16 @@
 		<div class="large-12 columns" role="content">
 		{{Form::open(['route'=>'blog.store','class'=>'ui form'])}}
 			<div class="row">
+				<div class="columns small-3">
+					{{Form::label('Status')}}
+					{{Form::select('status',$status)}}
+				</div>
+				<div class="columns small-3">
+					{{Form::label('Visibility')}}
+					{{Form::select('visibility',$visibility)}}
+				</div>
+			</div>
+			<div class="row">
 				<div class="columns large-12">
 					{{Form::label('Title')}}
 					{{Form::input('text', 'blog-title')}}

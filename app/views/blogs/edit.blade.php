@@ -20,6 +20,20 @@
 			</div>
 			@endif
 	   		{{ Form::model($blog, array('method'=>'put','route'=>array('blog.update', $blog->id),'class'=>'ui form')) }}
+				<div class="row">
+					<div class="columns small-3">
+						{{Form::label('Status')}}
+						{{Form::select('status',$status,$blog->status->id)}}
+					</div>
+					<div class="column small-3">
+						{{Form::label('Date Created')}}
+						{{Form::text('created_at',$blog->created_at,array('readonly'))}}
+					</div>
+					<div class="columns small-3">
+						{{Form::label('Visibility')}}
+						{{Form::select('visibility',$visibility,$blog->visibility->id)}}
+					</div>
+				</div>
 	   			<div class="row">
 	   				<div class="columns large-12">
 						<div class="field">

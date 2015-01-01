@@ -4,10 +4,9 @@ class HomeController extends BaseController {
 	public function __construct()
 	{
 		$this->navbar = array('home'=>'active','blog'=>'','about'=>'');
-
 	}
 	public function index(){
-		$blogPosts = Blog::all();
+		$blogPosts = Blog::getAll();
 
 		$data = [];
 		$page = Page::where('route',"=",'home')->first();
@@ -19,7 +18,7 @@ class HomeController extends BaseController {
 
 	public function edit()
 	{
-		$blogPosts = Blog::all();
+		$blogPosts = Blog::getAll();
 
 		$data = [];
 		$page = Page::where('route',"=",'home')->first();
@@ -59,7 +58,7 @@ class HomeController extends BaseController {
 	{
 		// validate the info, create rules for the inputs
 		$rules = array(
-			'username'    => 'required|alphaNum|min:3', 
+			'username'    => 'required|alphaNum|min:3',
 			'password' => 'required|min:1'
 		);
 

@@ -5,18 +5,25 @@ class BlogsController extends \BaseController {
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return Response
 	 */
 	public function __construct()
 	{
 		$this->beforeFilter('auth',array( 'only'=>array('create')));
 		$this->navbar = array('home'=>'','blog'=>'active','about'=>'');
 
+		// anonymous callback function used  to create new array map of collection
+		$reduce_function = function($result,$item){
+			$result[$item->id] = $item->name;
+			return $result;
+		};
+		//Use laravel collection method reduce (PHP array_reduce) to create associated map of a collection
+		$this->status = Status::all()->reduce($reduce_function,array());
+		$this->visibility = Visibility::all()->reduce($reduce_function,array());
 	}
 
 	public function index()
 	{
-		$blogs = Blog::all();
+		$blogs = Blog::getAll();
 		return  View::make('blogs.index')->with('blogs',$blogs)
 			->with('navbar',$this->navbar);
 	}
@@ -28,7 +35,10 @@ class BlogsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('blogs.create')->with('navbar',$this->navbar);
+		return View::make('blogs.create')
+			->with('navbar',$this->navbar)
+			->with('status',$this->status)
+			->with('visibility',$this->visibility);
 	}
 
 	/**
@@ -88,10 +98,12 @@ class BlogsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$blog = Blog::find($id);
 
+		$blog = Blog::with('status','visibility')->where('id','=',$id)->first();
 		return View::make('blogs.edit')->with('blog',$blog)
-			->with('navbar',$this->navbar);
+			->with('navbar',$this->navbar)
+			->with('visibility',$this->visibility)
+			->with('status',$this->status);
 	}
 
 	/**
