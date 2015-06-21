@@ -1,9 +1,0 @@
-/bootstrap/compiled.php
-/vendor
-node_modules
-/resources/node_modules
-composer.phar
-.env.local.php
-.env.php
-.DS_Store
-Thumbs.db
