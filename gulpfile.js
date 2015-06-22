@@ -12,5 +12,35 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.sass('app.scss');
+
+    mix.styles([
+    	'angular-loading-bar/build/loading-bar.css',
+    	'foundation/css/foundation.css',
+    	'foundation/css/normalize.css',
+    	'font-awesome/css/font-awesome.css'
+    ],'public/css/vendor.css','./resources/assets/bower_components')
+
+    mix.copy('./resources/assets/bower_components/font-awesome/fonts', './public/fonts')
+
+    mix.scripts([
+    	'jquery/dist/jquery.js',
+    	'fastclick/lib/fastclick.js',
+    	'jquery-placeholder/jquery.placeholder.js',
+    	'jquery.cookie/jquery.cookie.js',
+    	'foundation/js/foundation.js',
+    	'modernizr/modernizr.js',
+    	'angular/angular.js',
+    	'angular-ui-router/release/angular-ui-router.js',
+    	'lodash/lodash.js',
+    	'restangular/dist/restangular.js',
+    	'angular-loading-bar/build/loading-bar.js',
+    	'angular-foundation/mm-foundation-tpls.js',
+
+    ],'public/js/vendor.js','./resources/assets/bower_components');
+
+
+    mix.scripts([
+    	'**/*.js'
+    ],'public/js/app.js','./public/app/')
 });

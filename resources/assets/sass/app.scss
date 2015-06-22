@@ -1,0 +1,89 @@
+@import "fonts.scss";
+
+[ng-cloak] {
+	display:none;
+}
+
+body{
+
+}
+
+#header {
+	font-family:"Helvetica Neue";
+	padding:25px 0 25px 0;
+
+	.top-bar {
+		background:#FFFFFF;
+		.name{
+			h1 a, h2 a, h3 a, h4 a, p a, span a{
+				color:#000000;
+				span{
+				  	display: inline-block;
+				 	vertical-align: middle;
+				  	font-size: 14pt;
+				}
+			}
+		}
+		.top-bar-section{
+			.right{
+				li {
+					a {
+						color:#B0B0B0;
+						background:#ffffff;
+					}					
+					&.active a {
+						background:#ffffff;
+						color:#000000;
+					}
+				}
+			} 
+		}
+		.toggle-topbar{
+			a {
+				color:#000000;
+			}
+		}
+		.has-form {
+			background:#ffffff;
+			input {
+				border-color:#ffffff;
+				box-shadow:none;
+			}
+		}
+	}	
+}
+
+.hero {
+	height:80%;
+	background-size:cover;
+	background:url("../images/rsz_tranquility-ocean.jpg")no-repeat center center fixed;;
+	overflow:hidden;
+	color:#ffffff;
+	.intro-text{
+		padding-top:18%;
+		text-align: center;
+		p {
+			font-family: 'Helvetica Neue UltraLight';
+  			font-size: 40px;
+  			letter-spacing: 10px;
+		}
+	}
+}
+
+.signup{
+	font-family:"Helvetica Neue";
+	margin-top:25%;
+	h1 {
+		font-size: 16pt;
+		margin-bottom: 30px;
+	}
+	.button{
+		background:#BFDEDE;
+		color: #ffffff;
+	}
+	.button:hover, .button:focus{
+		background:#BFDEDE;
+		color: #ffffff;
+	}
+}
+

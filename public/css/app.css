@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "Helvetica Neue Bold";
+  src: url("../fonts/Helvetica Neue/HelveticaNeue-Bold.otf"); }
+
+@font-face {
+  font-family: "Helvetica Neue UltraLight";
+  src: url("../fonts/Helvetica Neue/HelveticaNeue-Ultralight.otf"); }
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("../fonts/Helvetica Neue/HelveticaNeue.otf"); }
+
+[ng-cloak] {
+  display: none; }
+
+#header {
+  font-family: "Helvetica Neue";
+  padding: 25px 0 25px 0; }
+  #header .top-bar {
+    background: #FFFFFF; }
+    #header .top-bar .name h1 a, #header .top-bar .name h2 a, #header .top-bar .name h3 a, #header .top-bar .name h4 a, #header .top-bar .name p a, #header .top-bar .name span a {
+      color: #000000; }
+      #header .top-bar .name h1 a span, #header .top-bar .name h2 a span, #header .top-bar .name h3 a span, #header .top-bar .name h4 a span, #header .top-bar .name p a span, #header .top-bar .name span a span {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14pt; }
+    #header .top-bar .top-bar-section .right li a {
+      color: #B0B0B0;
+      background: #ffffff; }
+    #header .top-bar .top-bar-section .right li.active a {
+      background: #ffffff;
+      color: #000000; }
+    #header .top-bar .toggle-topbar a {
+      color: #000000; }
+    #header .top-bar .has-form {
+      background: #ffffff; }
+      #header .top-bar .has-form input {
+        border-color: #ffffff;
+        box-shadow: none; }
+
+.hero {
+  height: 80%;
+  background-size: cover;
+  background: url("../images/rsz_tranquility-ocean.jpg") no-repeat center center fixed;
+  overflow: hidden;
+  color: #ffffff; }
+  .hero .intro-text {
+    padding-top: 18%;
+    text-align: center; }
+    .hero .intro-text p {
+      font-family: 'Helvetica Neue UltraLight';
+      font-size: 40px;
+      letter-spacing: 10px; }
+
+.signup {
+  font-family: "Helvetica Neue";
+  margin-top: 25%; }
+  .signup h1 {
+    font-size: 16pt;
+    margin-bottom: 30px; }
+  .signup .button {
+    background: #BFDEDE;
+    color: #ffffff; }
+  .signup .button:hover, .signup .button:focus {
+    background: #BFDEDE;
+    color: #ffffff; }
+
+/*# sourceMappingURL=app.css.map */
