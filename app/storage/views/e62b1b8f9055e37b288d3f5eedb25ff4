@@ -1,0 +1,54 @@
+
+<?php $__env->startSection('title'); ?>
+	Blogs
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('banner-img'); ?>
+	<img src="<?php echo URL::asset(''); ?>images/blog-banner.png">
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+	<?php if(Auth::check()): ?>
+		<div class="row">
+			<div class="large-12 columns">
+				<dl class="sub-nav">
+					<dd class="active"><a href="<?php echo route('blog.index'); ?>">View</a></dd>
+					<dd><a href="<?php echo route('blog.create'); ?>">Create</a></dd>
+				</dl>
+			</div>
+		</div>
+	<?php endif; ?>
+	<div class="row">
+		<div class="large-9 columns" role="content">
+		<?php foreach ($blogs as $blog): ?>
+			<article>
+				<div class="row">
+					<div class="columns small-8" >
+						<h3><?php echo HTML::linkRoute('blog.show', $blog->title,$blog->id); ?></h3>
+					</div>
+					<div class="columns small-4 small-right">
+						<div class="text-right">
+			     			<h5><small>Updated <?php echo HelperFunction::timeAgo($blog->updated_at); ?></small></h5>
+			     		</div>
+			     	</div>
+		      
+				</div>
+				<div class="row">
+					<div class="columns large-12" >	
+						<?php echo HelperFunction::blogPostSnippet($blog->blog); ?>					
+						
+					</div>							
+				</div>
+			</article>
+		<?php endforeach; ?>
+				
+		</div>
+		<aside class="large-3 columns">
+			<h5>Blogs</h5>
+			<ul class="side-nav">
+				<?php foreach ($blogs as $blogPost): ?>
+		   			<li><?php echo HTML::linkRoute('blog.show', $blogPost->title,$blogPost->id); ?></li> 
+		   		<?php endforeach; ?>
+			</ul>
+		</aside>
+	</div>	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

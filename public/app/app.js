@@ -4,7 +4,8 @@ angular.module('app', [
 	'mm.foundation',
 	'app.home',
 	'app.login',
-	'app.404'
+	'app.blog',
+	'app.404',
 ])
 
 .config(['$urlRouterProvider','$locationProvider',function ($urlRouterProvider,$locationProvider) {

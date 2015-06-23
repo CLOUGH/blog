@@ -1,57 +1,66 @@
 @import "fonts.scss";
+@import "type.js.scss";
 
 [ng-cloak] {
 	display:none;
 }
 
 body{
-
+	
 }
-
-#header {
-	font-family:"Helvetica Neue";
-	padding:25px 0 25px 0;
-
-	.top-bar {
-		background:#FFFFFF;
-		.name{
-			h1 a, h2 a, h3 a, h4 a, p a, span a{
-				color:#000000;
-				span{
-				  	display: inline-block;
-				 	vertical-align: middle;
-				  	font-size: 14pt;
+.header{
+	margin-bottom:85px;
+	.navbar {
+		&.contain-to-grid{
+			background:#FFFFFF;
+			font-family:"Helvetica Neue";
+			padding:20px 0 20px 0;
+			.top-bar {
+				background:#FFFFFF;
+				.name{
+					h1 a, h2 a, h3 a, h4 a, p a, span a{
+						color:#000000;
+						span{
+						  	display: inline-block;
+						 	vertical-align: middle;
+						  	font-size: 14pt;
+						}
+					}
 				}
-			}
-		}
-		.top-bar-section{
-			.right{
-				li {
+				.top-bar-section{
+					.right{
+						li {
+							a {
+								color:#B0B0B0;
+								background:#ffffff;
+							}					
+							&.active a {
+								background:#ffffff;
+								color:#000000;
+							}
+							a:hover{
+								color:#000000;
+							}
+						}
+					} 
+				}
+				.toggle-topbar{
 					a {
-						color:#B0B0B0;
-						background:#ffffff;
-					}					
-					&.active a {
-						background:#ffffff;
 						color:#000000;
 					}
 				}
-			} 
-		}
-		.toggle-topbar{
-			a {
-				color:#000000;
+				.has-form {
+					background:#ffffff;
+					input {
+						border-color:#ffffff;
+						box-shadow:none;
+					}
+				}
 			}
-		}
-		.has-form {
-			background:#ffffff;
-			input {
-				border-color:#ffffff;
-				box-shadow:none;
-			}
-		}
-	}	
+		}	
+	}
 }
+
 
 .hero {
 	height:80%;
@@ -62,28 +71,97 @@ body{
 	.intro-text{
 		padding-top:18%;
 		text-align: center;
-		p {
-			font-family: 'Helvetica Neue UltraLight';
-  			font-size: 40px;
-  			letter-spacing: 10px;
-		}
+		
+		font-family: 'Helvetica Neue UltraLight';
+		font-size: 40px;
+		letter-spacing: 10px;
+
 	}
 }
 
-.signup{
+.login{
+
 	font-family:"Helvetica Neue";
-	margin-top:25%;
+	padding-top:18%;
 	h1 {
-		font-size: 16pt;
 		margin-bottom: 30px;
+		font-size: 18px;
+		color: #1A1A1A;
+		line-height: 21px;
 	}
 	.button{
 		background:#BFDEDE;
 		color: #ffffff;
 	}
-	.button:hover, .button:focus{
-		background:#BFDEDE;
-		color: #ffffff;
+	.button:hover{
+		background:#CFE6E6;
+	}
+	.button:focus{
+		background:#B5D2D2;
+		border:none;
+		outline-color: #fff;
+	}
+	.column{
+		background:#FFFFFF;
+		padding:20px;
+		box-shadow: 0px 20px 35px 0px rgba(0,0,0,0.10);
+
+	}
+	input{
+		border: 2px solid #DEDEDE;
 	}
 }
+
+.blog{
+	padding-bottom:50px;
+	article{
+		background:#FFFFFF;
+		
+		box-shadow: 0px 20px 35px 0px rgba(0,0,0,0.10);
+		font-family:"Helvetica Neue";
+		margin-top:30px;
+
+		.post-heading{
+			padding:30px 30px 0 30px;
+			background:#FFFFFF;
+			
+			a.title{
+				color:#000000;
+				font-weight: bold;
+				padding-right:30px;
+			}
+			.likes{
+				.count{
+					margin-right:10px;
+				}
+				
+				font-weight:normal;
+				font-size: 13px;
+				color: #808080;
+			}
+		}
+		.post-body{
+			padding:10px 30px 30px 30px;
+			p{
+				font-family:"Helvetica Neue";
+				font-weight:normal;
+				font-size: 13px;
+				color: #808080;
+				line-height: 21px;
+			}			
+		}
+		.image{
+			height: 300px;
+			background-size:cover;
+		}
+
+	}
+}
+
+.container{
+	padding:30px;
+	background:#FFFFFF;
+}
+
+
 

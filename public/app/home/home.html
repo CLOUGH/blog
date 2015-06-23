@@ -1,8 +1,31 @@
-<ng-include src="'app/common/header.html'"></ng-include>
+<div class="header">
+	<ng-include src="'app/common/header.html'"></ng-include>
+</div>
 <div class="hero">
 	<div class="row">
 		<div class="column medium-12 intro-text">
-			<p>BlOG | WEBSITE | PORTFOLIO</p>
+			
 		</div>
 	</div>
 </div>
+ 
+<div class="container">
+	<div class="row">
+		<div class="medium-12 column">
+			<h2>About Me</h2>
+			<p>Hi my name is Warren Clough and I am full stack php web developer</p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+		$(".intro-text").typed({
+		    strings: ["WELCOME TO MY","BlOG | WEBSITE | PORTFOLIO"],
+		    contentType: 'text',
+		    typeSpeed: 100,
+		    startDelay:1000,
+		    backSpeed: 100,
+		    showCursor: false,
+
+		});
+	</script>

@@ -11,8 +11,10 @@
 	<script type="text/javascript" src="js/app.js"></script>
 	<base href="/blog/public/">
 </head>
-<body ng-cloak>
+<body ng-cloak style="background:#F5F5F5;">
 	<ui-view></ui-view>
-
+	<script type="text/javascript">
+		$(document).foundation();
+	</script>
 </body>
 </html> 

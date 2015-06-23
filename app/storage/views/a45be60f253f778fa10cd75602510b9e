@@ -1,0 +1,27 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			<?php echo $__env->yieldContent('title'); ?>
+		</title>
+		<?php echo HTML::style('foundation5/css/normalize.css'); ?>
+		<?php echo HTML::style('foundation5/css/foundation.css'); ?>
+		<?php echo HTML::style('css/main.scss.min.css'); ?>
+
+		<?php echo HTML::script('foundation5/js/vendor/modernizr.js'); ?>
+	</head>
+
+	<body>
+
+		
+        
+        <?php echo HTML::script('foundation5/js/vendor/jquery.js'); ?>
+        <?php echo HTML::script('foundation5/js/foundation.min.js'); ?>
+        <?php echo HTML::script('ckeditor/ckeditor.js'); ?>
+		<?php echo HTML::script('js/main.min.js'); ?>
+		<?php echo $__env->yieldContent('content'); ?>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+
+<?php $__env->startSection('title'); ?>
+	Home
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('banner-img'); ?>
+	<img src="<?php echo URL::asset(''); ?>images/about_img.png">
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<?php if(Auth::check()): ?>
+		<div class="row">
+			<div class="large-12 columns">
+				<dl class="sub-nav">
+					<dd class="active"><a href="<?php echo route('about.index'); ?>">View</a></dd>
+					<dd><a href="<?php echo route('about.edit'); ?>">Edit</a></dd>
+				</dl>
+			</div>
+		</div>
+	<?php endif; ?>
+	<div class="row">
+	   	<div class="content large-12 columns">
+		    <div class="last-updated">
+     			<h5><small>Updated <?php echo HelperFunction::timeAgo($page->updated_at); ?></small></h5>
+     		</div>
+	     	<?php echo empty($page)?'':$page->content; ?>
+	   	</div>
+	   	<div class="sidebar large-3 columns">
+	</div>
+
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

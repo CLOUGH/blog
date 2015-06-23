@@ -12,5 +12,5 @@ angular.module('app.home',[])
 }])
 
 .controller('HomeCtrl', ['$scope', function ($scope) {
-	
+	$scope.activeNav = 'home';
 }]);

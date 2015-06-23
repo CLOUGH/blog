@@ -1,0 +1,8 @@
+
+	<a class="<?php echo $navbar['home']; ?> item" href="<?php echo route('home.index'); ?>">
+	    <i class="home icon"></i> 
+	    Home
+	</a>
+	<a class="item <?php echo $navbar['blog']; ?>" href="<?php echo route('blog.index'); ?>">Blogs</a>
+	<a class="item <?php echo $navbar['about']; ?>">About</a>
+	<a class="item <?php echo $navbar['contact']; ?>">Contact</a>

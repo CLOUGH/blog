@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>
+			<?php echo $__env->yieldContent('title'); ?>
+		</title>
+		<?php echo HTML::style('css/semantic.min.css'); ?>
+		<?php echo HTML::style('css/main.scss.min.css'); ?>
+		<?php echo HTML::script('js/jquery-1.11.0.min.js'); ?>
+		<?php echo HTML::script('js/semantic.js'); ?>
+		<?php echo HTML::script('ckeditor/ckeditor.js'); ?>
+		<head>
+  </head>
+	</head>
+
+	<body>
+		<?php if(!empty($navbar)): ?>		
+			<div class="navbar inverted ui menu">
+				<?php foreach ($navbar as $name =>$active): ?>
+					<a class="item <?php echo $active; ?>" href="<?php echo route($name.'.index'); ?>">
+						<?php echo ucfirst($name); ?>
+					</a>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?> 
+		<div class="wrapper">
+	             		
+		<?php echo $__env->yieldContent('content'); ?>	        			            
+	        
+	        
+	    <div class="push"></div>
+        <div class="page-footer ui one column center aligned page grid">
+        	<div class="contact-info column">
+	        	<p>
+	        		Created by Warren Clough <br/>
+	        		Follow me @ <a href="https://github.com/clough">Github</a>
+	        		<br/>
+	        		Source for this website can be found @ <a>My Blog</a>
+	        	</p>
+        	</div>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+
+<?php $__env->startSection('title'); ?>
+	Home
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('banner-img'); ?>
+	<img src="<?php echo URL::asset(''); ?>images/computer.jpg">
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+	
+	<?php if(Auth::check()): ?>
+		<div class="row">
+			<div class="large-12 columns">
+				<dl class="sub-nav">
+					<dd><a href="<?php echo route('home.index'); ?>">View</a></dd>
+					<dd class="active"><a href="<?php echo route('home.edit'); ?>">Edit</a></dd>
+				</dl>
+			</div>
+		</div>
+	<?php endif; ?>
+	<div class="row">
+	   	<div class="content large-9 columns">
+	   		<?php echo Form::model($page, array('method'=>'post','route'=>array('home.update'))); ?>
+	   			<?php echo Form::textarea('content',null, ['id'=>'content']); ?>
+	   			<?php echo Form::submit('Update',array('class'=>'button')); ?>
+	   		<?php echo Form::close(); ?>
+	     	<script>
+            	CKEDITOR.replace( 'content',{height: 500});
+        	</script>
+
+	   	</div>
+	   	<div class="sidebar large-3 columns">
+	   	<h5>Blog Posts</h5>
+	   		<ul class="side-nav"> 
+	   		<?php foreach ($blogPosts as $blogPost): ?>
+	   			<li><?php echo HTML::linkRoute('blog.show', $blogPost->title,$blogPost->id); ?></li> 
+	   		<?php endforeach; ?>
+   			</ul>
+	   	</div>
+	</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

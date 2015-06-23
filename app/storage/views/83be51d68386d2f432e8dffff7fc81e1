@@ -1,0 +1,58 @@
+
+<?php $__env->startSection('title'); ?>
+	Creat New Blog
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('content'); ?>
+	<?php if(Auth::check()): ?>
+		<div class="row">
+			<div class="large-12 columns">
+				<dl class="sub-nav">
+					<dd><a href="<?php echo route('blog.index'); ?>">View</a></dd>
+					<dd class="active"><a href="<?php echo route('blog.create'); ?>">Create</a></dd>
+				</dl>
+			</div>
+		</div>
+	<?php endif; ?>
+	<div class="row">
+		<div class="large-12 columns" role="content">
+		<?php echo Form::open(['route'=>'blog.store','class'=>'ui form']); ?>
+			<div class="row">
+				<div class="columns large-12">
+					<?php echo Form::label('Title'); ?>
+					<?php echo Form::input('text', 'blog-title'); ?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="columns large-12">
+					<?php echo Form::label('Image'); ?>
+					<?php echo Form::text('blog-image'); ?>
+				</div>		
+			</div>
+			<div class="row">
+				<div class="columns large-12">
+					<?php echo Form::label('Description'); ?>
+					<?php echo Form::textarea('blog-description'); ?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="columns large-12">
+					<?php echo Form::textarea('blog-body', null, ['id'=>'blog-body']); ?>
+					<script>
+		                CKEDITOR.replace( 'blog-body',{height: 500});
+		            </script>
+		        </div>
+			</div>
+				
+            <div class="row">
+            	<div class="columns large-12 text-right" > 
+					<?php echo Form::submit('Save',['class'=>'ui purple submit button']); ?>
+				</div>
+			</div>
+        <?php echo Form::close(); ?>
+		</div>
+	</div>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

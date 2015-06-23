@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
+    protected $toTruncate = ['posts'];
     /**
      * Run the database seeds.
      *
@@ -13,8 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
+        foreach ($this->toTruncate as $table) {
+            DB::table($table)->truncate();
+        }
 
         // $this->call('UserTableSeeder');
+        $this->call('PostTableSeeder');
 
         Model::reguard();
     }

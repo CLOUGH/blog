@@ -1,0 +1,56 @@
+
+<?php $__env->startSection('title'); ?>
+	Edit - <?php echo $blog->title; ?>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('content'); ?>
+	<div class="row">
+	   	<div class="content large-12 columns">
+	   	<?php if(Auth::check()): ?>
+			<div class="row">
+				<div class="large-12 columns">
+					<dl class="sub-nav">
+						<dd><a href="<?php echo route('blog.show',array($blog->id)); ?>">View</a></dd>
+						<dd class="active"><a href="<?php echo route('blog.edit',array($blog->id)); ?>">Edit</a></dd>
+						<dd><a href="<?php echo route('blog.destroy',array($blog->id)); ?>">Delete</a></dd>
+					</dl>
+				</div>
+			</div>
+			<?php endif; ?>
+	   		<?php echo Form::model($blog, array('method'=>'put','route'=>array('blog.update', $blog->id),'class'=>'ui form')); ?>
+				<div class="field">
+					<?php echo Form::label('Title'); ?>
+					<?php echo Form::text('title'); ?>
+				</div>								
+				<div class="field">
+					<?php echo Form::textarea('body', null, ['id'=>'blog-body']); ?>
+		            <script>
+		                CKEDITOR.replace( 'blog-body',{height: 500});
+		            </script>
+		        </div>
+		        <div>
+					<?php echo Form::submit('Update',['class'=>'ui purple submit button']); ?>
+				</div>
+		    <?php echo Form::close(); ?>
+	   	</div>
+	</div>
+	<!--div class="ui grid">
+		
+
+		<div class="ui one wide column">	
+		</div>
+
+		<div class="ui fourteen wide column content-area">
+			<div class="content">
+				<h2 class="ui header">Edit Blog</h2>	
+				
+		    </div>
+		</div>	
+
+		<div class="ui one wide column">			
+		</div>
+	</div-->
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

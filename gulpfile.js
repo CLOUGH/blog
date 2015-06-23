@@ -29,6 +29,7 @@ elixir(function(mix) {
     	'jquery-placeholder/jquery.placeholder.js',
     	'jquery.cookie/jquery.cookie.js',
     	'foundation/js/foundation.js',
+        'foundation/js/foundation/foundation.topbar.js',
     	'modernizr/modernizr.js',
     	'angular/angular.js',
     	'angular-ui-router/release/angular-ui-router.js',
@@ -36,6 +37,8 @@ elixir(function(mix) {
     	'restangular/dist/restangular.js',
     	'angular-loading-bar/build/loading-bar.js',
     	'angular-foundation/mm-foundation-tpls.js',
+        'typed.js/dist/typed.min.js',
+
 
     ],'public/js/vendor.js','./resources/assets/bower_components');
 
