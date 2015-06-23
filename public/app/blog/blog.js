@@ -1,5 +1,6 @@
 angular.module('app.blog', [
-	'ui.router'
+	'ui.router',
+	'restangular',
 ])
 
 .config(['$stateProvider',function ($stateProvider) {
@@ -7,14 +8,21 @@ angular.module('app.blog', [
 		url: '/blog',
 		templateUrl: 'app/blog/blog.html',
 		controller: 'BlogCtrl',
+		resolve : {
+			posts : function(Restangular){
+				return Restangular.all('posts').getList();
+			}
+		},
 		data : {
 
 		}
 	});
 }])
 
-.controller('BlogCtrl', ['$scope', '$state',function ($scope,$state) {
+.controller('BlogCtrl', ['$scope', '$state','Restangular', 'posts',function ($scope,$state,Restangular,posts) {
 
 	$scope.activeNav = 'blog';
+	console.log(posts);
+	$scope.posts = posts;
 	
 }]);

@@ -121,6 +121,8 @@
         color: #808080; }
         .blog article .post-heading .likes .count {
           margin-right: 10px; }
+        .blog article .post-heading .likes .red {
+          color: #CD1E3D; }
     .blog article .post-body {
       padding: 10px 30px 30px 30px; }
       .blog article .post-body p {

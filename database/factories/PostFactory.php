@@ -14,7 +14,7 @@
 $factory->define(App\Post::class, function ($faker) {
     return [
         'title' => $faker->name,
-        'body' => $faker->paragraph(),
+        'body' => $faker->text,
         'likes'=> $faker->numberBetween(1, 1000),
     ];
 });

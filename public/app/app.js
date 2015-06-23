@@ -8,8 +8,10 @@ angular.module('app', [
 	'app.404',
 ])
 
-.config(['$urlRouterProvider','$locationProvider',function ($urlRouterProvider,$locationProvider) {
+.config(['$urlRouterProvider','$locationProvider', 'RestangularProvider',function ($urlRouterProvider,$locationProvider,RestangularProvider) {
 	
+	RestangularProvider.setBaseUrl('./api');
+
 	$locationProvider.html5Mode(true);
 	
 	$urlRouterProvider.otherwise('/404');

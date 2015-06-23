@@ -14,8 +14,10 @@ Route::get('/', function () {
     return view('index'); 
 });
 
+Route::group(['prefix'=>'api'], function(){
+	Route::resource('posts', 'PostController',['except'=>['edit','create']]);
 
-Route::resource('post', 'PostController',['except'=>['edit','create']]);
+});
 
 Route::get('{all}', function(){
 	return view('index');
