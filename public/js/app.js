@@ -4,7 +4,7 @@ angular.module('app', [
 	'mm.foundation',
 	'app.home',
 	'app.login',
-	'app.blog',
+	'app.posts',
 	'app.404',
 ])
 
@@ -14,35 +14,7 @@ angular.module('app', [
 
 	$locationProvider.html5Mode(true);
 	
-	$urlRouterProvider.otherwise('/404');
-	
-}]);
-angular.module('app.blog', [
-	'ui.router',
-	'restangular',
-])
-
-.config(['$stateProvider',function ($stateProvider) {
-	$stateProvider.state('blog',{
-		url: '/blog',
-		templateUrl: 'app/blog/blog.html',
-		controller: 'BlogCtrl',
-		resolve : {
-			posts : function(Restangular){
-				return Restangular.all('posts').getList();
-			}
-		},
-		data : {
-
-		}
-	});
-}])
-
-.controller('BlogCtrl', ['$scope', '$state','Restangular', 'posts',function ($scope,$state,Restangular,posts) {
-
-	$scope.activeNav = 'blog';
-	console.log(posts);
-	$scope.posts = posts;
+	//$urlRouterProvider.otherwise('/404');
 	
 }]);
 angular.module('app.404', [])
@@ -99,4 +71,50 @@ angular.module('app.login', [
 	}
 	
 }]);
+angular.module('app.posts', [
+	'ui.router',
+	'restangular',
+])
+
+.config(['$stateProvider',function ($stateProvider) {
+	$stateProvider.state('posts',{
+		url: '/posts',
+		templateUrl: 'app/posts/index.html',
+		controller: 'PostCtrl',
+		resolve : {
+			posts : function(Restangular){
+				return Restangular.all('posts').getList();
+			}
+		},
+		data : {
+
+		}
+	});
+	$stateProvider.state('posts.show',{
+		url:'/posts/:postId',
+		templateUrl:'app/posts/show.html',
+		controller: 'PostDetailsCtrl',
+		resolve: {
+			post : function(Restangular,$stateParams){
+				return Restangular.one('posts',$stateParams.postID).get();
+			}
+		},
+		data : {
+
+		}
+	})
+}])
+
+.controller('PostCtrl', ['$scope', '$state','Restangular', 'posts',function ($scope,$state,Restangular,posts) {
+
+	$scope.activeNav = 'posts';
+	console.log(posts);
+	$scope.posts = posts;
+	
+}])
+
+
+.controller('PostDetailsCtrl', ['$scope','post', function($scope,post){
+	$scope.post = post;
+}])
 //# sourceMappingURL=app.js.map

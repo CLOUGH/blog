@@ -4,7 +4,7 @@ angular.module('app', [
 	'mm.foundation',
 	'app.home',
 	'app.login',
-	'app.blog',
+	'app.posts',
 	'app.404',
 ])
 
@@ -14,6 +14,6 @@ angular.module('app', [
 
 	$locationProvider.html5Mode(true);
 	
-	$urlRouterProvider.otherwise('/404');
+	//$urlRouterProvider.otherwise('/404');
 	
 }]);

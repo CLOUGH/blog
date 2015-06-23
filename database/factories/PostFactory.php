@@ -13,8 +13,8 @@
 
 $factory->define(App\Post::class, function ($faker) {
     return [
-        'title' => $faker->name,
-        'body' => $faker->text,
+        'title' => ucwords($faker->sentence($faker->numberBetween(3,10))),
+        'body' => $faker->paragraph($faker->numberBetween(10,20)),
         'likes'=> $faker->numberBetween(1, 1000),
     ];
 });
