@@ -3,6 +3,7 @@ angular.module('app', [
 	'restangular',
 	'mm.foundation',
 	'app.home',
+	'angular-loading-bar',
 	'app.login',
 	'app.posts',
 	'app.404',

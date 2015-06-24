@@ -19,6 +19,11 @@ Route::group(['prefix'=>'api'], function(){
 
 });
 
-Route::any('{all}', function(){
-   	return view('index'); 
+// Route::get('{all}', function(){
+// 	return view('index');
+// });
+
+Route::any('{all}', function($uri)
+{
+    return view('index');
 })->where('all', '.*');

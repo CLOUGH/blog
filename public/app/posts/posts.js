@@ -4,7 +4,8 @@ angular.module('app.posts', [
 ])
 
 .config(['$stateProvider',function ($stateProvider) {
-	$stateProvider.state('posts',{
+	$stateProvider
+	.state('posts',{
 		url: '/posts',
 		templateUrl: 'app/posts/index.html',
 		controller: 'PostCtrl',
@@ -16,14 +17,14 @@ angular.module('app.posts', [
 		data : {
 
 		}
-	});
-	$stateProvider.state('posts.show',{
-		url:'/posts/:postId',
+	})
+	.state('posts/show',{
+		url:'/posts/:id',
 		templateUrl:'app/posts/show.html',
 		controller: 'PostDetailsCtrl',
 		resolve: {
 			post : function(Restangular,$stateParams){
-				return Restangular.one('posts',$stateParams.postID).get();
+				return Restangular.one('posts',$stateParams.id).get();
 			}
 		},
 		data : {
@@ -35,12 +36,12 @@ angular.module('app.posts', [
 .controller('PostCtrl', ['$scope', '$state','Restangular', 'posts',function ($scope,$state,Restangular,posts) {
 
 	$scope.activeNav = 'posts';
-	console.log(posts);
 	$scope.posts = posts;
 	
 }])
 
 
 .controller('PostDetailsCtrl', ['$scope','post', function($scope,post){
+	$scope.activeNav = 'posts';
 	$scope.post = post;
 }])
