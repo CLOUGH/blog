@@ -34,6 +34,9 @@
 [ng-cloak] {
   display: none; }
 
+.wrapper {
+  background: #FFFFFF; }
+
 .header {
   margin-bottom: 85px; }
   .header .navbar.contain-to-grid {
@@ -138,5 +141,28 @@
 .container {
   padding: 30px;
   background: #FFFFFF; }
+
+.main-content {
+  background: #FFFFFF;
+  padding-top: 150px;
+  padding-bottom: 60px; }
+  .main-content article .title {
+    padding-bottom: 100px;
+    border-bottom: solid 1px #F2F2F2; }
+    .main-content article .title h1 {
+      font-family: "Helvetica Neue";
+      font-size: 36px;
+      color: #1A1A1A;
+      line-height: 43px; }
+  .main-content article .body {
+    margin-top: 48px;
+    margin-bottom: 83px;
+    /* Lorem Ipsum is simpl: */
+    font-family: "Helvetica Neue";
+    font-size: 15px;
+    color: #1A1A1A;
+    line-height: 26px; }
+  .main-content .footer {
+    border-top: solid 1px #F2F2F2; }
 
 /*# sourceMappingURL=app.css.map */
