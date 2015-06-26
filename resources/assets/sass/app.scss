@@ -1,6 +1,11 @@
 @import "fonts.scss";
 @import "type.js.scss";
 
+$helveticaNormal : "Helvetica Neue", sans-serif;
+$mobileScreen : 40em;
+$mediumScreen : 40.063em;
+$largeScreen : 64.063em;
+
 [ng-cloak] {
 	display:none;
 }
@@ -16,7 +21,7 @@ body{
 	.navbar {
 		&.contain-to-grid{
 			background:#FFFFFF;
-			font-family:"Helvetica Neue";
+			font-family:$helveticaNormal;
 			padding:20px 0 20px 0;
 			.top-bar {
 				background:#FFFFFF;
@@ -84,7 +89,7 @@ body{
 
 .login{
 
-	font-family:"Helvetica Neue";
+	font-family:$helveticaNormal;
 	padding-top:18%;
 	h1 {
 		margin-bottom: 30px;
@@ -121,7 +126,7 @@ body{
 		background:#FFFFFF;
 		
 		box-shadow: 0px 20px 35px 0px rgba(0,0,0,0.10);
-		font-family:"Helvetica Neue";
+		font-family:$helveticaNormal;
 		margin-top:30px;
 
 		.post-heading{
@@ -149,7 +154,7 @@ body{
 		.post-body{
 			padding:10px 30px 30px 30px;
 			p{
-				font-family:"Helvetica Neue";
+				font-family:$helveticaNormal;
 				font-weight:normal;
 				font-size: 13px;
 				color: #808080;
@@ -169,13 +174,16 @@ body{
 	background:#FFFFFF;
 }
 .main-content{
+	$contentLeftPadding : 80px;
 	background:#FFFFFF;
 	padding-top:150px;
 	padding-bottom: 60px;
 	article {
+		margin-left:$contentLeftPadding;
+		margin-right:$contentLeftPadding - 20px;
 		.title {
 			h1 {
-				font-family: "Helvetica Neue";
+				font-family: $helveticaNormal;
 				font-size: 36px;
 				color: #1A1A1A;
 				line-height: 43px;
@@ -186,16 +194,105 @@ body{
 		.body{
 			margin-top:48px;
 			margin-bottom:83px;
-			/* Lorem Ipsum is simpl: */
-			font-family: "Helvetica Neue";
+			font-family: $helveticaNormal;
 			font-size: 15px;
-			color: #1A1A1A;
-			line-height: 26px;
+			color: #808080;
+			line-height: 26px;	
+			h2{
+				font-size: 24px;
+				color: #000000;
+				line-height: 28px;
+			}	
+			img{
+				margin-bottom: 58px;
+  				margin-top: 46px;
+  				margin-left:-$contentLeftPadding + 20px  ;
+			}
+			p{
+				margin-top:25px;
+			}
+		}
+		.footer{
+			margin-top: 134px;
+			margin-bottom: 119px;
+			.button-group{
+				button{
+					background: rgba(60,59,60,0.00);
+					border: 2px solid #DEDEDE;
+					padding:12px;
+					font-family: $helveticaNormal;
+					font-size: 11px;
+					color: #808080;
+					line-height: 13px;
+					margin-left: 20px;
+
+					.fa-2x{
+						font-size:11px;
+					}
+
+					&:focus{
+						outline: none;
+						border: 2px solid #000;
+						color:#fff;
+						background:#000;
+					}
+
+					&.like{
+						color:#CD1E3D;
+						&:focus{
+							outline: none;
+							border: 2px solid #000;
+							color:#fff;
+							background:#000;
+						}
+					}
+				}
+			}
+			
 		}
 	}
-	.footer{
+	& > .footer{
+		padding-top:57px;
 		border-top: solid 1px #F2F2F2;
-		
+		font-family: $helveticaNormal;
+
+		font-size: 12px;
+		color: #808080;
+		line-height: 15px;
+		.author {			
+			overflow: hidden;
+			.profile{
+				float:left;
+				overflow: hidden;
+				width: 190px;
+				margin-right:50px;
+				img{
+					float:left;
+					margin-right:20px;
+				}
+				h1.name{
+					margin: 0px 0px 6px 0px;
+					font-size: 16px;
+					color: #1A1A1A;
+					line-height: 18px;
+				}
+				p{
+					font-size: 12px;
+					color: #808080;
+					line-height: 15px;
+				}
+			}
+			.bio{
+				float:none;
+				margin-right:40px;
+				@media only screen and (max-width: $mobileScreen) {
+				    float:left;
+				}
+			}
+			&:after{
+				clear:both;
+			}
+		}		
 	}
 }
 

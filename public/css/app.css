@@ -41,7 +41,7 @@
   margin-bottom: 85px; }
   .header .navbar.contain-to-grid {
     background: #FFFFFF;
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", sans-serif;
     padding: 20px 0 20px 0; }
     .header .navbar.contain-to-grid .top-bar {
       background: #FFFFFF; }
@@ -81,7 +81,7 @@
     letter-spacing: 10px; }
 
 .login {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", sans-serif;
   padding-top: 18%; }
   .login h1 {
     margin-bottom: 30px;
@@ -109,7 +109,7 @@
   .blog article {
     background: #FFFFFF;
     box-shadow: 0px 20px 35px 0px rgba(0, 0, 0, 0.1);
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", sans-serif;
     margin-top: 30px; }
     .blog article .post-heading {
       padding: 30px 30px 0 30px;
@@ -129,7 +129,7 @@
     .blog article .post-body {
       padding: 10px 30px 30px 30px; }
       .blog article .post-body p {
-        font-family: "Helvetica Neue";
+        font-family: "Helvetica Neue", sans-serif;
         font-weight: normal;
         font-size: 13px;
         color: #808080;
@@ -146,23 +146,93 @@
   background: #FFFFFF;
   padding-top: 150px;
   padding-bottom: 60px; }
-  .main-content article .title {
-    padding-bottom: 100px;
-    border-bottom: solid 1px #F2F2F2; }
-    .main-content article .title h1 {
-      font-family: "Helvetica Neue";
-      font-size: 36px;
-      color: #1A1A1A;
-      line-height: 43px; }
-  .main-content article .body {
-    margin-top: 48px;
-    margin-bottom: 83px;
-    /* Lorem Ipsum is simpl: */
-    font-family: "Helvetica Neue";
-    font-size: 15px;
-    color: #1A1A1A;
-    line-height: 26px; }
-  .main-content .footer {
-    border-top: solid 1px #F2F2F2; }
+  .main-content article {
+    margin-left: 80px;
+    margin-right: 60px; }
+    .main-content article .title {
+      padding-bottom: 100px;
+      border-bottom: solid 1px #F2F2F2; }
+      .main-content article .title h1 {
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 36px;
+        color: #1A1A1A;
+        line-height: 43px; }
+    .main-content article .body {
+      margin-top: 48px;
+      margin-bottom: 83px;
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 15px;
+      color: #808080;
+      line-height: 26px; }
+      .main-content article .body h2 {
+        font-size: 24px;
+        color: #000000;
+        line-height: 28px; }
+      .main-content article .body img {
+        margin-bottom: 58px;
+        margin-top: 46px;
+        margin-left: -60px; }
+      .main-content article .body p {
+        margin-top: 25px; }
+    .main-content article .footer {
+      margin-top: 134px;
+      margin-bottom: 119px; }
+      .main-content article .footer .button-group button {
+        background: rgba(60, 59, 60, 0);
+        border: 2px solid #DEDEDE;
+        padding: 12px;
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 11px;
+        color: #808080;
+        line-height: 13px;
+        margin-left: 20px; }
+        .main-content article .footer .button-group button .fa-2x {
+          font-size: 11px; }
+        .main-content article .footer .button-group button:focus {
+          outline: none;
+          border: 2px solid #000;
+          color: #fff;
+          background: #000; }
+        .main-content article .footer .button-group button.like {
+          color: #CD1E3D; }
+          .main-content article .footer .button-group button.like:focus {
+            outline: none;
+            border: 2px solid #000;
+            color: #fff;
+            background: #000; }
+  .main-content > .footer {
+    padding-top: 57px;
+    border-top: solid 1px #F2F2F2;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    color: #808080;
+    line-height: 15px; }
+    .main-content > .footer .author {
+      overflow: hidden; }
+      .main-content > .footer .author .profile {
+        float: left;
+        overflow: hidden;
+        width: 190px;
+        margin-right: 50px; }
+        .main-content > .footer .author .profile img {
+          float: left;
+          margin-right: 20px; }
+        .main-content > .footer .author .profile h1.name {
+          margin: 0px 0px 6px 0px;
+          font-size: 16px;
+          color: #1A1A1A;
+          line-height: 18px; }
+        .main-content > .footer .author .profile p {
+          font-size: 12px;
+          color: #808080;
+          line-height: 15px; }
+      .main-content > .footer .author .bio {
+        float: none;
+        margin-right: 40px; }
+        @media only screen and (max-width: 40em) {
+          .main-content > .footer .author .bio {
+            float: left; } }
+      .main-content > .footer .author:after {
+        clear: both; }
 
 /*# sourceMappingURL=app.css.map */

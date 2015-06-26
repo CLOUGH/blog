@@ -9,14 +9,15 @@ angular.module('app', [
 	'app.404',
 ])
 
-.config(['$urlRouterProvider','$locationProvider', 'RestangularProvider',function ($urlRouterProvider,$locationProvider,RestangularProvider) {
+.config(['$urlRouterProvider','$locationProvider', 'RestangularProvider', 'cfpLoadingBarProvider',function ($urlRouterProvider,$locationProvider,RestangularProvider,cfpLoadingBarProvider) {
 	
 	RestangularProvider.setBaseUrl('./api');
 
 	$locationProvider.html5Mode(true);
 	
-	//$urlRouterProvider.otherwise('/404');
+	$urlRouterProvider.otherwise('/404');
 	
+	cfpLoadingBarProvider.includeSpinner = false;
 }]);
 angular.module('app.404', [])
 
@@ -119,4 +120,11 @@ angular.module('app.posts', [
 	$scope.activeNav = 'posts';
 	$scope.post = post;
 }])
+angular.module('app').directive('holderjs', function () {
+    return {
+        link: function (scope, element, attrs) {
+            Holder.run({ images: element[0], nocss: true });
+        }
+    };
+});
 //# sourceMappingURL=app.js.map

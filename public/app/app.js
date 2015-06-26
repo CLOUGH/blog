@@ -9,12 +9,13 @@ angular.module('app', [
 	'app.404',
 ])
 
-.config(['$urlRouterProvider','$locationProvider', 'RestangularProvider',function ($urlRouterProvider,$locationProvider,RestangularProvider) {
+.config(['$urlRouterProvider','$locationProvider', 'RestangularProvider', 'cfpLoadingBarProvider',function ($urlRouterProvider,$locationProvider,RestangularProvider,cfpLoadingBarProvider) {
 	
 	RestangularProvider.setBaseUrl('./api');
 
 	$locationProvider.html5Mode(true);
 	
-	//$urlRouterProvider.otherwise('/404');
+	$urlRouterProvider.otherwise('/404');
 	
+	cfpLoadingBarProvider.includeSpinner = false;
 }]);

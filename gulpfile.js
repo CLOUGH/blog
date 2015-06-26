@@ -38,6 +38,7 @@ elixir(function(mix) {
     	'angular-loading-bar/build/loading-bar.js',
     	'angular-foundation/mm-foundation-tpls.js',
         'typed.js/dist/typed.min.js',
+        'holderjs/holder.js',
 
 
     ],'public/js/vendor.js','./resources/assets/bower_components');
