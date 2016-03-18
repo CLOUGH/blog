@@ -103,7 +103,7 @@ var Login = function() {
         init: function() {
             handleLoginForm(); // initial setup for login form
             handleForgotPasswordForm(); // initial setup for forgot password form
-            handleSignupForm(); // initial setup for signup form
+            //handleSignupForm(); // initial setup for signup form
         }
     }
 }();
