@@ -12,7 +12,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    //mix.sass('app.scss');
+    mix.sass('app.scss');
 
     mix.styles([
     	'../plugins/bootstrap/css/bootstrap.min.css',
@@ -21,8 +21,11 @@ elixir(function(mix) {
     	'../plugins/scrollbar/jquery.mCustomScrollbar.css',
     	'../plugins/magnific-popup/magnific-popup.css',
     	'../plugins/magnific-popup/magnific-popup.css',
+        '../plugins/cubeportfolio/css/cubeportfolio.min.css',
+        '../plugins/rev-slider/css/settings.css',
+        '../plugins/rev-slider/css/layers.css',
+        '../plugins/rev-slider/css/navigation.css',
     	'animate.css',
-    	'global.css',
     	'/theme/base.css',
     	'/theme/dark.css'
     ]);
@@ -33,7 +36,7 @@ elixir(function(mix) {
     ],'./public/js/ie9.js');
 
     mix.scripts([
-    	'../plugins/jquery.min.js',
+    	
 		'../plugins/jquery.migrate.min.js',
 		'../plugins/bootstrap/js/bootstrap.min.js',
 		'../plugins/jquery.back-to-top.js',
@@ -44,17 +47,29 @@ elixir(function(mix) {
 		'../plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js',
 		'../plugins/jquery.wow.min.js',
 		'../plugins/magnific-popup/jquery.magnific-popup.min.js',
-		'../scripts/app.js',
-		'../scripts/components/header-sticky.js',
-		'../scripts/components/scrollbar.js',
-		'../scripts/components/form-modal.js',
-		'../scripts/components/wow.js',
-		'../scripts/components/animsition.js',
-		'../scripts/components/magnific-popup.js',
-		'../scripts/components/login-form.js',
+        '../plugins/jquery.appear.js',
+        '../plugins/cubeportfolio/js/jquery.cubeportfolio.min.js',
+        '../scripts/app.js',
     ]);
 
+    mix.scripts([
+        '../plugins/jquery.min.js',
+        "../plugins/rev-slider/js/jquery.themepunch.tools.min.js",
+        "../plugins/rev-slider/js/jquery.themepunch.revolution.min.js",
+        "../plugins/rev-slider/js/extensions/revolution.extension.actions.min.js",
+        "../plugins/rev-slider/js/extensions/revolution.extension.carousel.min.js",
+        "../plugins/rev-slider/js/extensions/revolution.extension.kenburn.min.js",
+        "../plugins/rev-slider/js/extensions/revolution.extension.layeranimation.min.js",
+        "../plugins/rev-slider/js/extensions/revolution.extension.migration.min.js",
+        "../plugins/rev-slider/js/extensions/revolution.extension.navigation.min.js",
+        "../plugins/rev-slider/js/extensions/revolution.extension.parallax.min.js",
+        "../plugins/rev-slider/js/extensions/revolution.extension.slideanims.min.js",
+        "../plugins/rev-slider/js/extensions/revolution.extension.video.min.js",
+    ],'./public/js/header.js');
+
     mix.copy('resources/assets/img','public/assets/img');
+    mix.copy('resources/assets/scripts/portfolio','public/js/portfolio');
+    mix.copy('resources/assets/scripts/components','public/js/components');
     mix.copy('resources/assets/plugins/bootstrap/fonts','public/fonts');
     mix.copy('resources/assets/plugins/et-line/fonts','public/fonts');
     mix.copy('resources/assets/plugins/font-awesome/fonts','public/fonts');

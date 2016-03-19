@@ -68,6 +68,21 @@
                                 Home
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-item-child radius-3" href="{{ url('/blog') }}">
+                                Blog
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item-child radius-3" href="{{ url('/portfolio') }}">
+                                Portfolio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item-child radius-3" href="{{ url('/about') }}">
+                                About Me
+                            </a>
+                        </li>
                         <!-- End Home -->
                     </ul>
                 </div>

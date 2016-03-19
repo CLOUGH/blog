@@ -16,6 +16,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700,500,300,300italic&" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic&" rel="stylesheet" type="text/css">
     <link href="css/all.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+
+    <script src="js/header.js"></script>
 
     <!-- FAVICON -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -25,23 +28,11 @@
 <!-- BODY -->
 <body class="@yield('body-class')">
     <!--========== WRAPPER ==========-->
-    <div class="wrapper animsition">{{ $noHeader }}
-        @if(!isset($noHeader) || !$noHeader) 
-            @include('layouts.header')
-        @endif
-        <!--========== PAGE CONTENT  ==========-->
-         @yield('content')
-        <!--========== END PAGE CONTENT  ==========-->
-        <!--========== FOOTER ==========-->
-        <div class="footer">
-            <div class="container">
-                ...
-                ...
-            </div>
-        </div>
-        <!--========== END FOOTER ==========-->
-
-
+    <div class="wrapper animsition">
+        @include('layouts.header')
+        @yield('promo-block')
+        @yield('content')        
+        @include('layouts.default-footer')
     </div>
     <!--========== END WRAPPER ==========-->
     <!--========== JAVASCRIPT (Load javascripts at bottom, this will reduce page load time) ==========-->
@@ -49,6 +40,13 @@
     <script src="js/ie9.js"></script>
     <![endif]-->
     <script type="text/javascript" src="js/all.js"></script>
+    <script type="text/javascript" src="js/components/header-sticky.js"></script>
+    <script type="text/javascript" src="js/components/scrollbar.js"></script>
+    <script type="text/javascript" src="js/components/form-modal.js"></script>
+    <script type="text/javascript" src="js/components/wow.js"></script>
+    <script type="text/javascript" src="js/components/animsition.js"></script>
+    <script type="text/javascript" src="js/components/magnific-popup.js"></script>
+    @yield('scripts')
     <!--========== END JAVASCRIPT ==========-->
 </body>
 </html>

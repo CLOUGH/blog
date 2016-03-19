@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.noHeader')
 <?php $noHeader=true; ?>
 @section('page-title','Login')
 @section('body-class','bg-color-dark')
@@ -56,4 +56,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="js/components/login-form.js"></script>
 @endsection
