@@ -9,6 +9,89 @@
     <div id="rev-slider1" class="rev_slider fullwidthabanner" style="display: none;">
         <ul>
             <!-- Slide -->
+            <li data-transition="zoomin" data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-rotate="0" data-saveperformance="off" data-title="Join Us">
+                <!-- Main Image -->
+                <img src="{{ url('/images/rsz_photo-1414509613498-f53000d3rd2c1.jpg') }}" alt="" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 -500" data-offsetend="0 500" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                <!-- Layers -->
+                <div class="tp-caption tp-resizeme rs-parallaxlevel-0 color-white"
+                    data-x="['center','center','center','center']" data-hoffset="['0,'0','0','0']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['-140','-140','-140','-90']"
+                    data-fontsize="['40','40','40','30']"
+                    data-lineheight="['55','55','55','45']"
+                    data-width="none"
+                    data-height="none"
+                    data-whitespace="nowrap"
+                    data-transform_idle="o:1;"
+                    data-transform_in="y:50px;opacity:0;s:1500;e:Power3.easeInOut;"
+                    data-transform_out="y:50px;opacity:0;s:1000;s:1000;"
+                    data-start="500"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-basealign="slide"
+                    data-responsive_offset="on"
+                    style="z-index: 6; white-space: nowrap;">
+                    Welcome to
+                </div>
+                <div class="tp-caption tp-resizeme rs-parallaxlevel-0 color-white"
+                    data-x="['center','center','center','center']" data-hoffset="['0,'0','0','-0']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['-30','-30','-30','-15']"
+                    data-fontsize="['110','110','110','55']"
+                    data-lineheight="['130','130','130','75']"
+                    data-width="none"
+                    data-height="none"
+                    data-whitespace="nowrap"
+                    data-transform_idle="o:1;"
+                    data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
+                    data-mask_in="x:0px;y:0px;"
+                    data-mask_out="x:inherit;y:inherit;"
+                    data-start="1000"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-basealign="slide"
+                    data-responsive_offset="on"
+                    style="z-index: 6; white-space: nowrap;">
+                    My Website
+                </div>
+                <div class="tp-caption tp-resizeme rs-parallaxlevel-0 color-white"
+                    data-x="['center','center','center','center']" data-hoffset="['0,'0','0','0']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['80','80','80','60']"
+                    data-fontsize="['30','30','30','20']"
+                    data-lineheight="['40','40','40','30']"
+                    data-width="none"
+                    data-height="none"
+                    data-whitespace="nowrap"
+                    data-transform_idle="o:1;"
+                    data-transform_in="y:50px;opacity:0;s:1500;e:Power3.easeInOut;"
+                    data-transform_out="y:50px;opacity:0;s:1000;s:1000;"
+                    data-start="1500"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-basealign="slide"
+                    data-responsive_offset="on"
+                    style="z-index: 6; font-style: italic; white-space: nowrap;">
+                    Here you will be able to find out more about me and projects im working on
+                </div>
+                <div class="tp-caption"
+                    data-x="['center','center','center','center']" data-hoffset="['0,'0','0','0']"
+                    data-y="['middle','middle','middle','middle']" data-voffset="['200','220','220','200']"
+                    data-width="none"
+                    data-height="none"
+                    data-whitespace="nowrap"
+                    data-transform_idle="o:1;"
+                    data-transform_in="y:50px;opacity:0;s:1500;e:Power3.easeInOut;"
+                    data-transform_out="y:50px;opacity:0;s:1000;s:1000;"
+                    data-start="2000"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-responsive_offset="on"
+                    data-responsive="off"
+                    style="z-index: 9; white-space: nowrap;">
+                    <button type="button" class="btn-white-bg btn-base-md radius-3">Read More</button>
+                </div>
+            </li>
+            <!-- End Slide -->
+            <!-- Slide -->
             <li data-transition="zoomin" data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-rotate="0" data-saveperformance="off" data-title="Creative People">
                 <!-- Main Image -->
                 <img src="{{ url('/images/rsz_1photo-1454165804606-c3d57bc86b40.jpg') }}" alt="" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 -500" data-offsetend="0 500" data-bgparallax="10" class="rev-slidebg" data-no-retina>
@@ -30,7 +113,7 @@
                     data-basealign="slide"
                     data-responsive_offset="on"
                     style="z-index: 6; white-space: nowrap;">
-                    We are Ark
+                    I am a
                 </div>
                 <div class="tp-caption tp-resizeme rs-parallaxlevel-0 color-white"
                     data-x="['center','center','center','center']" data-hoffset="['0,'0','0','-0']"
@@ -51,10 +134,10 @@
                     data-basealign="slide"
                     data-responsive_offset="on"
                     style="z-index: 6; white-space: nowrap;">
-                    Creative People
+                    Software Developer
                 </div>
                 <div class="tp-caption tp-resizeme rs-parallaxlevel-0 color-white"
-                    data-x="['center','center','center','center']" data-hoffset="['-150,'0','0','0']"
+                    data-x="['center','center','center','center']" data-hoffset="['0,'0','0','0']"
                     data-y="['middle','middle','middle','middle']" data-voffset="['80','80','80','60']"
                     data-fontsize="['30','30','30','20']"
                     data-lineheight="['40','40','40','30']"
@@ -70,26 +153,7 @@
                     data-basealign="slide"
                     data-responsive_offset="on"
                     style="z-index: 6; font-style: italic; white-space: nowrap;">
-                    Ark with a tool that makes
-                </div>
-                <div class="tp-caption tp-resizeme rs-parallaxlevel-0 color-white"
-                    data-x="['center','center','center','center']" data-hoffset="['150,'0','0','0']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['80','120','120','90']"
-                    data-fontsize="['30','30','30','20']"
-                    data-lineheight="['40','40','40','30']"
-                    data-width="none"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-transform_idle="o:1;"
-                    data-transform_in="y:50px;opacity:0;s:1500;e:Power3.easeInOut;"
-                    data-transform_out="y:50px;opacity:0;s:1000;s:1000;"
-                    data-start="1500"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-basealign="slide"
-                    data-responsive_offset="on"
-                    style="z-index: 6; font-style: italic; white-space: nowrap;">
-                    simple for eveyone!
+                    Software development is not just a career path but a passion
                 </div>
                 <div class="tp-caption"
                     data-x="['center','center','center','center']" data-hoffset="['0,'0','0','0']"
@@ -106,7 +170,7 @@
                     data-responsive_offset="on"
                     data-responsive="off"
                     style="z-index: 9; white-space: nowrap;">
-                    <button type="button" class="btn-white-bg btn-base-md radius-3">Read More</button>
+                    <button type="button" class="btn-white-bg btn-base-md radius-3">About Me</button>
                 </div>
             </li>
             <!-- End Slide -->
@@ -210,87 +274,6 @@
                     data-responsive="off"
                     style="z-index: 9; white-space: nowrap;">
                     <button type="button" class="btn-white-bg btn-base-md radius-3">Read More</button>
-                </div>
-            </li>
-            <!-- End Slide -->
-
-            <!-- Slide -->
-            <li data-transition="zoomin" data-slotamount="7" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-rotate="0" data-saveperformance="off" data-title="Join Us">
-                <!-- Main Image -->
-                <img src="{{ url('/images/rsz_photo-1414509613498-f53000d3rd2c1.jpg') }}" alt="" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 -500" data-offsetend="0 500" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                <!-- Layers -->
-                <div class="tp-caption tp-resizeme rs-parallaxlevel-0 color-white"
-                    data-x="['center','center','center','center']" data-hoffset="['0,'0','0','0']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['-140','-140','-140','-90']"
-                    data-fontsize="['40','40','40','30']"
-                    data-lineheight="['55','55','55','45']"
-                    data-width="none"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-transform_idle="o:1;"
-                    data-transform_in="y:50px;opacity:0;s:1500;e:Power3.easeInOut;"
-                    data-transform_out="y:50px;opacity:0;s:1000;s:1000;"
-                    data-start="500"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-basealign="slide"
-                    data-responsive_offset="on"
-                    style="z-index: 6; white-space: nowrap;">
-                    Join Us
-                </div>
-                <div class="tp-caption tp-resizeme rs-parallaxlevel-0 color-white"
-                    data-x="['center','center','center','center']" data-hoffset="['0,'0','0','-0']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['-50','-50','-50','-15']"
-                    data-fontsize="['110','110','110','55']"
-                    data-lineheight="['130','130','130','75']"
-                    data-width="none"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-transform_idle="o:1;"
-                    data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
-                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                    data-mask_in="x:0px;y:0px;"
-                    data-mask_out="x:inherit;y:inherit;"
-                    data-start="1000"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-basealign="slide"
-                    data-responsive_offset="on"
-                    style="z-index: 6; white-space: nowrap;">
-                    It's Your Turn
-                </div>
-                <div class="tp-caption tp-resizeme rs-parallaxlevel-0"
-                    data-x="['center','center','center','center']" data-hoffset="['0,'0','0','0']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['100','100','100','70']"
-                    data-width="['500','500','500','300',]"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-transform_idle="o:1;"
-                    data-transform_in="y:50px;opacity:0;s:1500;e:Power3.easeInOut;"
-                    data-transform_out="y:50px;opacity:0;s:1000;s:1000;"
-                    data-start="1500"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-responsive_offset="on"
-                    style="z-index: 6; white-space: nowrap;">
-                    <input type="text" class="form-control theme-rev-slider-input-v1" placeholder="Email Address">
-                </div>
-                <div class="tp-caption"
-                    data-x="['center','center','center','center']" data-hoffset="['0,'0','0','0']"
-                    data-y="['middle','middle','middle','middle']" data-voffset="['250','250','250','200']"
-                    data-width="none"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-transform_idle="o:1;"
-                    data-transform_in="y:50px;opacity:0;s:1500;e:Power3.easeInOut;"
-                    data-transform_out="y:50px;opacity:0;s:1000;s:1000;"
-                    data-start="2000"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-responsive_offset="on"
-                    data-responsive="off"
-                    style="z-index: 9; white-space: nowrap;">
-                    <button type="button" class="btn-white-brd btn-base-md radius-3">Submit</button>
                 </div>
             </li>
             <!-- End Slide -->
