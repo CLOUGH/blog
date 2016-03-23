@@ -22,6 +22,10 @@
 |
 */
 Route::group(['middleware' => 'web'], function () {
+    Route::get('comming-soon',function(){
+        return view('comming-soon');
+    });
+
      // Authentication Routes...
     Route::get('login', 'Auth\AuthController@showLoginForm');
     Route::post('login', 'Auth\AuthController@login');

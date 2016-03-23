@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title','Landing')
+@section('page-title','Home')
 @section('body-class','bg-color-light')
 
 @section('promo-block')

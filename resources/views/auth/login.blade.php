@@ -1,5 +1,5 @@
 @extends('layouts.noHeader')
-<?php $noHeader=true; ?>
+
 @section('page-title','Login')
 @section('body-class','bg-color-dark')
 @section('content')
