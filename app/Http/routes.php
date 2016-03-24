@@ -22,8 +22,8 @@
 |
 */
 Route::group(['middleware' => 'web'], function () {
-    Route::get('comming-soon',function(){
-        return view('comming-soon');
+    Route::get('coming-soon',function(){
+        return view('coming-soon');
     });
 
      // Authentication Routes...

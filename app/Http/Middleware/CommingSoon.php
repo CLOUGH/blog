@@ -15,8 +15,8 @@ class CommingSoon
      */
     public function handle($request, Closure $next)
     {
-        if (env('APP_COMMING_SOON')==true) {
-            return redirect('/comming-soon');
+        if (env('APP_COMING_SOON')==true && $request->path()!='coming-soon') {
+            return redirect('/coming-soon');
         }
 
         return $next($request);

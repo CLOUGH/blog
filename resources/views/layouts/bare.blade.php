@@ -29,9 +29,7 @@
 <body class="@yield('body-class')">
     <!--========== WRAPPER ==========-->
     <div class="wrapper animsition">
-        @yield('promo-block')
-        @yield('content')        
-        @include('layouts.default-footer')
+        @yield('content')
     </div>
     <!--========== END WRAPPER ==========-->
     <!--========== JAVASCRIPT (Load javascripts at bottom, this will reduce page load time) ==========-->
@@ -39,7 +37,6 @@
     <script src="js/ie9.js"></script>
     <![endif]-->
     <script type="text/javascript" src="js/all.js"></script>
-    <script type="text/javascript" src="js/components/header-sticky.js"></script>
     <script type="text/javascript" src="js/components/scrollbar.js"></script>
     <script type="text/javascript" src="js/components/form-modal.js"></script>
     <script type="text/javascript" src="js/components/wow.js"></script>
