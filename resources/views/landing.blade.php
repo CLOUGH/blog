@@ -296,7 +296,7 @@
 
         <div class="row">
             <div class="col-sm-6 sm-margin-b-30">
-                <p class="line-height-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                <p class="line-height-2">Hi my name is Warren Clough and I would like to welcome you to my website. I am a and software engineer/developer living  Jamaica with bachelors in Computer Science from University of the West Indies. My current focus is  in web development; Laravel and angular development. My skill set is not however limited to this aspect of software development as I have explored areas such as game development/ graphics programming  and desktop applications development. Being Software development is not just a career as it is a hobby that I have been passionate about the while growing up. The purpose of this website is to act as a portal to share information about myself, projects I'm working on,  solutions to problems I've experienced or to share my opinions on topics that may be interesting to the community. </p>
             </div>
             <div class="col-sm-6">
                 <p class="line-height-2">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

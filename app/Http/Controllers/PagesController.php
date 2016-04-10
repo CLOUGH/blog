@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
-
+use Illuminate\Http\Request;
 class PagesController extends Controller
 {
-    public function getLanding(){
-    	return view('landing');
+    public function home(){
+    	return view('home');
     }
 }

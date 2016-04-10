@@ -13,40 +13,93 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- GLOBAL MANDATORY STYLES -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700,500,300,300italic&" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic&" rel="stylesheet" type="text/css">
-    <link href="css/all.css" rel="stylesheet" type="text/css">
-    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,700,500,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/et-line/et-line.css" rel="stylesheet" type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
 
-    <script src="js/header.js"></script>
+    <!-- BEGIN THEME PLUGINS STYLE -->
+    <link href="assets/plugins/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME PLUGINS STYLE -->
+ 
+    <!-- THEME STYLES -->
+    <link href="assets/css/global.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+
+
+    <!-- THEME -->
+    <link href="assets/css/theme/dark.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/theme/base.css" rel="stylesheet" type="text/css" id="style-color"/>
+    <!-- END THEME -->
+
+    <!-- BEGIN JQUERY -->
+    <script type="text/javascript" src="assets/plugins/jquery.min.js"></script>
+    <!-- END JQUERY -->
 
     <!-- FAVICON -->
     <link rel="shortcut icon" href="favicon.ico">
     <!-- END FAVICON -->
+
+    <!-- MY STYLES -->
+    <link href="css/app.css" rel="stylesheet" type="text/css"/>
+    <!-- END STYLES -->
+    @yield('header')
 </head>
 <!-- END HEAD -->
 <!-- BODY -->
 <body class="@yield('body-class')">
-    <!--========== WRAPPER ==========-->
+    <!-- WRAPPER -->
     <div class="wrapper animsition">
-        @include('layouts.header')
-        @yield('promo-block')
-        @yield('content')        
-        @include('layouts.default-footer')
+        @yield('header')
+        @yield('content')
+        @yield('footer')
     </div>
-    <!--========== END WRAPPER ==========-->
-    <!--========== JAVASCRIPT (Load javascripts at bottom, this will reduce page load time) ==========-->
+    <!-- END WRAPPER -->
+    
+    <!-- Sidebar Content Overlay -->
+    <div class="sidebar-content-overlay"></div>
+    <!-- End Sidebar Content Overlay -->
+
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top-theme"></a>
+    <!-- End Back To Top -->
+
+    <!--========== JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) ==========-->
+    <!-- CORE PLUGINS -->
     <!--[if lt IE 9]>
-    <script src="js/ie9.js"></script>
+    <script src="assets/plugins/html5shiv.js"></script>
+    <script src="assets/plugins/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="js/all.js"></script>
-    <script type="text/javascript" src="js/components/header-sticky.js"></script>
-    <script type="text/javascript" src="js/components/scrollbar.js"></script>
-    <script type="text/javascript" src="js/components/form-modal.js"></script>
-    <script type="text/javascript" src="js/components/wow.js"></script>
-    <script type="text/javascript" src="js/components/animsition.js"></script>
-    <script type="text/javascript" src="js/components/magnific-popup.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery.migrate.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- END CORE PLUGINS -->
+
+    <!-- PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="assets/plugins/jquery.back-to-top.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery.smooth-scroll.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery.animsition.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery.wow.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery.equal-height.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery.appear.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="assets/scripts/app.js"></script>
+    <script type="text/javascript" src="assets/scripts/components/animsition.js"></script>
+    <script type="text/javascript" src="assets/scripts/components/scrollbar.js"></script>
+    <script type="text/javascript" src="assets/scripts/components/magnific-popup.js"></script>
+    <script type="text/javascript" src="assets/scripts/components/form-modal.js"></script>
+    <script type="text/javascript" src="assets/scripts/components/wow.js"></script>
+    <script type="text/javascript" src="assets/scripts/components/equal-height.js"></script>
+    <script type="text/javascript" src="assets/scripts/components/progress-bar.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!--========== END JAVASCRIPTS ==========-->
     @yield('scripts')
-    <!--========== END JAVASCRIPT ==========-->
 </body>
 </html>
