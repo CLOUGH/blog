@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('header')
+@section('page-header')
     @include('partials.ark.header')
 @endsection
 
-@section('footer')
+@section('page-footer')
     @include('partials.ark.footer')
 @endsection
 

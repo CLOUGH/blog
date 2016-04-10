@@ -54,9 +54,9 @@
 <body class="@yield('body-class')">
     <!-- WRAPPER -->
     <div class="wrapper animsition">
-        @yield('header')
+        @yield('page-header')
         @yield('content')
-        @yield('footer')
+        @yield('page-footer')
     </div>
     <!-- END WRAPPER -->
     
