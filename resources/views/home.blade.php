@@ -8,19 +8,6 @@
     @include('partials.ark.footer')
 @endsection
 
-@section('header')
-    <!-- RS5.0 Main Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="revolution/css/settings.css">
-     
-    <!-- RS5.0 Layers and Navigation Styles -->
-    <link rel="stylesheet" type="text/css" href="revolution/css/layers.css">
-    <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css">    
-     
-    <!-- RS5.0 Core JS Files -->
-    <script type="text/javascript" src="revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
-    <script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
-@endsection
-
 @section('content')
     <!--========== PROMO BLOCK V2 ==========-->
     <div class="promo-block-v2 fullheight text-center">

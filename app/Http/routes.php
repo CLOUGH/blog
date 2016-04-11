@@ -40,5 +40,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
     Route::post('password/reset', 'Auth\PasswordController@reset');
 
+    Route::resource('posts','PostController');
     Route::get('/', 'PagesController@home');
 });

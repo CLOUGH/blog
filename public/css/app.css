@@ -3,10 +3,14 @@
   .promo-block-v2 .promo-block-v2-text {
     max-width: 600px; }
 
-.header-shrink.header-transparent .navbar-logo, .header-transparent .navbar-logo, .footer-v5-copyright .footer-v5-copyright-logo {
+.header-shrink.header-transparent .navbar-logo, .header-transparent .navbar-logo, .footer-v5-copyright .footer-v5-copyright-logo, .coming-soon .coming-soon-logo-img {
   width: 250px; }
 
 .header-transparent .navbar-logo .navbar-logo-img {
   width: 234px; }
+
+.coming-soon {
+  background: url("/images/rsz_photo-1433360405326-e50f909805b3.jpg") no-repeat;
+  background-position: center center; }
 
 /*# sourceMappingURL=app.css.map */

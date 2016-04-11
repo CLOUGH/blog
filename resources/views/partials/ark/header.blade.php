@@ -56,7 +56,7 @@
 
                         <!-- Blog -->
                         <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('blog') ? 'active' : '' }}" href="{{ url('/blog') }}">Blog</a>
+                            <a class="nav-item-child radius-3 {{ Request::is('posts') ? 'active' : '' }}" href="{{ url('/posts') }}">Blog</a>
                         </li>
                         <!-- End Blog -->
 
