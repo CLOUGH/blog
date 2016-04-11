@@ -16,8 +16,8 @@
 <!--========== BREADCRUMBS V5 ==========-->
 <section class="breadcrumbs-v5 bg-position-fixed breadcrumbs-v5-bg-img-v4">
     <div class="container">
-        <h2 class="breadcrumbs-v5-title">Grid Fullwidth</h2>
-        <span class="breadcrumbs-v5-subtitle">For all the things you want to do. For the things you love.</span>
+        <h2 class="breadcrumbs-v5-title">Blog Posts</h2>
+        <span class="breadcrumbs-v5-subtitle">Here are few topics that intrests me and I hope you find them intresting too.</span>
     </div>
 </section>
 <!--========== END BREADCRUMBS V5 ==========-->
