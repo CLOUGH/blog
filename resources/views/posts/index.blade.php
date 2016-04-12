@@ -329,4 +329,5 @@
 	<script type="text/javascript" src="assets/plugins/jquery.imagesloaded.pkgd.min.js"></script>
 	<script type="text/javascript" src="assets/plugins/owl-carousel/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="assets/scripts/components/owl-carousel.js"></script>
+    <script type="text/javascript" src="assets/scripts/components/header-sticky.js"></script>
 @endsection
