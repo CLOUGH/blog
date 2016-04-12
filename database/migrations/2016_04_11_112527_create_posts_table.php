@@ -21,6 +21,9 @@ class CreatePostsTable extends Migration
             $table->integer('created_by')->unsigned();
             $table->integer('updated_by')->unsigned();
             $table->timestamps();
+
+            $table->foreign('created_by')->references('id')->on('users')->onCascade('delete');
+            $table->foreign('updated_by')->references('id')->on('users')->onCascade('delete');
         });
     }
 
