@@ -30,8 +30,8 @@
 
 		<div class="ibox">
 			<div class="ibox-content">
-				<form method="POST" action="{{ url('admin/posts')}}">
-					
+				<form method="POST" action="{{ url('admin/posts/')}}">
+
 					{!! csrf_field() !!}
 					<div class="form-group">
 						<label>Title</label>
@@ -39,7 +39,7 @@
 					</div>
 					<div >
 						<label>
-							<input type="checkbox" class="i-checks" checked="{{ old('is_published') ? 'checked' : '' }}" name="is_published" value="{{ old('is_published') }}"> 
+							<input type="checkbox" class="i-checks" {{ old('published')==true ? 'checked': '' }} name="published"> 
 							Publish
 						</label>
 					</div>

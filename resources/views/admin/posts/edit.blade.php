@@ -30,7 +30,7 @@
 
 		<div class="ibox">
 			<div class="ibox-content">
-				<form method="PUT" action="{{ url('admin/posts')}}">
+				<form method="POST" action="{{ url("admin/posts/$post->id")}}">
 					<input name="_method" type="hidden" value="PUT">
 					{!! csrf_field() !!}
 					<div class="form-group">
@@ -39,7 +39,7 @@
 					</div>
 					<div >
 						<label>
-							<input type="checkbox" class="i-checks" checked="{{ $post->is_published ? 'checked' : '' }}" name="is_published" value="{{ $post->is_published }}"> 
+							<input type="checkbox" class="i-checks" {{ $post->published==true ? 'checked': '' }} name="published"> 
 							Publish
 						</label>
 					</div>

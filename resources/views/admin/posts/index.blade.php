@@ -55,7 +55,7 @@
 										<td>{{ $post->id }}</td>
 										<td>{{ $post->title }}</td>
 										<td>{{ $post->type->name }}</td>
-										<td><input type="checkbox" class="i-checks" checked="{{ $post->is_published ? 'checked' : '' }}" disabled="disabled"> </td>
+										<td><input type="checkbox" class="i-checks" {{ $post->is_published ? 'checked="checked"' : '' }} disabled="disabled"> </td>
 										<td>{{ $post->created_at->toFormattedDateString() }}</td>
 										<td>{{ $post->updated_at->toFormattedDateString() }}</td>
 										<td>{{ $post->createdBy->name }}</td>

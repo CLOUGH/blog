@@ -98,7 +98,6 @@ class ManagePostController extends Controller
         $post = Post::findOrFail($id);
 
         $post->update($request->all());
-
         return redirect('/admin/posts');
     }
 

@@ -9,8 +9,10 @@ class Post extends Model
 {
     protected $table ='posts';
 
-   	protected $fillable = ['title','body','post_type_id'];
-
+   	protected $fillable = ['title','body','post_type_id','published'];
+   	protected $casts = [
+	   'published' => 'boolean'
+	];
     public function image(){
     	return $this->hasOne('App\Image','mediaable_id','id')
     		->where('mediaable_type','App\Post');
