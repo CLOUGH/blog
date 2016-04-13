@@ -5,7 +5,7 @@
         <div class="content-sm container-sm">
             <div class="center-block">
                 <a href="index.html">
-                    <img class="footer-v5-copyright-logo margin-b-30" src="assets/img/logo-default-white.png" alt="">
+                    <img class="footer-v5-copyright-logo margin-b-30" src="{{ url('assets/img/logo-default-white.png') }}" alt="">
                 </a>
                 <!-- Copyright Socials -->
                 <ul class="list-inline footer-v5-copright-socials margin-b-30">

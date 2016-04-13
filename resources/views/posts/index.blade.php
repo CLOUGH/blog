@@ -12,6 +12,8 @@
     @include('partials.ark.footer')
 @endsection
 
+@section('page-class','index-post')
+
 @section('content')
 <!--========== BREADCRUMBS V5 ==========-->
 <section class="breadcrumbs-v5 bg-position-fixed breadcrumbs-v5-bg-img-v4">

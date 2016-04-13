@@ -11,13 +11,24 @@
 .header-transparent .navbar-logo .navbar-logo-img{
 	width: 234px;
 }
+.page {	
+	&.coming-soon{	
+		background:url('/images/rsz_photo-1433360405326-e50f909805b3.jpg')  no-repeat;
+		background-position:center center;
+	}
 
-.coming-soon{	
-	background:url('/images/rsz_photo-1433360405326-e50f909805b3.jpg')  no-repeat;
-	background-position:center center;
-}
-.breadcrumbs-v5.breadcrumbs-v5-bg-img-v4{
-	background: url('/images/rsz_2photo-1438755582627-221038b62986.jpg') no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
+	&.create-post{
+		.breadcrumbs-v5.breadcrumbs-v5-bg-img-v4{
+			background: url('/images/rsz_photo-1422246358533-95dcd3d48961.jpg') no-repeat;
+		}
+	}
+	&.index-post{
+		.breadcrumbs-v5.breadcrumbs-v5-bg-img-v4{
+			background: url('/images/rsz_2photo-1438755582627-221038b62986.jpg') no-repeat;
+		}
+	}
+	&.breadcrumbs-v5.breadcrumbs-v5-bg-img-v4{
+	    background-size: cover;
+	    background-position: 50% 50%;
+	}
 }

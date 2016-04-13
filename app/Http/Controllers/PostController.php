@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Post;
+use App\PostType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,7 +35,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $postTypes = PostType::all();
+
+        return view('posts.create')
+            ->with(compact('postTypes'));
     }
 
     /**

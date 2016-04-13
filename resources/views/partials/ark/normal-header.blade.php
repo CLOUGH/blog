@@ -1,5 +1,5 @@
 <!--========== HEADER TRANSPARENT ==========-->
-<header class="header-transparent header-transparent-bb navbar-fixed-top header-sticky">
+<header class="header navbar-fixed-top header-sticky">
     <!-- Navbar -->
     <nav class="navbar mega-menu" role="navigation">
         <div class="container">
