@@ -96,8 +96,12 @@ class ManagePostController extends Controller
             'body' => 'required',
         ]);
         $post = Post::findOrFail($id);
-
         $post->update($request->all());
+        $post->published = $request->get('published');
+        $post->save();
+
+
+
         return redirect('/admin/posts');
     }
 

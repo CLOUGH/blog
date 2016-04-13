@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Post;
 use App\PostType;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,8 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-    	$posts = Post::where('published',true)
-            ->orderBy('date_published')
+    	$posts = Post::where('published','=','1')
+            // ->where('publish_on','>=', Carbon::now())
+            ->orderBy('publish_on')
     		->get();
 
        	return view('posts.index')
@@ -33,13 +35,19 @@ class PostController extends Controller
      */
     public function show($id)
     {
-    	$post = Post::findOrFail($id);
+    	$post = Post::where(function($q){
+            if(Auth::guest()){
+                $q->where('published',true);
+                // $q->where('publish_on','>=', Carbon::now());
+            }            
+        })->where('id',$id)
+            ->first();
 
-    	if(!$post->is_published && Auth::guest()){
-    		abort(403);
-    	}
-    	
+        if(!$post){
+            abort(404);
+        }
+
         return view('posts.show')
-        	->with(compact($post));
+        	->with(compact('post'));
     }
 }

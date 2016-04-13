@@ -5,6 +5,9 @@
     <link href="{{ url('admin-assets/css/plugins/summernote/summernote-bs3.css') }}" rel="stylesheet">
     <link href="{{ url('admin-assets/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
 	<link href="{{ url('admin-assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css') }}" rel="stylesheet">
+	<link href="{{ url('admin-assets/css/plugins/datapicker/datepicker3.css') }}" rel="stylesheet">
+	<link href="{{ url('admin-assets/css/plugins/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet">
+
 @endsection
 @section('content')
 	<div class="row wrapper border-bottom white-bg page-heading">
@@ -37,11 +40,23 @@
 						<label>Title</label>
 						<input class="form-control" type="text" name="title" placeholder="Post Title" value="{{ $post->title }}">
 					</div>
-					<div >
-						<label>
-							<input type="checkbox" class="i-checks" {{ $post->published==true ? 'checked': '' }} name="published"> 
-							Publish
-						</label>
+					<div class="row">
+						
+						<div class="col-lg-8">
+							<div class="form-group">
+								<label>Publish On</label>
+								<div class="input-group date">
+	                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+	                                	<input type="text" class="form-control" value="03/04/2016" name="publish_on">
+	                            </div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<label class="checkbox" style="margin-top: 20px;">
+								<input type="checkbox" class="i-checks" {{ $post->published==true ? 'checked': '' }} name="published" value="1">
+								Publish
+							</label>
+						</div>
 					</div>
 					<div class="form-group">
 						<label>Post Type</label>
@@ -70,7 +85,10 @@
 	<!-- SUMMERNOTE -->
     <script src="{{ url('admin-assets/js/plugins/summernote/summernote.min.js') }}"></script>
 	<script src="{{ url('admin-assets/js/plugins/iCheck/icheck.min.js') }}"></script>
-
+	<!-- Date range use moment.js same as full calendar plugin -->
+    <script src="{{ url('admin-assets/js/plugins/fullcalendar/moment.min.js') }}"></script>
+	<!-- Date range picker -->
+    <script src="{{ url('admin-assets/js/plugins/datapicker/bootstrap-datepicker.js') }}"></script>
     <script>
         $(document).ready(function(){
         	$('.i-checks').iCheck({
@@ -79,6 +97,13 @@
 	        });
             $('.summernote').summernote({
             	placeholder: 'Post body.'
+            });
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
             });
        });
         var edit = function() {

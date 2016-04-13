@@ -76,19 +76,19 @@
 
                         <!-- Blog -->
                         <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('posts') ? 'active' : '' }}" href="{{ url('/posts') }}">Blog</a>
+                            <a class="nav-item-child radius-3 {{ Request::is('posts/*') ? 'active' : '' }}" href="{{ url('/posts') }}">Blog</a>
                         </li>
                         <!-- End Blog -->
 
                         <!-- Portfolio -->
                         <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('portfolio') ? 'active' : '' }}" href="{{ url('/about') }}">Portfolio</a>
+                            <a class="nav-item-child radius-3 {{ Request::is('portfolio/*') ? 'active' : '' }}" href="{{ url('/about') }}">Portfolio</a>
                         </li>
                         <!-- End Portfolio -->
 
                         <!-- About Me -->
                         <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('about') ? 'active' : '' }}" href="{{ url('/about') }}">About Me</a>
+                            <a class="nav-item-child radius-3 {{ Request::is('about/*') ? 'active' : '' }}" href="{{ url('/about') }}">About Me</a>
                         </li>
                         <!-- End About Me -->
                         <!-- Hire Me -->
