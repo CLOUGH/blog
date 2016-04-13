@@ -3,11 +3,23 @@
   .promo-block-v2 .promo-block-v2-text {
     max-width: 600px; }
 
-.header-shrink.header-transparent .navbar-logo, .header-transparent .navbar-logo, .footer-v5-copyright .footer-v5-copyright-logo, .coming-soon .coming-soon-logo-img {
+.header-shrink.header-transparent .navbar-logo,
+.header .navbar-logo,
+.header-shrink.header .navbar-logo,
+.header-transparent .navbar-logo {
   width: 250px; }
 
+.header-shrink.header-transparent .navbar-logo .navbar-logo-img,
+.header .navbar-logo .navbar-logo-img,
+.header-shrink.header .navbar-logo .navbar-logo-img,
 .header-transparent .navbar-logo .navbar-logo-img {
-  width: 234px; }
+  width: 200px; }
+
+.footer-v5-copyright .footer-v5-copyright-logo, .coming-soon .coming-soon-logo-img {
+  width: 200px; }
+
+.login .login-form-logo {
+  width: 230px; }
 
 .page.coming-soon {
   background: url("/images/rsz_photo-1433360405326-e50f909805b3.jpg") no-repeat;

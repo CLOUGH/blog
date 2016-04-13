@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,6 +12,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        User::firstOrCreate([
+        	'name' => 'Admin',
+        	'email' => 'admin@warrenclough.me',
+        	'password' => 'password'
+        ]);
     }
 }

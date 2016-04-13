@@ -53,7 +53,7 @@
 <!-- BODY -->
 <body class="page @yield('page-class')">
     <!-- WRAPPER -->
-    <div class="wrapper animsition">
+    <div class="wrapper animsition @yield('wrapper-class')">
         @yield('page-header')
         @yield('content')
         @yield('page-footer')

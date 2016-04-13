@@ -26,20 +26,29 @@ Route::group(['middleware' => 'web'], function () {
         return view('coming-soon');
     });
 
-     // Authentication Routes...
+    // Authentication Routes...
     Route::get('login', 'Auth\AuthController@showLoginForm');
     Route::post('login', 'Auth\AuthController@login');
     Route::get('logout', 'Auth\AuthController@logout');
 
     // Registration Routes...
     // Route::get('register', 'Auth\AuthController@showRegistrationForm');
-    // Route::post('register', 'Auth\AuthController@register');
+    // Route::post('register', 'Auth\AuthController@register')
 
     // Password Reset Routes...
     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
     Route::post('password/reset', 'Auth\PasswordController@reset');
 
-    Route::resource('posts','PostController');
+    Route::resource('posts','PostController',['only'=>['index','show']]);
     Route::get('/', 'PagesController@home');
+
+    Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
+        Route::get('/', function(){
+            return redirect('admin/dashboard');
+        });
+
+        Route::get('dashboard', 'DashboardController@index');
+        Route::resource('posts','ManagePostController');
+    });
 });

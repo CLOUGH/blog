@@ -23,4 +23,27 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /* Hash the password when updating password
+     * @param $password
+     */
+    public function setPasswordAttribute($password) {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($post)
+        {
+            $post->created_by = Auth::user()->id;
+            $post->updated_by = Auth::user()->id;
+        });
+
+        static::updating(function($post)
+        {
+            $post->updated_by = Auth::user()->id;
+        });
+    }
 }

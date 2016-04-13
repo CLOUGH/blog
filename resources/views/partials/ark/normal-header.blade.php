@@ -1,5 +1,13 @@
-<!--========== HEADER TRANSPARENT ==========-->
+<!--========== HEADER ==========-->
 <header class="header navbar-fixed-top header-sticky">
+    <!-- Search Field -->
+    <div class="search-field">
+        <div class="container">
+            <input type="text" class="form-control search-field-input" placeholder="Search for...">
+        </div>
+    </div>
+    <!-- End Search Field -->
+
     <!-- Navbar -->
     <nav class="navbar mega-menu" role="navigation">
         <div class="container">
@@ -13,32 +21,27 @@
                 <!-- Navbar Actions -->
                 <div class="navbar-actions">
 
-                    <!-- Search Fullscreen -->
-                    <div class="navbar-actions-shrink search-fullscreen search-fullscreen-trigger-white">
-                        <div class="search-fullscreen-trigger">
-                            <i class="search-fullscreen-trigger-icon fa fa-search"></i>
-                        </div>
-                        <div class="search-fullscreen-overlay">
-                            <div class="search-fullscreen-overlay-content">
-                                <div class="search-fullscreen-input-group">
-                                    <input type="text" class="form-control search-fullscreen-input" placeholder="Search for ...">
-                                    <button class="search-fullscreen-search" type="button"><i class="search-fullscreen-search-icon fa fa-search"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="search-fullscreen-bg-overlay">
-                            <div class="search-fullscreen-close">&times;</div>
+                    <!-- Search -->
+                    <div class="navbar-actions-shrink search">
+                        <div class="search-btn">
+                            <i class="search-btn-default fa fa-search"></i>
+                            <i class="search-btn-active fa fa-times"></i>
                         </div>
                     </div>
-                    <!-- End Search Fullscreen -->
+                    <!-- End Search -->
+
+                    <!-- Sidebar -->
+                    <a class="navbar-actions-shrink sidebar-trigger" href="javascript:void(0);">
+                        <span class="sidebar-trigger-icon"></span>
+                    </a>
+                    <!-- End Sidebar -->
                 </div>
                 <!-- End Navbar Actions -->
 
                 <!-- Logo -->
                 <div class="navbar-logo">
-                    <a class="navbar-logo-wrap" href="{{ url('/') }}">
-                        <img class="navbar-logo-img navbar-logo-img-white" src="{{ url('assets/img/logo-default-white.png') }}" alt="Ark">
-                        <img class="navbar-logo-img navbar-logo-img-dark" src="{{ url('assets/img/logo-default.png') }}" alt="Ark">
+                    <a class="navbar-logo-wrap" href="index.html">
+                        <img class="navbar-logo-img navbar-logo-img-dark" src="{{ url('assets/img/logo-default.png') }}" alt="">
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -56,19 +59,19 @@
 
                         <!-- Blog -->
                         <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('posts') ? 'active' : '' }}" href="{{ url('/posts') }}">Blog</a>
+                            <a class="nav-item-child radius-3 {{ Request::is('posts/*') ? 'active' : '' }}" href="{{ url('/posts') }}">Blog</a>
                         </li>
                         <!-- End Blog -->
 
                         <!-- Portfolio -->
                         <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('portfolio') ? 'active' : '' }}" href="{{ url('/about') }}">Portfolio</a>
+                            <a class="nav-item-child radius-3 {{ Request::is('portfolio/*') ? 'active' : '' }}" href="{{ url('/about') }}">Portfolio</a>
                         </li>
                         <!-- End Portfolio -->
 
                         <!-- About Me -->
                         <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('about') ? 'active' : '' }}" href="{{ url('/about') }}">About Me</a>
+                            <a class="nav-item-child radius-3 {{ Request::is('about/*') ? 'active' : '' }}" href="{{ url('/about') }}">About Me</a>
                         </li>
                         <!-- End About Me -->
                         <!-- Hire Me -->
@@ -85,4 +88,5 @@
     </nav>
     <!-- Navbar -->
 </header>
-<!--========== END HEADER TRANSPARENT ==========-->
+<!--========== END HEADER ==========-->
+

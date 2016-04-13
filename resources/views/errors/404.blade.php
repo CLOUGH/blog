@@ -1,21 +1,21 @@
-@extends('layouts.bare')
-
-@section('content')
-	<div class="coming-soon fullheight">
-        <div class="container vertical-center-aligned">
-            <!-- <a href="{{ url('/') }}">
-                <span class="coming-soon-logo-img margin-b-30">WC</span>
-            </a> -->
-            <div class="margin-b-60">
-                <h2 class="coming-soon-title">Coming Soon</h2>
-                <p class="coming-soon-text">The website is still under construction.</p>
-                <p class="coming-soon-text">You don't have much longer to wait so keep posted.</p>
-            </div>
-            <a class="btn-white-bg btn-base-md radius-3" href="{{ url('contact-me') }}">Contact Me</a>
-        </div>
-    </div>
+@extends('layouts.app')
+@section('page-header')
+    @include('partials.ark.normal-header')
 @endsection
 
-@section('scripts')
-    <script type="text/javascript" src="js/components"></script>
+@section('page-footer')
+    @include('partials.ark.footer')
+@endsection
+@section('wrapper-class','wrapper-top-space animsition')
+@section('content')
+	 <!-- End Error 404 -->
+    <div class="content-md container text-center">
+        <div class="margin-b-40">
+            <h2 class="font-size-70"><span class="font-size-100">404</span> OOPS!</h2>
+            <p class="font-size-18">The page you are looking for not found</p>
+        </div>
+        <a class="btn-dark-bg btn-base-sm radius-3" href="{{ url('/') }}">Go back to Home Page</a>
+    </div>
+    <!-- End Error 404 -->
+
 @endsection

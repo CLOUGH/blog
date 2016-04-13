@@ -26,163 +26,179 @@
 
 <div class="bg-color-sky-light">
     <div class="content-md container">
-        <!-- End Blog Grid -->
-        <article class="blog-grid margin-b-50">
-            <img class="img-responsive" src="assets/img/1920x1080/07.jpg" alt="">
-            <div class="blog-grid-box-shadow">
-                <div class="blog-grid-content">
-                    <h2 class="blog-grid-title-lg"><a href="blog_single_standard.html">Donec consequat, ligula eget suscipit laoreet</a></h2>
-                    <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
-                </div>
-                <div class="blog-grid-supplemental">
-                    <span class="blog-grid-supplemental-title">
-                        <a class="blog-grid-supplemental-category" href="#">Opinion</a>
-                        - 12/21/2016
-                    </span>
-                </div>
-            </div>
-        </article>
-        <!-- End Blog Grid -->
-
-        <!-- Blog Grid (Video) -->
-        <article class="blog-grid margin-b-50">
-            <!-- (Video) -->
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/_Q-p-zkydLQ?rel=0&amp;controls=0&amp;showinfo=0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-            </div>
-            <!-- End (Video) -->
-
-            <div class="blog-grid-box-shadow">
-                <div class="blog-grid-content">
-                    <h2 class="blog-grid-title-lg"><a href="blog_single_video.html">The best multimedia experience with Galaxy S6 edge+.</a></h2>
-                    <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
-                </div>
-                <div class="blog-grid-supplemental">
-                    <span class="blog-grid-supplemental-title">
-                        <a class="blog-grid-supplemental-category" href="#">News</a>
-                        - 12/21/2016
-                    </span>
-                </div>
-            </div>
-        </article>
-        <!-- End Blog Grid (Video) -->
-
-        <!-- Blog Grid (Slider) -->
-        <article class="blog-grid margin-b-50">
-            <!-- (Slider) -->
-            <div id="blog-grid-fullwidth" class="carousel slide carousel-fade" data-ride="carousel">
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img class="img-responsive" src="assets/img/1920x1080/20.jpg" alt="">
+        @foreach($posts as $post) 
+            @if($post->type->slug=='image')
+                <!-- End Blog Grid -->
+                <article class="blog-grid margin-b-50">
+                    <img class="img-responsive" src="assets/img/1920x1080/07.jpg" alt="">
+                    <div class="blog-grid-box-shadow">
+                        <div class="blog-grid-content">
+                            <h2 class="blog-grid-title-lg"><a href="blog_single_standard.html">Donec consequat, ligula eget suscipit laoreet</a></h2>
+                            <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
+                        </div>
+                        <div class="blog-grid-supplemental">
+                            <span class="blog-grid-supplemental-title">
+                                <a class="blog-grid-supplemental-category" href="#">Opinion</a>
+                                - 12/21/2016
+                            </span>
+                        </div>
                     </div>
-                    <div class="item">
-                        <img class="img-responsive" src="assets/img/1920x1080/21.jpg" alt="">
+                </article>
+                <!-- End Blog Grid -->
+            @endif
+            
+            @if($post->type->slug=='video')
+                <!-- Blog Grid (Video) -->
+                <article class="blog-grid margin-b-50">
+                    <!-- (Video) -->
+                    <div class="responsive-video">
+                        <iframe src="https://www.youtube.com/embed/_Q-p-zkydLQ?rel=0&amp;controls=0&amp;showinfo=0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
                     </div>
-                </div>
-                <!-- End Wrapper for slides -->
+                    <!-- End (Video) -->
 
-                <!-- Controls -->
-                <a class="left carousel-control theme-carousel-control-v1" href="#blog-grid-fullwidth" role="button" data-slide="prev">
-                    <span class="carousel-control-arrows-v1 radius-3 fa fa-angle-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control theme-carousel-control-v1" href="#blog-grid-fullwidth" role="button" data-slide="next">
-                    <span class="carousel-control-arrows-v1 radius-3 fa fa-angle-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                <!-- End Controls -->
-            </div>
-            <!-- End (Slider) -->
+                    <div class="blog-grid-box-shadow">
+                        <div class="blog-grid-content">
+                            <h2 class="blog-grid-title-lg"><a href="blog_single_video.html">The best multimedia experience with Galaxy S6 edge+.</a></h2>
+                            <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
+                        </div>
+                        <div class="blog-grid-supplemental">
+                            <span class="blog-grid-supplemental-title">
+                                <a class="blog-grid-supplemental-category" href="#">News</a>
+                                - 12/21/2016
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                <!-- End Blog Grid (Video) -->
+            @endif
+            
+            @if($post->type->slug=='slideshow')
+            <!-- Blog Grid (Slider) -->
+            <article class="blog-grid margin-b-50">
+                <!-- (Slider) -->
+                <div id="blog-grid-fullwidth" class="carousel slide carousel-fade" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img class="img-responsive" src="assets/img/1920x1080/20.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="assets/img/1920x1080/21.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- End Wrapper for slides -->
 
-            <div class="blog-grid-box-shadow">
-                <div class="blog-grid-content">
-                    <h2 class="blog-grid-title-lg"><a href="blog_single_slider.html">Vestibulum vel sapien et lacus tempus varius.</a></h2>
-                    <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
-                </div>
-                <div class="blog-grid-supplemental">
-                    <span class="blog-grid-supplemental-title">
-                        <a class="blog-grid-supplemental-category" href="#">Case Study</a>
-                        - 12/21/2016
-                    </span>
-                </div>
-            </div>
-        </article>
-        <!-- End Blog Grid (Slider) -->
-
-        <!-- Blog Grid (Audio) -->
-        <article class="blog-grid overflow-h margin-b-50">
-            <!-- (Audio) -->
-            <iframe style="width: 100%; border: none;" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/19048953&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true"></iframe>
-            <!-- End (Audio) -->
-
-            <div class="blog-grid-box-shadow">
-                <div class="blog-grid-content">
-                    <h2 class="blog-grid-title-lg"><a href="blog_single_audio.html">Robo Beatz - Classic Piano</a></h2>
-                    <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
-                </div>
-                <div class="blog-grid-supplemental">
-                    <span class="blog-grid-supplemental-title">
-                        <a class="blog-grid-supplemental-category" href="#">Music</a>
-                        - 12/21/2016
-                    </span>
-                </div>
-            </div>
-        </article>
-        <!-- End Blog Grid (Audio) -->
-
-        <!-- Blog Grid Quote -->
-        <article class="blog-grid-quote blog-grid-box-shadow margin-b-50">
-            <span class="blog-grid-quote-icon">&#10077;</span>
-            <a class="blog-grid-quote-text blog-grid-quote-text-lg" href="blog_single_quote.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero.</a>
-            <h4 class="blog-quote-title">&#8212; Kenny Johnson</h4>
-        </article>
-        <!-- Blog Grid Quote -->
-
-        <!-- Blog Grid (Popup Video) -->
-        <article class="blog-grid margin-b-50">
-            <!-- (Popup Video) -->
-            <div class="blog-grid-video">
-                <img class="img-responsive" src="assets/img/1920x1080/17.jpg" alt="">
-                <div class="blog-grid-video-player">
-                    <a class="popup-vimeo" href="https://vimeo.com/50291922" title="Peugeot onyx concept car">
-                        <img src="assets/img/widgets/video-play.png" alt="" width="50" height="50">
+                    <!-- Controls -->
+                    <a class="left carousel-control theme-carousel-control-v1" href="#blog-grid-fullwidth" role="button" data-slide="prev">
+                        <span class="carousel-control-arrows-v1 radius-3 fa fa-angle-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
                     </a>
+                    <a class="right carousel-control theme-carousel-control-v1" href="#blog-grid-fullwidth" role="button" data-slide="next">
+                        <span class="carousel-control-arrows-v1 radius-3 fa fa-angle-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <!-- End Controls -->
                 </div>
-            </div>
-            <!-- End (Popup Video) -->
+                <!-- End (Slider) -->
 
-            <div class="blog-grid-box-shadow">
-                <div class="blog-grid-content">
-                    <h2 class="blog-grid-title-lg"><a href="blog_single_video.html">Etiam non neque ac odio consequat</a></h2>
-                    <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
+                <div class="blog-grid-box-shadow">
+                    <div class="blog-grid-content">
+                        <h2 class="blog-grid-title-lg"><a href="blog_single_slider.html">Vestibulum vel sapien et lacus tempus varius.</a></h2>
+                        <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
+                    </div>
+                    <div class="blog-grid-supplemental">
+                        <span class="blog-grid-supplemental-title">
+                            <a class="blog-grid-supplemental-category" href="#">Case Study</a>
+                            - 12/21/2016
+                        </span>
+                    </div>
                 </div>
-                <div class="blog-grid-supplemental">
-                    <span class="blog-grid-supplemental-title">
-                        <a class="blog-grid-supplemental-category" href="#">News</a>
-                        - 12/21/2016
-                    </span>
-                </div>
-            </div>
-        </article>
-        <!-- End Blog Grid (Popup Video) -->
+            </article>
+            <!-- End Blog Grid (Slider) -->
+            @endif
+            
+            @if($post->type->slug=='audio')
+                <!-- Blog Grid (Audio) -->
+                <article class="blog-grid overflow-h margin-b-50">
+                    <!-- (Audio) -->
+                    <iframe style="width: 100%; border: none;" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/19048953&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true"></iframe>
+                    <!-- End (Audio) -->
 
-        <!-- Blog Grid -->
-        <article class="blog-grid">
-            <div class="blog-grid-box-shadow">
-                <div class="blog-grid-content">
-                    <h2 class="blog-grid-title-el"><a class="blog-grid-title-link" href="blog_single_standard.html">Molestiae consequatur, vel illum qui dolorem</a></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
-                </div>
-                <div class="blog-grid-supplemental">
-                    <span class="blog-grid-supplemental-title">
-                        <a class="blog-grid-supplemental-category" href="#">Guide</a>
-                        - 12/21/2016
-                    </span>
-                </div>
-            </div>
-        </article>
-        <!-- End Blog Grid -->
+                    <div class="blog-grid-box-shadow">
+                        <div class="blog-grid-content">
+                            <h2 class="blog-grid-title-lg"><a href="blog_single_audio.html">Robo Beatz - Classic Piano</a></h2>
+                            <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
+                        </div>
+                        <div class="blog-grid-supplemental">
+                            <span class="blog-grid-supplemental-title">
+                                <a class="blog-grid-supplemental-category" href="#">Music</a>
+                                - 12/21/2016
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                <!-- End Blog Grid (Audio) -->
+            @endif
+            
+            @if($post->type->slug=='quote')
+                <!-- Blog Grid Quote -->
+                <article class="blog-grid-quote blog-grid-box-shadow margin-b-50">
+                    <span class="blog-grid-quote-icon">&#10077;</span>
+                    <a class="blog-grid-quote-text blog-grid-quote-text-lg" href="blog_single_quote.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero.</a>
+                    <h4 class="blog-quote-title">&#8212; Kenny Johnson</h4>
+                </article>
+                <!-- Blog Grid Quote -->
+            @endif
+
+            @if($post->type->slug=='video')
+               <!-- Blog Grid (Popup Video) -->
+                <article class="blog-grid margin-b-50">
+                    <!-- (Popup Video) -->
+                    <div class="blog-grid-video">
+                        <img class="img-responsive" src="assets/img/1920x1080/17.jpg" alt="">
+                        <div class="blog-grid-video-player">
+                            <a class="popup-vimeo" href="https://vimeo.com/50291922" title="Peugeot onyx concept car">
+                                <img src="assets/img/widgets/video-play.png" alt="" width="50" height="50">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End (Popup Video) -->
+
+                    <div class="blog-grid-box-shadow">
+                        <div class="blog-grid-content">
+                            <h2 class="blog-grid-title-lg"><a href="blog_single_video.html">Etiam non neque ac odio consequat</a></h2>
+                            <p class="margin-b-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel neque vulputate, vel porta magna molestie. Sed eu egestas ex, a posuere libero. Quisque ac placerat felis. Etiam non neque ac odio consequat interdum vitae eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. In et est ut metus lacinia pretium. Donec consequat, ligula eget suscipit laoreet, sem orci molestie tellus, ut pellentesque erat augue non neque.</p>
+                        </div>
+                        <div class="blog-grid-supplemental">
+                            <span class="blog-grid-supplemental-title">
+                                <a class="blog-grid-supplemental-category" href="#">News</a>
+                                - 12/21/2016
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                <!-- End Blog Grid (Popup Video) -->
+            @endif
+        
+            @if($post->type->slug=='standard')
+                <!-- Blog Grid -->
+                <article class="blog-grid margin-b-50">
+                    <div class="blog-grid-box-shadow">
+                        <div class="blog-grid-content">
+                            <h2 class="blog-grid-title-el"><a class="blog-grid-title-link" href="{{ url("posts/$post->id") }}">{{ $post->title }}</a></h2>
+                            {!! $post->body !!}
+                        </div>
+                        <div class="blog-grid-supplemental">
+                            <span class="blog-grid-supplemental-title">
+                                <a class="blog-grid-supplemental-category" href="#">Guide</a>
+                                - {{ $post->created_at->format('d/m/Y') }}
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                <!-- End Blog Grid -->
+            @endif       
+        @endforeach
     </div>
 
     <!-- Pagers v2 -->
@@ -194,108 +210,6 @@
     </div>
     <!-- End Pagers v2 -->
     
-    <!-- Blog Grid Thumb -->
-    <div class="full-width-container">
-        <ul class="list-inline owl-carousel-blog-grid-thumb margin-b-0">
-            <li class="item">
-                <article class="blog-grid-thumb wow zoomIn" data-wow-duration=".2" data-wow-delay=".1s">
-                    <img class="img-responsive" src="assets/img/500x500/01.jpg" alt="">
-                    <div class="blog-grid-thumb-body">
-                        <div class="blog-grid-thumb-content">
-                            <div class="blog-grid-thumb-category">Pop Culture</div>
-                            <h3 class="blog-grid-thumb-title">Sed ut perspiciatis unde</h3>
-                        </div>
-                    </div>
-                    <a class="blog-grid-thumb-link" href="#"></a>
-                </article>
-            </li>
-            <li class="item">
-                <article class="blog-grid-thumb wow zoomIn" data-wow-duration=".2" data-wow-delay=".2s">
-                    <img class="img-responsive" src="assets/img/500x500/02.jpg" alt="">
-                    <div class="blog-grid-thumb-body">
-                        <div class="blog-grid-thumb-content">
-                            <div class="blog-grid-thumb-category">Pop Culture</div>
-                            <h3 class="blog-grid-thumb-title">Nemo enim ipsam voluptatem</h3>
-                        </div>
-                    </div>
-                    <a class="blog-grid-thumb-link" href="#"></a>
-                </article>
-            </li>
-            <li class="item">
-                <article class="blog-grid-thumb wow zoomIn" data-wow-duration=".2" data-wow-delay=".3s">
-                    <img class="img-responsive" src="assets/img/500x500/03.jpg" alt="">
-                    <div class="blog-grid-thumb-body">
-                        <div class="blog-grid-thumb-content">
-                            <div class="blog-grid-thumb-category">Pop Culture</div>
-                            <h3 class="blog-grid-thumb-title">Ut enim ad minima veniam</h3>
-                        </div>
-                    </div>
-                    <a class="blog-grid-thumb-link" href="#"></a>
-                </article>
-            </li>
-            <li class="item">
-                <article class="blog-grid-thumb wow zoomIn" data-wow-duration=".2" data-wow-delay=".4s">
-                    <img class="img-responsive" src="assets/img/500x500/04.jpg" alt="">
-                    <div class="blog-grid-thumb-body">
-                        <div class="blog-grid-thumb-content">
-                            <div class="blog-grid-thumb-category">Pop Culture</div>
-                            <h3 class="blog-grid-thumb-title">Adipisci velit, sed quia</h3>
-                        </div>
-                    </div>
-                    <a class="blog-grid-thumb-link" href="#"></a>
-                </article>
-            </li>
-            <li class="item">
-                <article class="blog-grid-thumb wow zoomIn" data-wow-duration=".2" data-wow-delay=".5s">
-                    <img class="img-responsive" src="assets/img/500x500/05.jpg" alt="">
-                    <div class="blog-grid-thumb-body">
-                        <div class="blog-grid-thumb-content">
-                            <div class="blog-grid-thumb-category">Pop Culture</div>
-                            <h3 class="blog-grid-thumb-title">Vel illum qui dolorem eum</h3>
-                        </div>
-                    </div>
-                    <a class="blog-grid-thumb-link" href="#"></a>
-                </article>
-            </li>
-            <li class="item">
-                <article class="blog-grid-thumb wow zoomIn" data-wow-duration=".2" data-wow-delay=".6s">
-                    <img class="img-responsive" src="assets/img/500x500/06.jpg" alt="">
-                    <div class="blog-grid-thumb-body">
-                        <div class="blog-grid-thumb-content">
-                            <div class="blog-grid-thumb-category">Pop Culture</div>
-                            <h3 class="blog-grid-thumb-title">Totam rem aperiam</h3>
-                        </div>
-                    </div>
-                    <a class="blog-grid-thumb-link" href="#"></a>
-                </article>
-            </li>
-            <li class="item">
-                <article class="blog-grid-thumb wow zoomIn" data-wow-duration=".2" data-wow-delay=".7s">
-                    <img class="img-responsive" src="assets/img/500x500/07.jpg" alt="">
-                    <div class="blog-grid-thumb-body">
-                        <div class="blog-grid-thumb-content">
-                            <div class="blog-grid-thumb-category">Pop Culture</div>
-                            <h3 class="blog-grid-thumb-title">Iste natus error sit voluptatem</h3>
-                        </div>
-                    </div>
-                    <a class="blog-grid-thumb-link" href="#"></a>
-                </article>
-            </li>
-            <li class="item">
-                <article class="blog-grid-thumb wow zoomIn" data-wow-duration=".2" data-wow-delay=".8s">
-                    <img class="img-responsive" src="assets/img/500x500/08.jpg" alt="">
-                    <div class="blog-grid-thumb-body">
-                        <div class="blog-grid-thumb-content">
-                            <div class="blog-grid-thumb-category">Pop Culture</div>
-                            <h3 class="blog-grid-thumb-title">Ab illo inventore veritatis</h3>
-                        </div>
-                    </div>
-                    <a class="blog-grid-thumb-link" href="#"></a>
-                </article>
-            </li>
-        </ul>
-    </div>
-    <!-- End Blog Grid Thumb -->
 
     <!-- Newsletter v3 -->
     <section class="newsletter-v3 bg-color-sky-light">

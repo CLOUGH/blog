@@ -1,7 +1,7 @@
-@extends('layouts.noHeader')
+@extends('layouts.app')
 
 @section('page-title','Login')
-@section('body-class','bg-color-dark')
+@section('page-class','bg-color-dark')
 @section('content')
 
 <div class="content-sm container-xs center-block">           
@@ -10,7 +10,7 @@
         <!-- Login Form Logo -->
         <div class="margin-b-50">
             <a href="{{ url('/') }}">
-                <img class="login-form-logo" src="assets/img/logo-default-white.png" alt="Ark">
+                <img class="login-form-logo" src="{{ url('assets/img/logo-default-white.png') }}" alt="Ark">
             </a>
         </div>
         <!-- End Login Form Logo -->
@@ -23,22 +23,17 @@
                     <h1 class="login-form-title">Login</h1>
                     <p>Your credentials</p>
                 </div>
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email"  autocomplete="on">
+                <div class="form-group">
+                    <input type="email" class="form-control {{ $errors->has('email') ? ' error' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email"  autocomplete="on">
 
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
+                    @if ($errors->has('email'))                        
+                        <label class="error">{{ $errors->first('email') }}</label>
                     @endif
                 </div>
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <input type="password" class="form-control" name="password" autocomplete="on" placeholder="Password">
-
+                <div class="form-group">
+                    <input type="password" class="form-control {{ $errors->has('password') ? ' error' : '' }}" name="password" autocomplete="on" placeholder="Password">
                     @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
+                        <label class="error">{{ $errors->first('password') }}</label class="error">
                     @endif
                 </div>
                 <div class="login-form-actions">
@@ -59,5 +54,7 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript" src="js/components/login-form.js"></script>
+    <script type="text/javascript" src="{{ url('assets/plugins/validation/jquery.validate.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('assets/plugins/validation/additional-methods.min.js') }}"></script>
+    <script type="text/javascript" src="{{url('assets/scripts/components/login-form.js')}}"></script>
 @endsection

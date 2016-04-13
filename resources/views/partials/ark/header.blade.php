@@ -1,5 +1,23 @@
 <!--========== HEADER TRANSPARENT ==========-->
 <header class="header-transparent header-transparent-bb navbar-fixed-top header-sticky">
+    @if($user)
+        <div class="topbar-c theme-toggle-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul class="list-inline topbar-c-contacts">
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul class="list-inline topbar-c-actions ">
+                            <li class="topbar-c-actions-item"><a class="topbar-c-actions-link" href="{{  url('admin/dashboard') }}">Dashboard</a></li>
+                            <li class="topbar-c-actions-item"><a class="topbar-c-actions-link" href="{{ url('/logout') }}">Logout</a></li>
+                        </ul>
+                    </div>
+                </div><!--// End row -->
+            </div>
+        </div>
+    @endif
     <!-- Navbar -->
     <nav class="navbar mega-menu" role="navigation">
         <div class="container">
@@ -9,6 +27,8 @@
                     <span class="sr-only">Toggle navigation</span>
                     <span class="toggle-icon"></span>
                 </button>
+
+
 
                 <!-- Navbar Actions -->
                 <div class="navbar-actions">
@@ -37,8 +57,8 @@
                 <!-- Logo -->
                 <div class="navbar-logo">
                     <a class="navbar-logo-wrap" href="{{ url('/') }}">
-                        <img class="navbar-logo-img navbar-logo-img-white" src="{{ url('assets/img/logo-default-white.png') }}" alt="Ark">
-                        <img class="navbar-logo-img navbar-logo-img-dark" src="{{ url('assets/img/logo-default.png') }}" alt="Ark">
+                        <img class="navbar-logo-img navbar-logo-img-white" src="{{ url('assets/img/logo-default-white.png') }}" alt="">
+                        <img class="navbar-logo-img navbar-logo-img-dark" src="{{ url('assets/img/logo-default.png') }}" alt="">
                     </a>
                 </div>
                 <!-- End Logo -->

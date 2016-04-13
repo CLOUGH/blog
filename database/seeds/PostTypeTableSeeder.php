@@ -1,5 +1,6 @@
 <?php
 
+use App\PostType;
 use Illuminate\Database\Seeder;
 
 class PostTypeTableSeeder extends Seeder
@@ -11,30 +12,34 @@ class PostTypeTableSeeder extends Seeder
      */
     public function run()
     {
-       	PostType::create([
+       	PostType::firstOrCreate([
        		'name'=>'Video',
        		'slug'=> 'video',
        	]);
-       	PostType::create([
+       	PostType::firstOrCreate([
        		'name'=>'Image',
        		'slug'=> 'image',
        	]);
-       	PostType::create([
+       	PostType::firstOrCreate([
        		'name'=>'Slider',
        		'slug'=> 'slider',
        	]);
-       	PostType::create([
+       	PostType::firstOrCreate([
        		'name'=>'Audio',
        		'slug'=>'audio',
        	]);
-       	PostType::create([
+       	PostType::firstOrCreate([
        		'name'=>'Quote',
        		'slug'=>'quote',
        	]);
-       	PostType::create([
+       	PostType::firstOrCreate([
        		'name'=>'Popup Video',
        		'slug'=>'popup_video',
        	]);
+        PostType::firstOrCreate([
+          'name'=>'Standard',
+          'slug'=>'standard',
+        ]);
 
     }
 }
