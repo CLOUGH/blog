@@ -1,6 +1,6 @@
 <!--========== HEADER TRANSPARENT ==========-->
 <header class="header-transparent header-transparent-bb navbar-fixed-top header-sticky">
-    @if($user)
+    @if(!Auth::guest())
         <div class="topbar-c theme-toggle-content">
             <div class="container">
                 <div class="row">
