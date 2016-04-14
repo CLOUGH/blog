@@ -51,7 +51,7 @@ class ManagePostController extends Controller
 
         $post = Post::create($request->all());
 
-        return redirect('/admin/posts');
+        return redirect("/admin/posts/$post->id/edit");
     }
 
     /**
@@ -62,7 +62,7 @@ class ManagePostController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect("/admin/posts/$id/edit");
     }
 
     /**
@@ -102,7 +102,7 @@ class ManagePostController extends Controller
 
 
 
-        return redirect('/admin/posts');
+        return redirect("/admin/posts/$post->id/edit");
     }
 
     /**
