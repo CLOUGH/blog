@@ -16,7 +16,7 @@
 
 @section('content')
 <!--========== BREADCRUMBS V5 ==========-->
-<section class="breadcrumbs-v5 bg-position-fixed breadcrumbs-v5-bg-img-v4">
+<section class="breadcrumbs-v5 bg-position-center-center breadcrumbs-v5-bg-img-v4">
     <div class="container">
         <h2 class="breadcrumbs-v5-title">Blog Posts</h2>
         <span class="breadcrumbs-v5-subtitle">Here are few topics that intrests me and I hope you find them intresting too.</span>

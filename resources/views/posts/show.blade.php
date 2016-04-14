@@ -16,7 +16,7 @@
 
 @section('content')
 	<!--========== BREADCRUMBS V5 ==========-->
-	<section class="breadcrumbs-v5 bg-position-fixed breadcrumbs-v5-bg-img-v4">
+	<section class="breadcrumbs-v5 breadcrumbs-v5-bg-img-v4 bg-position-center-center">
 	    <div class="container">
 	        <h2 class="breadcrumbs-v5-title">Blog Post</h2>
 	        <span class="breadcrumbs-v5-subtitle"></span>
@@ -33,7 +33,7 @@
                     <!-- Blog Grid -->
                     <article class="blog-grid margin-b-30">
                         @if($post->type->name=='image')
-	                        <img class="img-responsive" src="assets/img/1920x1080/20.jpg" alt="">
+	                        <img class="img-responsive" src="{{ url('assets/img/1920x1080/20.jpg') }}" alt="">
 	                    @endif
 
                         <!-- Blog Grid Content -->
@@ -68,7 +68,7 @@
                                 <div class="col-md-4 md-margin-b-30">
                                     <!-- Blog Grid -->
                                     <article class="blog-grid">
-                                        <img class="img-responsive" src="assets/img/970x647/19.jpg" alt="">
+                                        <img class="img-responsive" src="{{ url('assets/img/970x647/19.jpg') }}" alt="">
                                         <div class="blog-grid-content">
                                             <h2 class="blog-grid-title-sm"><a class="blog-grid-title-link" href="blog_single_standard.html">Architecto beatae vitae dicta sunt explicabo</a></h2>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In finibus lorem vel.</p>
@@ -90,10 +90,10 @@
                                             <!-- Wrapper for slides -->
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="item active">
-                                                    <img class="img-responsive" src="assets/img/970x647/28.jpg" alt="">
+                                                    <img class="img-responsive" src="{{ url('assets/img/970x647/28.jpg') }}" alt="">
                                                 </div>
                                                 <div class="item">
-                                                    <img class="img-responsive" src="assets/img/970x647/17.jpg" alt="">
+                                                    <img class="img-responsive" src="{{ url('assets/img/970x647/17.jpg') }}" alt="">
                                                 </div>
                                             </div>
                                             <!-- End Wrapper for slides -->
@@ -127,7 +127,7 @@
                                 <div class="col-md-4">
                                     <!-- Blog Grid -->
                                     <article class="blog-grid">
-                                        <img class="img-responsive" src="assets/img/970x647/18.jpg" alt="">
+                                        <img class="img-responsive" src="{{ url('assets/img/970x647/18.jpg') }}" alt="">
                                         <div class="blog-grid-content">
                                             <h2 class="blog-grid-title-sm"><a class="blog-grid-title-link" href="blog_single_standard.html">Sed quia consequuntur magni dolores</a></h2>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In finibus lorem vel.</p>
@@ -187,7 +187,7 @@
                                 <!-- Single Post Comment -->
                                 <div class="blog-single-post-comment blog-single-post-comment-first-child">
                                     <div class="blog-single-post-comment-media">
-                                        <img class="blog-single-post-comment-media-img radius-circle" src="assets/img/members/04.jpg" alt="">
+                                        <img class="blog-single-post-comment-media-img radius-circle" src="{{ url('assets/img/members/04.jpg') }}" alt="">
                                     </div>
                                     <div class="blog-single-post-comment-content">
                                         <h4 class="blog-single-post-comment-username"><a href="#">Katrina Ls.</a></h4>
@@ -228,7 +228,7 @@
                                     <!-- Single Post Comment -->
                                     <div class="blog-single-post-comment">
                                         <div class="blog-single-post-comment-media">
-                                            <img class="blog-single-post-comment-media-img radius-circle" src="assets/img/members/02.jpg" alt="">
+                                            <img class="blog-single-post-comment-media-img radius-circle" src="{{ url('assets/img/members/02.jpg') }}" alt="">
                                         </div>
                                         <div class="blog-single-post-comment-content">
                                             <h4 class="blog-single-post-comment-username"><a href="#">Sara Glaser</a></h4>
@@ -268,7 +268,7 @@
                                 <!-- Single Post Comment -->
                                 <div class="blog-single-post-comment">
                                     <div class="blog-single-post-comment-media">
-                                        <img class="blog-single-post-comment-media-img radius-circle" src="assets/img/members/03.jpg" alt="">
+                                        <img class="blog-single-post-comment-media-img radius-circle" src="{{ url('assets/img/members/03.jpg') }}" alt="">
                                     </div>
                                     <div class="blog-single-post-comment-content">
                                         <h4 class="blog-single-post-comment-username"><a href="#">Robert Smith</a></h4>
@@ -321,7 +321,7 @@
                             <!-- Latest Tutorials -->
                             <article class="latest-tuts">
                                 <div class="latest-tuts-media">
-                                    <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/06.jpg" alt="">
+                                    <img class="latest-tuts-media-img radius-circle" src="{{ url('assets/img/250x250/06.jpg') }}" alt="">
                                 </div>
                                 <div class="latest-tuts-content">
                                     <h5 class="latest-tuts-content-title"><a href="#">Visual brand designing</a></h5>
@@ -330,7 +330,7 @@
                             </article>
                             <article class="latest-tuts">
                                 <div class="latest-tuts-media">
-                                    <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/11.jpg" alt="">
+                                    <img class="latest-tuts-media-img radius-circle" src="{{ url('assets/img/250x250/11.jpg') }}" alt="">
                                 </div>
                                 <div class="latest-tuts-content">
                                     <h5 class="latest-tuts-content-title"><a href="#">Photoshop: Image Cropping</a></h5>
@@ -339,7 +339,7 @@
                             </article>
                             <article class="latest-tuts">
                                 <div class="latest-tuts-media">
-                                    <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/08.jpg" alt="">
+                                    <img class="latest-tuts-media-img radius-circle" src="{{ url('assets/img/250x250/08.jpg') }}" alt="">
                                 </div>
                                 <div class="latest-tuts-content">
                                     <h5 class="latest-tuts-content-title"><a href="#">Video editing</a></h5>
@@ -348,7 +348,7 @@
                             </article>
                             <article class="latest-tuts">
                                 <div class="latest-tuts-media">
-                                    <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/09.jpg" alt="">
+                                    <img class="latest-tuts-media-img radius-circle" src="{{ url('assets/img/250x250/09.jpg') }}" alt="">
                                 </div>
                                 <div class="latest-tuts-content">
                                     <h5 class="latest-tuts-content-title"><a href="#">Web development technologies</a></h5>
@@ -357,7 +357,7 @@
                             </article>
                             <article class="latest-tuts">
                                 <div class="latest-tuts-media">
-                                    <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/10.jpg" alt="">
+                                    <img class="latest-tuts-media-img radius-circle" src="{{ url('assets/img/250x250/10.jpg') }}" alt="">
                                 </div>
                                 <div class="latest-tuts-content">
                                     <h5 class="latest-tuts-content-title"><a href="#">The section element - HTML</a></h5>
@@ -366,7 +366,7 @@
                             </article>
                             <article class="latest-tuts">
                                 <div class="latest-tuts-media">
-                                    <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/07.jpg" alt="">
+                                    <img class="latest-tuts-media-img radius-circle" src="{{ url('assets/img/250x250/07.jpg') }}" alt="">
                                 </div>
                                 <div class="latest-tuts-content">
                                     <h5 class="latest-tuts-content-title"><a href="#">Creata a logo using Adobe Illustrator</a></h5>
@@ -430,7 +430,7 @@
                             <ul class="list-unstyled twitter-feed">
                                 <li class="twitter-feed-item">
                                     <div class="twitter-feed-media">
-                                        <img class="twitter-feed-media-img radius-circle" src="assets/img/250x250/01.jpg" alt="">
+                                        <img class="twitter-feed-media-img radius-circle" src="{{ url('assets/img/250x250/01.jpg') }}" alt="">
                                     </div>
                                     <div class="twitter-feed-content">
                                         <strong class="twitter-feed-profile-name">Dr.Cafee</strong>
@@ -442,7 +442,7 @@
                                 </li>
                                 <li class="twitter-feed-item">
                                     <div class="twitter-feed-media">
-                                        <img class="twitter-feed-media-img radius-circle" src="assets/img/250x250/04.jpg" alt="">
+                                        <img class="twitter-feed-media-img radius-circle" src="{{ url('assets/img/250x250/04.jpg') }}" alt="">
                                     </div>
                                     <div class="twitter-feed-content">
                                         <strong class="twitter-feed-profile-name">Nickos</strong>
@@ -454,7 +454,7 @@
                                 </li>
                                 <li class="twitter-feed-item">
                                     <div class="twitter-feed-media">
-                                        <img class="twitter-feed-media-img radius-circle" src="assets/img/250x250/02.jpg" alt="">
+                                        <img class="twitter-feed-media-img radius-circle" src="{{ url('assets/img/250x250/02.jpg') }}" alt="">
                                     </div>
                                     <div class="twitter-feed-content">
                                         <strong class="twitter-feed-profile-name">PhotoStudio</strong>
@@ -466,7 +466,7 @@
                                 </li>
                                 <li class="twitter-feed-item">
                                     <div class="twitter-feed-media">
-                                        <img class="twitter-feed-media-img radius-circle" src="assets/img/250x250/03.jpg" alt="">
+                                        <img class="twitter-feed-media-img radius-circle" src="{{ url('assets/img/250x250/03.jpg') }}" alt="">
                                     </div>
                                     <div class="twitter-feed-content">
                                         <strong class="twitter-feed-profile-name">Mr.Dog</strong>
@@ -484,7 +484,7 @@
 
                     <!-- Featured Article -->
                     <a class="featured-article margin-b-30" href="#">
-                        <img class="img-responsive" src="assets/img/970x647/26.jpg" alt="">
+                        <img class="img-responsive" src="{{ url('assets/img/970x647/26.jpg') }}" alt="">
                         <div class="featured-article-content-wrap">
                             <div class="featured-article-content">
                                 <p class="featured-article-content-title">Preview: First look at new device</p>
