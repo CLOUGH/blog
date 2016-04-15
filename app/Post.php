@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Tags;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,6 +32,10 @@ class Post extends Model
 
     public function updatedBy(){
     	return $this->belongsTo(User::class,'updated_by');
+    }
+
+    public function tags(){
+        return $this->morphToMany(App\Tags::class, 'taggables');
     }
 
     public static function boot()
