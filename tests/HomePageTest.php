@@ -8,6 +8,7 @@ class HomePageTest extends TestCase
 {
     public function testHomePageLoads(){
     	$this->visit('/')
-    		->see("Hi I'm Warren. I'm Software Developer.");
+    		->seeStatusCode(200)
+    		->see("Welcome to my website");
     }
 }

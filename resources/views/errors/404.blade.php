@@ -4,7 +4,7 @@
 @endsection
 
 @section('page-footer')
-    @include('partials.ark.footer')
+
 @endsection
 @section('wrapper-class','wrapper-top-space animsition')
 @section('content')

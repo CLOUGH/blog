@@ -41,13 +41,13 @@
                             <h2 class="blog-grid-title-lg"><a class="blog-grid-title-link" href="{{ url("posts/$post->id") }}">{{ $post->title }}</a></h2>
                             {!! $post->body !!}
 
-                            <span class="blog-single-post-source">Source: <a href="#">Prothemes</a></span>
+                            <!-- <span class="blog-single-post-source">Source: <a href="#">Prothemes</a></span> -->
 
                             <!-- Blog Grid Tags -->
                             <ul class="list-inline blog-sidebar-tags">
-                                <li><a class="radius-50" href="#">envato</a></li>
-                                <li><a class="radius-50" href="#">featured</a></li>
-                                <li><a class="radius-50" href="#">wordpress</a></li>
+                                @foreach($post->tags as $tag)
+                                    <li><a class="radius-50" href="#">{{ $tag->name }}</a></li>
+                                @endforeach
                             </ul>
                             <!-- End Blog Grid Tags -->
                         </div>

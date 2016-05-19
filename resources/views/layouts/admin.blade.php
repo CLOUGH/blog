@@ -11,6 +11,8 @@
 
     <link href="{{ url('admin-assets/css/animate.css') }}" rel="stylesheet">
     <link href="{{ url('admin-assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url('css/app.css') }}" rel="stylesheet">
+    <link href="{{ url('css/all.css') }}" rel="stylesheet">
     @yield('header')
 </head>
 
@@ -33,6 +35,7 @@
 <!-- Custom and plugin javascript -->
 <script src="{{ url('admin-assets/js/inspinia.js') }}"></script>
 <script src="{{ url('admin-assets/js/plugins/pace/pace.min.js') }}"></script>
+<script src="{{ url('js/all.js') }}"></script>
 
 @yield('scripts')
 </body>

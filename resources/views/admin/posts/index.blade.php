@@ -64,6 +64,7 @@
 												<div class="btn-group">
 		                                            <a href="{{ url("posts/$post->id") }}" class="btn-white btn btn-xs">View</a>
 		                                            <a href="{{ url("admin/posts/$post->id/edit") }}"class="btn-white btn btn-xs">Edit</a>
+		                                            <a onclick="deletePost({{ $post->id }})"}} href="#" class="btn-danger btn btn-xs">Delete</a>
 		                                        </div>
 											</td>
 										</tr>
@@ -102,6 +103,11 @@
 	            radioClass: 'iradio_square-green',
 	        });
 	    });
+
+	    var deletePost = function($postId){
+
+	    	return false;
+	    }
 	</script>
 
 @endsection

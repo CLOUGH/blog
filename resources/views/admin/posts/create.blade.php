@@ -7,7 +7,7 @@
 	<link href="{{ url('admin-assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css') }}" rel="stylesheet">
 	<link href="{{ url('css/plugins/datapicker/datepicker3.css') }}" rel="stylesheet">
 	<link href="{{ url('css/plugins/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet">
-
+	<link href="{{ url('admin-assets/css/plugins/select2/select2.min.css') }}" rel="stylesheet">
 @endsection
 @section('content')
 	<div class="row wrapper border-bottom white-bg page-heading">
@@ -30,52 +30,7 @@
 	    </div>
 	</div>
 	<div class="wrapper wrapper-content animated fadeIn">	
-
-		<div class="ibox">
-			<div class="ibox-content">
-				<form method="POST" action="{{ url('admin/posts/')}}">
-
-					{!! csrf_field() !!}
-					<div class="form-group">
-						<label>Title</label>
-						<input class="form-control" type="text" name="title" placeholder="Post Title" value="{{ old('title') }}">
-					</div>
-					<div class="row">
-						
-						<div class="col-lg-8">
-							<div class="form-group">
-								<label>Publish On</label>
-								<div class="input-group date">
-	                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" value="03/04/2014" name="publish_on">
-	                            </div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<label class="checkbox" style="margin-top: 20px;">
-								<input type="checkbox" class="i-checks" {{ old('published')==true ? 'checked': '' }} name="published" value="1"> 
-								Publish
-							</label>
-						</div>
-					</div>
-					<div class="form-group">
-						<label>Post Type</label>
-						<select class="form-control" name="post_type_id" value="{{ old('post_type_id') }}">
-							@foreach($postTypes as $postType)
-								<option value="{{ $postType->id }}" {{ $postType->slug =='standard' ? 'selected="selected"' : ""  }}>{{ $postType->name }}</option>
-							@endforeach 
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Body</label>
-						<textarea class="form-control summernote" name="body">{{ old('body') }}</textarea>
-					</div>
-
-					<div class="text-right">
-						<button type="submit" class="btn btn-primary">Save</button>
-					</div>
-				</form>
-			</div>
-		</div>		
+		@include('admin.posts.partials.form')	
 	</div>
 
 @endsection
@@ -88,34 +43,6 @@
     <script src="{{ url('admin-assets/js/plugins/fullcalendar/moment.min.js') }}"></script>
     <!-- Date range picker -->
     <script src="{{ url('admin-assets/js/plugins/datapicker/bootstrap-datepicker.js') }}"></script>
-
-
-
-    <script>
-        $(document).ready(function(){
-        	$('.i-checks').iCheck({
-	            checkboxClass: 'icheckbox_square-green',
-	            radioClass: 'iradio_square-green',
-	        });
-            $('.summernote').summernote({
-            	placeholder: 'Post body.'
-            });
-            $('.input-group.date').datepicker({
-                todayBtn: "linked",
-                keyboardNavigation: false,
-                forceParse: false,
-                calendarWeeks: true,
-                autoclose: true
-            });
-       });
-        var edit = function() {
-            $('.click2edit').summernote({focus: true});
-        };
-        var save = function() {
-            var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
-            $('.click2edit').destroy();
-        };
-    </script>
-	<!-- iCheck -->
-
+	<script src="{{ url('admin-assets/js/plugins/select2/select2.full.min.js') }}"></script>
+    <script src="{{ url('js/manage/post-form.js') }}"></script>
 @endsection

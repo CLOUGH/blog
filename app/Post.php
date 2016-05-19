@@ -2,7 +2,8 @@
 
 namespace App;
 
-use App\Tags;
+use App\Tag;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,6 +18,12 @@ class Post extends Model
     protected $attributes = [
        'published' => false
     ];
+    protected $dates = ['publish_on'];
+
+    public function setPublishOnAttribute($value){
+        $this->attributes['publish_on'] = Carbon::parse($value);
+    }
+    
     public function image(){
     	return $this->hasOne('App\Image','mediaable_id','id')
     		->where('mediaable_type','App\Post');
@@ -35,7 +42,7 @@ class Post extends Model
     }
 
     public function tags(){
-        return $this->morphToMany(App\Tags::class, 'taggables');
+        return $this->morphToMany(Tag::class, 'taggables');
     }
 
     public static function boot()

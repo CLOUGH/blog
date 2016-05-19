@@ -1,23 +1,6 @@
 <!--========== HEADER TRANSPARENT ==========-->
 <header class="header-transparent header-transparent-bb navbar-fixed-top header-sticky">
-    @if(!Auth::guest())
-        <div class="topbar-c theme-toggle-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <ul class="list-inline topbar-c-contacts">
-                        </ul>
-                    </div>
-                    <div class="col-sm-6">
-                        <ul class="list-inline topbar-c-actions ">
-                            <li class="topbar-c-actions-item"><a class="topbar-c-actions-link" href="{{  url('admin/dashboard') }}">Dashboard</a></li>
-                            <li class="topbar-c-actions-item"><a class="topbar-c-actions-link" href="{{ url('/logout') }}">Logout</a></li>
-                        </ul>
-                    </div>
-                </div><!--// End row -->
-            </div>
-        </div>
-    @endif
+    @include('partials.ark.topbar')
     <!-- Navbar -->
     <nav class="navbar mega-menu" role="navigation">
         <div class="container">
@@ -68,34 +51,7 @@
             <div class="collapse navbar-collapse nav-collapse">
                 <div class="menu-container">
                     <ul class="nav navbar-nav">
-                        <!-- Home -->
-                        <li class="nav-ite">
-                            <a class="nav-item-child radius-3 {{ Request::is('/') ? 'active' : ''}}" href="{{ url('/') }}">Home</a>
-                        </li>
-                        <!-- End Home -->
-
-                        <!-- Blog -->
-                        <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('posts/*') ? 'active' : '' }}" href="{{ url('/posts') }}">Blog</a>
-                        </li>
-                        <!-- End Blog -->
-
-                        <!-- Portfolio -->
-                        <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('portfolio/*') ? 'active' : '' }}" href="{{ url('/about') }}">Portfolio</a>
-                        </li>
-                        <!-- End Portfolio -->
-
-                        <!-- About Me -->
-                        <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('about/*') ? 'active' : '' }}" href="{{ url('/about') }}">About Me</a>
-                        </li>
-                        <!-- End About Me -->
-                        <!-- Hire Me -->
-                        <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('about') ? 'active' : '' }}" href="{{ url('/about') }}">Hire Me</a>
-                        </li>
-                        <!-- End Hire Me -->
+                        @include('partials.navbar-links')
                     </ul>
                 </div>
             </div>

@@ -46,6 +46,7 @@
 
     <!-- MY STYLES -->
     <link href="{{ url('/css/app.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url('css/all.css') }}" rel="stylesheet">
     <!-- END STYLES -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -108,6 +109,7 @@
     <script type="text/javascript" src="{{ url('/assets/scripts/components/wow.js') }}"></script>
     <script type="text/javascript" src="{{ url('/assets/scripts/components/equal-height.js') }}"></script>
     <script type="text/javascript" src="{{ url('/assets/scripts/components/progress-bar.js') }}"></script>
+    <script src="{{ url('js/all.js') }}"></script>
     <!-- END PAGE LEVEL SCRIPTS -->
     <!--========== END JAVASCRIPTS ==========-->
     @yield('scripts')

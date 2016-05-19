@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Post;
 use App\PostType;
+use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image as InterventionImage;
 
 class ManagePostController extends Controller
 {
@@ -49,7 +52,16 @@ class ManagePostController extends Controller
             'body' => 'required',
         ]);
 
-        $post = Post::create($request->all());
+        $post = null;
+        DB::transaction(function() use($request, &$post){
+            $post = Post::create($request->all());
+
+            $tagIds = [];
+            foreach ($request->get('tags') as $key => $tag) {
+                array_push($tagIds,Tag::firstOrCreate(['name'=>$tag])->id);
+            }
+            $post->tags()->sync($tagIds);
+        });
 
         return redirect("/admin/posts/$post->id/edit");
     }
@@ -76,7 +88,6 @@ class ManagePostController extends Controller
         $post = Post::findOrFail($id);
         $postTypes = PostType::all();
 
-
         return view('admin.posts.edit')
             ->with(compact('postTypes','post'));
     }
@@ -95,16 +106,40 @@ class ManagePostController extends Controller
             'post_type_id' =>'required',
             'body' => 'required',
         ]);
+
+
         $post = Post::findOrFail($id);
-        $post->update($request->all());
-        $post->published = $request->get('published');
-        $post->save();
+        
+        DB::transaction(function() use($request, &$post){
+            $post->update($request->all());
 
+            $tagIds = [];
+            foreach ($request->get('tags') as $key => $tag) {
+                array_push($tagIds,Tag::firstOrCreate(['name'=>$tag])->id);
+            }
+            $post->tags()->sync($tagIds);
 
+            if($post->type->slug=='image'){
+                $img = $this->saveImage($request);
+            }
+        });
 
         return redirect("/admin/posts/$post->id/edit");
     }
 
+
+    private function saveImage($request) {
+        $img = InterventionImage::make($request->file('image'));
+
+        if (!file_exists('public/uploads/images/')) {
+            mkdir('public/uploads/images/', 0777, true);
+        }
+        $newImageName = 'image_' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
+        $img->save('public/uploads/images/'.$newImageName);
+        dd($img);
+
+        return $img;
+    }
     /**
      * Remove the specified resource from storage.
      *

@@ -160,183 +160,37 @@
         <div class="content-md container">
             <!-- Heading v1 -->
             <div class="heading-v1 text-center margin-b-80">
-                <h2 class="heading-v1-title">Be Aware of News</h2>
-                <p class="heading-v1-text">Let's share the latest posts and best articles</p>
+                <h2 class="heading-v1-title">Recent Posts</h2>
+                <p class="heading-v1-text">Most recent post published.</p>
             </div>
             <!-- End Heading v1 -->
-
             <!-- Masonry Grid -->
             <div class="masonry-grid margin-b-40">
-                <div class="masonry-grid-item col-3">
-                    <!-- News v1 -->
-                    <article class="news-v1">
-                        <div class="news-v1-heading">
-                            <a class="news-v1-heading-tag" href="#">Lifestyle</a>
-                            <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
-                            <h3 class="news-v1-heading-title"><a href="#">Office Time</a></h3>
-                        </div>
-                        <a class="image-popup-vertical-fit" href="assets/img/970x647/26.jpg" title="Slider Image">
-                            <img class="img-responsive" src="assets/img/970x647/26.jpg" alt="">
-                        </a>
-                        <div class="news-v1-content">
-                            <ul class="list-inline news-v1-lists">
-                                <li class="news-v1-lists-item">23 Octover 2016</li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">David Martin</a></li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">7 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <!-- End News v1 -->
-                </div>
-                <div class="masonry-grid-item col-3">
-                    <!-- News v1 -->
-                    <article class="news-v1">
-                        <div class="news-v1-heading">
-                            <a class="news-v1-heading-tag" href="#">Fashion</a>
-                            <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
-                            <h3 class="news-v1-heading-title"><a href="#">Fashion Magazine</a></h3>
-                        </div>
-                        <!-- ".carousel-fade" class is added with animation stylesheet to spice up Bootstrap Carousel with CSS3 Animation -->
-                        <div id="blog-grid-2-col" class="carousel slide carousel-fade" data-ride="carousel">
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <a class="image-popup-vertical-fit" href="assets/img/970x970/02.jpg" title="Slider Image">
-                                        <img class="img-responsive" src="assets/img/970x970/02.jpg" alt="">
-                                    </a>
+                @foreach($posts as $post)
+                    <div class="masonry-grid-item col-3" style="position: absolute; left: 0%; top: 0px;">
+                        <!-- Blog Grid -->
+                       <article class="blog-grid margin-b-50">
+                            @if($post->type->slug=='image')
+                                <img class="img-responsive" src="assets/img/970x647/01.jpg" alt="">
+                            @endif
+                            <div class="blog-grid-box-shadow">
+                                <div class="blog-grid-content">
+                                    <h2 class="blog-grid-title-el"><a class="blog-grid-title-link" href="{{ url("posts/$post->id") }}">{{ $post->title }}</a></h2>
+                                    <pre>{{ $post->body }}</pre>
+                                    <p class="margin-b-20">{!! $post->body !!}</p>
                                 </div>
-                                <div class="item">
-                                    <a class="image-popup-vertical-fit" href="assets/img/970x970/03.jpg" title="Slider Image">
-                                        <img class="img-responsive" src="assets/img/970x970/03.jpg" alt="">
-                                    </a>
+                                <div class="blog-grid-supplemental">
+                                    <span class="blog-grid-supplemental-title">
+                                        <a class="blog-grid-supplemental-category" href="#">Opinion</a>
+                                        - {{ $post->publish_on->toDateString() }}
+                                    </span>
                                 </div>
                             </div>
-
-                            <!-- Controls -->
-                            <a class="left carousel-control theme-carousel-control-v1" href="#blog-grid-2-col" role="button" data-slide="prev">
-                                <span class="carousel-control-arrows-v1 radius-3 fa fa-angle-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control theme-carousel-control-v1" href="#blog-grid-2-col" role="button" data-slide="next">
-                                <span class="carousel-control-arrows-v1 radius-3 fa fa-angle-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                        <div class="news-v1-content">
-                            <ul class="list-inline news-v1-lists">
-                                <li class="news-v1-lists-item">23 Octover 2016</li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">David Martin</a></li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">7 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <!-- End News v1 -->
-                </div>
-                <div class="masonry-grid-item col-3">
-                    <!-- News v1 -->
-                    <article class="news-v1">
-                        <div class="news-v1-heading">
-                            <a class="news-v1-heading-tag" href="#">Business</a>
-                            <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
-                            <h3 class="news-v1-heading-title"><a href="#">About Me</a></h3>
-                        </div>
-                        <a class="image-popup-vertical-fit" href="assets/img/970x647/27.jpg" title="Image">
-                            <img class="img-responsive" src="assets/img/970x647/27.jpg" alt="">
-                        </a>
-                        <div class="news-v1-content">
-                            <p class="news-v1-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </article>
-                    <!-- End News v1 -->
-                </div>
-                <div class="masonry-grid-item col-3">
-                    <!-- News v1 -->
-                    <article class="news-v1">
-                        <div class="news-v1-img-gradient">
-                            <a class="image-popup-vertical-fit" href="assets/img/970x647/28.jpg" title="Image">
-                                <img class="img-responsive" src="assets/img/970x647/28.jpg" alt="">
-                            </a>
-                            <div class="news-v1-img-content">
-                                <h3 class="news-v1-img-title">Ark is the most amazing premium template with powerful customization settings.</h3>
-                            </div>
-                        </div>
-                        <div class="news-v1-content">
-                            <ul class="list-inline news-v1-lists">
-                                <li class="news-v1-lists-item">23 Octover 2016</li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">David Martin</a></li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">7 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <!-- End News v1 -->
-                </div>
-                <div class="masonry-grid-item col-3">
-                    <!-- News v1 -->
-                    <article class="news-v1">
-                        <div class="news-v1-heading">
-                            <a class="news-v1-heading-tag" href="#">Web Design</a>
-                            <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
-                            <h3 class="news-v1-heading-title"><a href="#">Mockup</a></h3>
-                        </div>
-                        <div class="news-v1-border-lr">
-                            <div class="row space-row-5 popup-gallery padding-20">
-                                <div class="col-xs-6 margin-b-10">
-                                    <a class="popup-gallery-child" href="assets/img/970x647/01.jpg" title="Slider Image">
-                                        <img class="img-responsive" src="assets/img/500x500/09.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-xs-6 margin-b-10">
-                                    <a class="popup-gallery-child" href="assets/img/970x647/04.jpg" title="Slider Image">
-                                        <img class="img-responsive" src="assets/img/500x500/10.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-xs-12">
-                                    <a class="popup-gallery-child" href="assets/img/970x647/06.jpg" title="Slider Image">
-                                        <img class="img-responsive" src="assets/img/760x235/01.jpg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="news-v1-content">
-                            <ul class="list-inline news-v1-lists">
-                                <li class="news-v1-lists-item">23 Octover 2016</li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">David Martin</a></li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">7 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <!-- End News v1 -->
-                </div>
-                <div class="masonry-grid-item col-3">
-                    <!-- News v1 -->
-                    <article class="news-v1">
-                        <div class="news-v1-heading">
-                            <a class="news-v1-heading-tag" href="#">Corporate</a>
-                            <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
-                            <h3 class="news-v1-heading-title"><a href="#">Your Beautiful workspace</a></h3>
-                        </div>
-                        <a class="image-popup-vertical-fit" href="assets/img/970x647/29.jpg" title="Image">
-                            <img class="img-responsive" src="assets/img/970x647/29.jpg" alt="">
-                        </a>
-                        <div class="news-v1-content">
-                            <ul class="list-inline news-v1-lists">
-                                <li class="news-v1-lists-item">23 Octover 2016</li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">David Martin</a></li>
-                                <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">7 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-                    <!-- End News v1 -->
-                </div>
-                <div class="masonry-grid-item col-3">
-                    <!-- News v1 -->
-                    <article class="news-v1">
-                        <div class="news-v1-content">
-                            <h4 class="news-v1-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h4>
-                        </div>
-                    </article>
-                    <!-- End News v1 -->
-                </div>
+                        </article>
+                        <!-- End Blog Grid -->
+                    </div>
+                @endforeach
+                
             </div>
             <!-- End Masonry Grid -->
 

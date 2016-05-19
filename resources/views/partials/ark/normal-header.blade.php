@@ -1,5 +1,6 @@
 <!--========== HEADER ==========-->
 <header class="header navbar-fixed-top header-sticky">
+    @include('partials.ark.topbar')
     <!-- Search Field -->
     <div class="search-field">
         <div class="container">
@@ -29,12 +30,6 @@
                         </div>
                     </div>
                     <!-- End Search -->
-
-                    <!-- Sidebar -->
-                    <a class="navbar-actions-shrink sidebar-trigger" href="javascript:void(0);">
-                        <span class="sidebar-trigger-icon"></span>
-                    </a>
-                    <!-- End Sidebar -->
                 </div>
                 <!-- End Navbar Actions -->
 
@@ -51,34 +46,7 @@
             <div class="collapse navbar-collapse nav-collapse">
                 <div class="menu-container">
                     <ul class="nav navbar-nav">
-                        <!-- Home -->
-                        <li class="nav-ite">
-                            <a class="nav-item-child radius-3 {{ Request::is('/') ? 'active' : ''}}" href="{{ url('/') }}">Home</a>
-                        </li>
-                        <!-- End Home -->
-
-                        <!-- Blog -->
-                        <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('posts/*') ? 'active' : '' }}" href="{{ url('/posts') }}">Blog</a>
-                        </li>
-                        <!-- End Blog -->
-
-                        <!-- Portfolio -->
-                        <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('portfolio/*') ? 'active' : '' }}" href="{{ url('/about') }}">Portfolio</a>
-                        </li>
-                        <!-- End Portfolio -->
-
-                        <!-- About Me -->
-                        <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('about/*') ? 'active' : '' }}" href="{{ url('/about') }}">About Me</a>
-                        </li>
-                        <!-- End About Me -->
-                        <!-- Hire Me -->
-                        <li class="nav-item">
-                            <a class="nav-item-child radius-3 {{ Request::is('about') ? 'active' : '' }}" href="{{ url('/about') }}">Hire Me</a>
-                        </li>
-                        <!-- End Hire Me -->
+                        @include('partials.navbar-links')
                     </ul>
                 </div>
             </div>

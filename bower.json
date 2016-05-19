@@ -1,0 +1,17 @@
+{
+  "name": "blog",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/CLOUGH/blog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "prism": "^1.4.1"
+  }
+}

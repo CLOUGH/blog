@@ -41,7 +41,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('password/reset', 'Auth\PasswordController@reset');
 
     Route::resource('posts','PostController',['only'=>['index','show']]);
-    Route::get('/', 'PagesController@home');
+    Route::get('/', 'HomeController@index');
+
+    Route::group(['prefix'=>'api'], function(){
+        Route::get('/tags','TagController@index');
+    });
 
     Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
         Route::get('/', function(){

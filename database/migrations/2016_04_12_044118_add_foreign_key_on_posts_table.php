@@ -13,7 +13,7 @@ class AddForeignKeyOnPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('post_type_id')->unsigned();
+            $table->integer('post_type_id')->unsigned()->nullable();
             $table->foreign('post_type_id')->references('id')->on('post_types');
         });
     }
