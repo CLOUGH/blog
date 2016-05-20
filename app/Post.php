@@ -43,7 +43,7 @@ class Post extends Model
 
     public function tags(){
         return $this->morphToMany(Tag::class, 'taggables');
-    }
+    }   
 
     public static function boot()
     {
@@ -59,5 +59,25 @@ class Post extends Model
         {
             $post->updated_by = Auth::user()->id;
         });
+    }
+
+    public function excerpt($wordLimit=100){
+        $dom = new \DOMDocument();
+        $wordLimitRegex = "#^([\S]*\s*){0,$wordLimit}#";
+        $filterHtmlRegex = "#<(\/*?)(?!(em|p|br\s*\/|strong))\w+?.+?>#";
+       
+        $stripedHtml = preg_replace($filterHtmlRegex,'', $this->body);
+        preg_match($wordLimitRegex,$stripedHtml , $matches);
+
+        if(strlen($matches[0])==strlen($stripedHtml)){
+            return $stripedHtml;          
+        }
+
+        $moreLink = "<a href='".url("posts/$this->id")."'>Read More</a>";
+        $domString = "<p>".trim($matches[0])."... $moreLink</p>";
+        //dd($domString);
+        $dom->loadHTML($domString);
+        
+        return $dom->saveHTML();
     }
 }

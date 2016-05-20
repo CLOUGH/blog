@@ -151,10 +151,6 @@
         </div>
     </div>
     <!-- End Work v1 -->
-    
-
-    
-
     <!-- News v1 -->
     <div class="bg-color-sky-light">
         <div class="content-md container">
@@ -176,8 +172,7 @@
                             <div class="blog-grid-box-shadow">
                                 <div class="blog-grid-content">
                                     <h2 class="blog-grid-title-el"><a class="blog-grid-title-link" href="{{ url("posts/$post->id") }}">{{ $post->title }}</a></h2>
-                                    <pre>{{ $post->body }}</pre>
-                                    <p class="margin-b-20">{!! $post->body !!}</p>
+                                    <p class="margin-b-20">{!! $post->excerpt() !!}</p>
                                 </div>
                                 <div class="blog-grid-supplemental">
                                     <span class="blog-grid-supplemental-title">

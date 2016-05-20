@@ -186,7 +186,7 @@
                     <div class="blog-grid-box-shadow">
                         <div class="blog-grid-content">
                             <h2 class="blog-grid-title-el"><a class="blog-grid-title-link" href="{{ url("posts/$post->id") }}">{{ $post->title }}</a></h2>
-                            {!! $post->body !!}
+                            {!! $post->excerpt(300) !!}
                         </div>
                         <div class="blog-grid-supplemental">
                             <span class="blog-grid-supplemental-title">
