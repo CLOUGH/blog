@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-    	$posts = Post::where('published','=','1')
+    	$posts = Post::published()
             // ->where('publish_on','>=', Carbon::now())
             ->orderBy('publish_on')
     		->get();

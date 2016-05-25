@@ -191,7 +191,7 @@
 
             <!-- Button -->
             <div class="center-block">
-                <a class="btn-white-bg btn-base-md radius-3" href="shortcodes_news.html">View More</a>
+                <a class="btn-white-bg btn-base-md radius-3" href="{{ url('posts') }}">View More</a>
             </div>
             <!-- Button -->
         </div>

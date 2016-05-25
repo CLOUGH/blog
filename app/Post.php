@@ -61,6 +61,9 @@ class Post extends Model
         });
     }
 
+    public function scopePublished($query){
+        return $query->where('published','1');
+    }
     public function excerpt($wordLimit=100){
         $dom = new \DOMDocument();
         $wordLimitRegex = "#^([\S]*\s*){0,$wordLimit}#";

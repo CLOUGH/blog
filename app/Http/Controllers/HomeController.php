@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('publish_on')->take(6)->get();
+        $posts = Post::published()->orderBy('publish_on')->take(6)->get();
         return view('home')
             ->with(compact('posts'));
     }
