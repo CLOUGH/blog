@@ -204,39 +204,15 @@
     <!-- Pagers v2 -->
     <div class="container margin-b-80">
         <ul class="pagers-v2">
-            <li><a class="radius-3" href="#">Previous</a></li>
-            <li><a class="radius-3" href="#">Next</a></li>
+            <li class="{{ $posts->currentPage()==1 ? 'disabled': '' }}">
+                <a class="radius-3" href="{{ $posts->previousPageUrl() }}">Previous</a>
+            </li>
+            <li class="{{ $posts->hasMorePages() ? '' : 'disabled' }}">
+                <a class="radius-3" href="{{ $posts->nextPageUrl() }}">Next</a>
+            </li>
         </ul>
     </div>
     <!-- End Pagers v2 -->
-    
-
-    <!-- Newsletter v3 -->
-    <section class="newsletter-v3 bg-color-sky-light">
-        <div class="content-md container-xs">
-            <!-- Heading v6 -->
-            <div class="heading-v6 text-center margin-b-40">
-                <h2 class="heading-v6-title">Newsletter</h2>
-                <p class="heading-v6-text">Subscribe to our newsletter and stay up to date with the latest news and deals.</p>
-                <p class="heading-v6-text">Only actual information and no spamming!</p>
-            </div>
-            <!-- End Heading v6 -->
-
-            <div class="row space-row-5">
-                <div class="col-xs-4 xs-full-width xs-margin-b-20">
-                    <input type="text" class="form-control newsletter-v3-form radius-3" placeholder="Name">
-                </div>
-                <div class="col-xs-4 xs-full-width xs-margin-b-20">
-                    <input type="text" class="form-control newsletter-v3-form radius-3" placeholder="Email">
-                </div>
-                <div class="col-xs-4 xs-full-width">
-                <button class="btn-dark-bg btn-base-md btn-block radius-3" type="button">Subscribe</button>
-            </div>
-            </div>
-            <!--// end row -->
-        </div>
-    </section>
-    <!-- End Newsletter v3 -->
 </div>
 
 @endsection

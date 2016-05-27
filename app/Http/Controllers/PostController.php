@@ -19,9 +19,8 @@ class PostController extends Controller
     public function index()
     {
     	$posts = Post::published()
-            // ->where('publish_on','>=', Carbon::now())
             ->orderBy('publish_on')
-    		->get();
+            ->paginate(10);
 
        	return view('posts.index')
        		->with(compact('posts'));
