@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Comment;
 use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -64,6 +65,11 @@ class Post extends Model
     public function scopePublished($query){
         return $query->where('published','1');
     }
+
+    public function comments(){
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
     public function excerpt($wordLimit=100){
         $dom = new \DOMDocument();
         $wordLimitRegex = "#^([\S]*\s*){0,$wordLimit}#";

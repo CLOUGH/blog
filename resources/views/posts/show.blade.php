@@ -67,13 +67,14 @@
                             <!-- Single Post Comment Form -->
                             <div class="blog-single-post-comment-form">
                                 <!-- Comment Form -->
-                                <form id="comment-form" class="comment-form-error" action="index.html" method="get">
+                                <form id="comment-form" class="comment-form-error" action="{{ url("posts/$post->id/comments") }}" method="POST">
+                                    {!! csrf_field() !!}
                                     <div class="row">
                                         <div class="col-md-4 margin-b-30">
-                                            <input type="text" class="form-control blog-single-post-form radius-3" placeholder="First Name *" name="firstname" required>
+                                            <input type="text" class="form-control blog-single-post-form radius-3" placeholder="First Name *" name="first_name" required>
                                         </div>
                                         <div class="col-md-4 margin-b-30">
-                                            <input type="text" class="form-control blog-single-post-form radius-3" placeholder="Last Name">
+                                            <input type="text" class="form-control blog-single-post-form radius-3" placeholder="Last Name" name="last_name">
                                         </div>
                                         <div class="col-md-4 margin-b-30">
                                             <input type="email" class="form-control blog-single-post-form radius-3" placeholder="Email *" name="email" required>
@@ -82,7 +83,7 @@
                                     <!--// end row -->
 
                                     <div class="margin-b-30">
-                                        <textarea class="form-control blog-single-post-form radius-3" rows="6" placeholder="Your message *" name="textarea" required></textarea>
+                                        <textarea class="form-control blog-single-post-form radius-3" rows="6" placeholder="Your message *" name="message" required></textarea>
                                     </div>
                                     <button type="submit" class="btn-dark-brd btn-base-sm footer-v5-btn radius-3">Submit</button>
                                 </form>
@@ -90,126 +91,10 @@
 
                                 <hr class="md-hr">
 
-                                <button type="button" class="btn-base btn-base-bg btn-base-md btn-block radius-3 margin-b-30">Show 5 new comments</button>
-
-                                <!-- Single Post Comment -->
-                                <div class="blog-single-post-comment blog-single-post-comment-first-child">
-                                    <div class="blog-single-post-comment-media">
-                                        <img class="blog-single-post-comment-media-img radius-circle" src="{{ url('assets/img/members/04.jpg') }}" alt="">
-                                    </div>
-                                    <div class="blog-single-post-comment-content">
-                                        <h4 class="blog-single-post-comment-username"><a href="#">Katrina Ls.</a></h4>
-                                        <small class="blog-single-post-comment-time" title="5 September, 2016">3 hours ago</small>
-                                        <p class="blog-single-post-comment-text">Mauris dictum, diam vel gravida fringilla, tellus velit vulputate augue, non cursus erat est ac ipsum. Pellentesque porta massa maximus mauris auctor maximus. Maecenas viverra diam vel sem aliquam rhoncus. Morbi sed lectus eget augue elementum iaculis eu eget erat.</p>
-
-                                        <!-- Single Post Comment Share -->
-                                        <ul class="list-inline blog-single-post-comment-share">
-                                            <li class="blog-single-post-comment-share-item">
-                                                <a class="blog-single-post-comment-share-link" href="#">
-                                                    <i class="fa fa-thumbs-o-up"></i>
-                                                </a>
-                                            </li>
-                                            <li class="blog-single-post-comment-share-item">
-                                                <a class="blog-single-post-comment-share-link" href="#">
-                                                    <i class="fa fa-thumbs-o-down"></i>
-                                                </a>
-                                            </li>
-                                            <li class="blog-single-post-comment-share-item">
-                                                <a class="blog-single-post-comment-share-link" href="#">
-                                                    Answer
-                                                </a>
-                                            </li>
-                                            <li class="blog-single-post-comment-share-item">
-                                                <a class="blog-single-post-comment-share-link" href="#">
-                                                    Share
-                                                </a>
-                                            </li>
-                                            <li class="blog-single-post-comment-share-item pull-right">
-                                                <a class="blog-single-post-comment-share-link" href="#">
-                                                    Show 3 new answers
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <!-- End Single Post Comment Share -->
-                                    </div>
-
-                                    <!-- Single Post Comment -->
-                                    <div class="blog-single-post-comment">
-                                        <div class="blog-single-post-comment-media">
-                                            <img class="blog-single-post-comment-media-img radius-circle" src="{{ url('assets/img/members/02.jpg') }}" alt="">
-                                        </div>
-                                        <div class="blog-single-post-comment-content">
-                                            <h4 class="blog-single-post-comment-username"><a href="#">Sara Glaser</a></h4>
-                                            <small class="blog-single-post-comment-time" title="5 September, 2016">2 hours ago</small>
-                                            <p class="blog-single-post-comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius.</p>
-
-                                            <!-- Single Post Comment Share -->
-                                            <ul class="list-inline blog-single-post-comment-share">
-                                                <li class="blog-single-post-comment-share-item">
-                                                    <a class="blog-single-post-comment-share-link" href="#">
-                                                        <i class="fa fa-thumbs-o-up"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="blog-single-post-comment-share-item">
-                                                    <a class="blog-single-post-comment-share-link" href="#">
-                                                        <i class="fa fa-thumbs-o-down"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="blog-single-post-comment-share-item">
-                                                    <a class="blog-single-post-comment-share-link" href="#">
-                                                        Answer
-                                                    </a>
-                                                </li>
-                                                <li class="blog-single-post-comment-share-item">
-                                                    <a class="blog-single-post-comment-share-link" href="#">
-                                                        Share
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <!-- End Single Post Comment Share -->
-                                        </div>
-                                    </div>
-                                    <!-- End Single Post Comment -->
-                                </div>
-                                <!-- End Blog Single Post Comment -->
-
-                                <!-- Single Post Comment -->
-                                <div class="blog-single-post-comment">
-                                    <div class="blog-single-post-comment-media">
-                                        <img class="blog-single-post-comment-media-img radius-circle" src="{{ url('assets/img/members/03.jpg') }}" alt="">
-                                    </div>
-                                    <div class="blog-single-post-comment-content">
-                                        <h4 class="blog-single-post-comment-username"><a href="#">Robert Smith</a></h4>
-                                        <small class="blog-single-post-comment-time" title="5 September, 2016">5 hours ago</small>
-                                        <p class="blog-single-post-comment-text">Interdum nibh vel varius quam velit at massa. Nunc in metus sagittis, dictum dui a, feugiat tortor. Aenean sem augue, vestibulum sagittis commodo sed, mollis vel nunc.</p>
-
-                                        <!-- Single Post Comment Share -->
-                                        <ul class="list-inline blog-single-post-comment-share">
-                                            <li class="blog-single-post-comment-share-item">
-                                                <a class="blog-single-post-comment-share-link" href="#">
-                                                    <i class="fa fa-thumbs-o-up"></i>
-                                                </a>
-                                            </li>
-                                            <li class="blog-single-post-comment-share-item">
-                                                <a class="blog-single-post-comment-share-link" href="#">
-                                                    <i class="fa fa-thumbs-o-down"></i>
-                                                </a>
-                                            </li>
-                                            <li class="blog-single-post-comment-share-item">
-                                                <a class="blog-single-post-comment-share-link" href="#">
-                                                    Answer
-                                                </a>
-                                            </li>
-                                            <li class="blog-single-post-comment-share-item">
-                                                <a class="blog-single-post-comment-share-link" href="#">
-                                                    Share
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <!-- End Single Post Comment Share -->
-                                    </div>
-                                </div>
-                                <!-- End Single Post Comment -->
+                                <!-- <button type="button" class="btn-base btn-base-bg btn-base-md btn-block radius-3 margin-b-30">Show 5 new comments</button> -->                                
+                                @foreach($post->comments as $comment)
+                                    @include('partials.comment',['comment'=>$comment ])
+                                @endforeach                              
                             </div>
                             <!-- Single Post Comment Form -->
                         </div>
@@ -278,6 +163,47 @@
 
     </div>
     <!--========== END BACKGROUND COLOR SKY LIGHT ==========-->
+    <!--========== FORM MODAL ==========-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Reply Comment</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="blog-single-post-comment-form">
+                        <!-- Comment Form -->
+                        <form id="comment-form" class="comment-form-error" action="{{ url("posts/$post->id/comments") }}" method="POST">
+                            {!! csrf_field() !!}
+                            <div class="row">
+                                <div class="col-md-4 margin-b-30">
+                                    <input type="text" class="form-control blog-single-post-form radius-3" placeholder="First Name *" name="first_name" required>
+                                </div>
+                                <div class="col-md-4 margin-b-30">
+                                    <input type="text" class="form-control blog-single-post-form radius-3" placeholder="Last Name" name="last_name">
+                                </div>
+                                <div class="col-md-4 margin-b-30">
+                                    <input type="email" class="form-control blog-single-post-form radius-3" placeholder="Email *" name="email" required>
+                                </div>
+                            </div>
+                            <!--// end row -->
+
+                            <div class="">
+                                <textarea class="form-control blog-single-post-form radius-3" rows="6" placeholder="Your message *" name="message" required></textarea>
+                            </div>
+                        </form>
+                        <!-- End Comment Form -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--========== END FORM MODAL ==========-->
 @endsection
 
 @section('scripts')
@@ -285,4 +211,5 @@
 	<script type="text/javascript" src="{{ url('assets/plugins/owl-carousel/owl.carousel.min.js') }}"></script>
 	<script type="text/javascript" src="{{ url('assets/scripts/components/owl-carousel.js') }}"></script>
     <script type="text/javascript" src="{{ url('assets/scripts/components/header-sticky.js') }}"></script>
+    <script type="text/javascript=" src="{{ url('assets/scripts/components/form-modal.js') }}"></script>
 @endsection

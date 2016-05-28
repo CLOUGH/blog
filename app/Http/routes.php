@@ -41,6 +41,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('password/reset', 'Auth\PasswordController@reset');
 
     Route::resource('posts','PostController',['only'=>['index','show']]);
+    Route::resource('posts.comments','PostCommentController',['only' => ['update','delete','store']]);
     Route::get('/', 'HomeController@index');
 
     Route::group(['prefix'=>'api'], function(){
