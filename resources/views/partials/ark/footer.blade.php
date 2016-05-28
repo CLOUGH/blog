@@ -9,13 +9,12 @@
                 </a>
                 <!-- Copyright Socials -->
                 <ul class="list-inline footer-v5-copright-socials margin-b-30">
-                    <li class="footer-v5-copright-socials-item"><a class="footer-v5-copright-socials-link" href="#">Facebook</a></li>
-                    <li class="footer-v5-copright-socials-item"><a class="footer-v5-copright-socials-link" href="#">Twitter</a></li>
-                    <li class="footer-v5-copright-socials-item"><a class="footer-v5-copright-socials-link" href="#">Dribbble</a></li>
-                    <li class="footer-v5-copright-socials-item"><a class="footer-v5-copright-socials-link" href="#">Instagram</a></li>
+                    <li class="footer-v5-copright-socials-item"><a class="footer-v5-copright-socials-link" href="https://twitter.com/warren_clough">Twitter</a></li>
+                    <li class="footer-v5-copright-socials-item"><a class="footer-v5-copright-socials-link" href="https://github.com/clough">Github</a></li>
+                    <li class="footer-v5-copright-socials-item"><a class="footer-v5-copright-socials-link" href="mailto:clough.warren@gamil.com">Gmail</a></li>
                 </ul>
                 <!-- End Copyright Socials -->
-                <p class="footer-v5-copright-text">Copyright &#169; 2016 Prothemes. <br/> All Rights Reserved.</p>
+                <p class="footer-v5-copright-text">Copyright &#169; 2016. <br/> All Rights Reserved.</p>
             </div>
         </div>
     </div>
