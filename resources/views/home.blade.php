@@ -172,7 +172,7 @@
                             <div class="blog-grid-box-shadow">
                                 <div class="blog-grid-content">
                                     <h2 class="blog-grid-title-el"><a class="blog-grid-title-link" href="{{ url("posts/$post->id") }}">{{ $post->title }}</a></h2>
-                                    <p class="margin-b-20">{!! $post->excerpt() !!}</p>
+                                    <p class="margin-b-20">{!! $post->excerpt($post->type->slug=='standard' ? 100: 40) !!}</p>
                                 </div>
                                 <div class="blog-grid-supplemental">
                                     <span class="blog-grid-supplemental-title">
