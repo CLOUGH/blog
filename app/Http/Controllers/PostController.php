@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Post;
 use App\PostType;
+use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,9 +17,15 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-    	$posts = Post::published()
+    	$posts = Post::where(function($query) use($request){
+            if($request->get('tag')){
+                $query->whereHas('tags', function($query) use($request){
+                    $query->where('name', $request->get('tag'));
+                });
+            }
+        })->published()
             ->orderBy('publish_on')
             ->paginate(10);
 
@@ -46,7 +53,12 @@ class PostController extends Controller
             abort(404);
         }
 
+        $posts = Post::published()
+            ->orderBy('publish_on')
+            ->get();
+
+        $tags = Tag::all();
         return view('posts.show')
-        	->with(compact('post'));
+        	->with(compact('post','posts','tags'));
     }
 }
