@@ -42,6 +42,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('posts','PostController',['only'=>['index','show']]);
     Route::resource('posts.comments','PostCommentController',['only' => ['update','delete','store']]);
+    Route::resource('portfolio', 'PortfolioController', ['only'=>['index','show']]);
     Route::get('/', 'HomeController@index');
 
     Route::group(['prefix'=>'api'], function(){

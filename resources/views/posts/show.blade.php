@@ -174,7 +174,6 @@
                 <div class="modal-body">
                     <div class="blog-single-post-comment-form">
                         <!-- Comment Form -->
-                        <form id="comment-form" class="comment-form-error" action="{{ url("posts/$post->id/comments") }}" method="POST">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="col-md-4 margin-b-30">
@@ -197,8 +196,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn-dark-bg btn-base-sm" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn-base-bg btn-base-sm" ng-click="sendReply()">Submit</button>
                 </div>
             </div>
         </div>

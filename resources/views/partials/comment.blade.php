@@ -15,32 +15,12 @@
         <p class="blog-single-post-comment-text">{{ $comment->message }}</p>
             
         <!-- Single Post Comment Share -->
-        <ul class="list-inline blog-single-post-comment-share">
-            <li class="blog-single-post-comment-share-item">
-                <a class="blog-single-post-comment-share-link" href="#">
-                    <i class="fa fa-thumbs-o-up"></i>
-                </a>
-            </li>
-            <li class="blog-single-post-comment-share-item">
-                <a class="blog-single-post-comment-share-link" href="#">
-                    <i class="fa fa-thumbs-o-down"></i>
-                </a>
-            </li>
+        <ul class="list-inline blog-single-post-comment-share">            
             <li class="blog-single-post-comment-share-item">
                 <a class="blog-single-post-comment-share-link  form-modal-login" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">
-                    Answer
+                    Reply
                 </a>
             </li>
-            <li class="blog-single-post-comment-share-item">
-                <a class="blog-single-post-comment-share-link" href="#">
-                    Share
-                </a>
-            </li>
-            <!-- <li class="blog-single-post-comment-share-item pull-right">
-                <a class="blog-single-post-comment-share-link" href="#">
-                    Show 3 new answers
-                </a>
-            </li> -->
         </ul>
         <!-- End Single Post Comment Share -->
     </div>
