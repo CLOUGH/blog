@@ -14,10 +14,10 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss');
     mix.styles([    	
-        '../../../bower_components/prism/themes/prism.css',
-    	'../../../bower_components/prism/themes/prism-okaidia.css',
+     //    '../../../bower_components/prism/themes/prism.css',
+    	// '../../../bower_components/prism/themes/prism-okaidia.css',
     ]);
     mix.scripts([
-    	'../../../bower_components/prism/prism.js',
+    	// '../../../bower_components/prism/prism.js',
     ]);
 });
