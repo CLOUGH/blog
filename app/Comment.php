@@ -30,12 +30,12 @@ class Comment extends Model
     	return $this->morphMany(Like::class,'likeable');
     }
 
-    public function comments(){
+    public function replies(){
     	return $this->morphMany(Comment::class, 'commentable');
     }
 
     public function hasReplies(){
-    	return $this->comments->count() > 0;
+    	return $this->replies->count() > 0;
     }
 
 }

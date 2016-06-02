@@ -164,7 +164,7 @@
     </div>
     <!--========== END BACKGROUND COLOR SKY LIGHT ==========-->
     <!--========== FORM MODAL ==========-->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="reply-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -174,6 +174,7 @@
                 <div class="modal-body">
                     <div class="blog-single-post-comment-form">
                         <!-- Comment Form -->
+                        <form id="reply-modal-form"  method="POST">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="col-md-4 margin-b-30">
@@ -196,8 +197,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-dark-bg btn-base-sm" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn-base-bg btn-base-sm" ng-click="sendReply()">Submit</button>
+                    <button type="button" class="btn-dark-bg btn-base-sm">Cancel</button>
+                    <button type="button" class="btn-base-bg btn-base-sm" onclick="sendReply()">Submit</button>
                 </div>
             </div>
         </div>
@@ -211,4 +212,15 @@
 	<script type="text/javascript" src="{{ url('assets/scripts/components/owl-carousel.js') }}"></script>
     <script type="text/javascript" src="{{ url('assets/scripts/components/header-sticky.js') }}"></script>
     <script type="text/javascript=" src="{{ url('assets/scripts/components/form-modal.js') }}"></script>
+
+    <script type="text/javascript">
+        var sendReply = function(){
+
+           $('#reply-modal-form').submit();
+        }
+        var openReplyModal = function(comment_id){
+            $("#reply-modal").modal();
+            $('#reply-modal-form').attr('action','{{ url('/comments')}}/'+comment_id+'/replies');
+        }
+    </script>
 @endsection

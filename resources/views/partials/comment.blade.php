@@ -17,7 +17,7 @@
         <!-- Single Post Comment Share -->
         <ul class="list-inline blog-single-post-comment-share">            
             <li class="blog-single-post-comment-share-item">
-                <a class="blog-single-post-comment-share-link  form-modal-login" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">
+                <a class="blog-single-post-comment-share-link  form-modal-login" href="javascript:void(0);" onclick="openReplyModal({{ $comment->id }})">
                     Reply
                 </a>
             </li>
@@ -25,8 +25,8 @@
         <!-- End Single Post Comment Share -->
     </div>
     @if($comment->hasReplies())
-        @foreach($comment->$comments as $replyComment)
-            @include('partials.comment',['comment'=>$replyComment ]);
+        @foreach($comment->replies as $replyComment)
+            @include('partials.comment',['comment'=>$replyComment ])
         @endforeach
     @endif
 </div>
