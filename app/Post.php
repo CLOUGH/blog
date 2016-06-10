@@ -84,8 +84,8 @@ class Post extends Model
 
         $moreLink = "<a href='".url("posts/$this->id")."'>Read More</a>";
         $domString = "<p>".trim($matches[0])."... $moreLink</p>";
-        //dd($domString);
-        // $dom->loadHTML($domString);
+        // dd($domString);
+        $dom->loadHTML($domString);
         
         return $dom->saveHTML();
     }
