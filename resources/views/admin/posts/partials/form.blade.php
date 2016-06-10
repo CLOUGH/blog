@@ -58,7 +58,15 @@
 						</select>
 					</div>
 				</div>
-			</div>	
+			</div>
+			<div class="row">	
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Excerpt</label>
+						<textarea class="form-control" name="excerpt" rows="5">{{ old('excerpt') ?  old('excerpt') : $post->excerpt }}</textarea>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="ibox post-media">

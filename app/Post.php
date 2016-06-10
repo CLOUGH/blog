@@ -12,7 +12,7 @@ class Post extends Model
 {
     protected $table ='posts';
 
-   	protected $fillable = ['title','body','post_type_id','published','publish_on'];
+   	protected $fillable = ['title','body','post_type_id','published','publish_on','excerpt'];
    	protected $casts = [
 	   'published' => 'boolean'
 	];
@@ -75,7 +75,7 @@ class Post extends Model
         $wordLimitRegex = "#^([\S]*\s*){0,$wordLimit}#";
         $filterHtmlRegex = "#<(\/*?)(?!(em|p|br\s*\/|strong))\w+?.+?>#";
        
-        $stripedHtml = preg_replace($filterHtmlRegex,'', $this->body);
+        $stripedHtml = preg_replace($filterHtmlRegex,'', $this->excerpt);
         preg_match($wordLimitRegex,$stripedHtml , $matches);
 
         if(strlen($matches[0])==strlen($stripedHtml)){
@@ -85,7 +85,7 @@ class Post extends Model
         $moreLink = "<a href='".url("posts/$this->id")."'>Read More</a>";
         $domString = "<p>".trim($matches[0])."... $moreLink</p>";
         //dd($domString);
-        $dom->loadHTML($domString);
+        // $dom->loadHTML($domString);
         
         return $dom->saveHTML();
     }
