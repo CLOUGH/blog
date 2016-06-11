@@ -203,9 +203,46 @@
     }
 }
 
-/* No Overflow */
-.owl-carousel-no-overflow {
-    .owl-stage-outer {
-        overflow: inherit;
+/* Testimonials v2 Arrows */
+.testimonials-v2-arrows {
+    .arrow-next,
+    .arrow-prev {
+        @include position(absolute, $top: 50%);
+        z-index: 1;
+        @include size(35px);
+        @include font($size: $font-size-20);
+        color: $color-dark;
+        @include bg-opacity($color-white, .9);
+        cursor: pointer;
+        padding: 8px 14px;
+        margin-top: -17.5px;
+        @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
+
+        &:hover {
+            color: $color-white;
+            @include bg-opacity($color-base, 1);
+            @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
+        }
+    }
+
+    .arrow-prev {
+        left: 0;
+        margin-left: -40px;
+    }
+    .arrow-next {
+        right: 0;
+        margin-right: -40px;
+    }
+}
+
+/* Media Queries below 992px */
+@media (max-width: $screen-md-min) {
+    .testimonials-v2-arrows {
+        .arrow-prev {
+            margin-left: 0;
+        }
+        .arrow-next {
+            margin-right: 0;
+        }
     }
 }

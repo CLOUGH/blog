@@ -1,6 +1,6 @@
 /********************************************
- * REVOLUTION 5.2 EXTENSION - VIDEO FUNCTIONS
- * @version: 1.5 (03.03.2016)
+ * REVOLUTION 5.2.3 EXTENSION - VIDEO FUNCTIONS
+ * @version: 1.7 (16.03.2016)
  * @requires jquery.themepunch.revolution.js
  * @author ThemePunch
 *********************************************/
@@ -418,6 +418,10 @@ jQuery.extend(true,_R, {
 						(videotype=="youtube" && _nc.find('iframe').length==0) ? "youtube" : 
 						(videotype=="vimeo" && _nc.find('iframe').length==0) ? "vimeo" : "none";
 
+			// VideLoop reset if Next Slide at End is set ! 
+			videoloop = _nc.data('nextslideatend') === true ? "" : videoloop;
+
+
 		_nc.data('videotype',videotype);
 		// ADD HTML5 VIDEO IF NEEDED
 		switch (newvideotype) {
@@ -431,7 +435,7 @@ jQuery.extend(true,_R, {
 					tag = "audio";
 					_nc.addClass("tp-audio-html5");
 				}
-
+				
 				var apptxt = '<'+tag+' style="object-fit:cover;background-size:cover;visible:hidden;width:100%; height:100%" class="" '+videoloop+' preload="'+videopreload+'">';
 
 				if (videopreload=="auto") opt.mediapreload = true;
@@ -874,19 +878,23 @@ var exitFullscreen = function() {
 
 
 var checkfullscreenEnabled = function() {
-    // FF provides nice flag, maybe others will add support for this later on?
-    if(window['fullScreen'] !== undefined) {
-      return window.fullScreen;
-    }
-    // 5px height margin, just in case (needed by e.g. IE)
-    var heightMargin = 5;
-    if($.browser.webkit && /Apple Computer/.test(navigator.vendor)) {
-      // Safari in full screen mode shows the navigation bar, 
-      // which is 40px  
-      heightMargin = 42;
-    }
-    return screen.width == window.innerWidth &&
-        Math.abs(screen.height - window.innerHeight) < heightMargin;
+   try{
+	    // FF provides nice flag, maybe others will add support for this later on?
+	    if(window['fullScreen'] !== undefined) {
+	      return window.fullScreen;
+	    }
+	    // 5px height margin, just in case (needed by e.g. IE)
+	    var heightMargin = 5;
+	    if(jQuery.browser.webkit && /Apple Computer/.test(navigator.vendor)) {
+	      // Safari in full screen mode shows the navigation bar, 
+	      // which is 40px  
+	      heightMargin = 42;
+	    }
+	    return screen.width == window.innerWidth &&
+	        Math.abs(screen.height - window.innerHeight) < heightMargin;
+	  } catch(e) {
+
+	  }
   }
 /////////////////////////////////////////	HTML5 VIDEOS 	///////////////////////////////////////////	
 
@@ -907,6 +915,9 @@ var htmlvideoevents = function(_nc,opt,startnow) {
 	html5vid.data('metaloaded',1);
 	// FIRST TIME LOADED THE HTML5 VIDEO
 
+	if (_nc.data('bgvideo')==1 && (_nc.data('videoloop')==="none" || _nc.data('videoloop')===false)) 		
+		pforv = false;
+	
 	
 								
 	
@@ -1138,12 +1149,16 @@ var htmlvideoevents = function(_nc,opt,startnow) {
 	
 	addEvent(video,"ended",function() {		
 		exitFullscreen();
+		
 		remVidfromList(_nc,opt);
 		opt.videoplaying=false;
 		remVidfromList(_nc,opt);
 		if (tag!="audio") opt.c.trigger('starttimer');
 		opt.c.trigger('revolution.slide.onvideostop',getVideoDatas(video,"html5",_nc.data()));
-		if (_nc.data('nextslideatend')==true) {				
+
+
+		if (_nc.data('nextslideatend')===true) {	
+			
 			if (!opt.just_called_nextslide_at_htmltimer==true) {
 				_nc.data('nextslideatend-triggered',1);
 				opt.c.revnext();

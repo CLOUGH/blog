@@ -369,4 +369,126 @@
 }
 
 
+/*--------------------------------------------------
+    [Icons Box v7]
+----------------------------------------------------*/
 
+.icon-box-v7 {
+    position: relative;
+    z-index: 1;
+    background: url(../../assets/img/1920x1080/02.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    &:before {
+        @include position(absolute, $top: 0, $left: 0);
+        z-index: -1;
+        @include size(100%);
+        @include bg-opacity($color-dark, .95);
+        content: " ";
+    }
+
+    .icon-box-v7-wrap {
+        text-align: center;
+        border: 1px solid $color-white;
+    }
+
+    .icon-box-v7-icons {
+        @include font($size: $font-size-36);
+        color: $color-white;
+        padding: 20px;
+    }
+
+    .icon-box-v7-header {
+        @include bg-opacity($color-white, .4);
+        padding: 10px;
+    }
+    
+    .icon-box-v7-title {
+        @include font($size: $font-size-24);
+        color: $color-white;
+        margin: 0;
+    }
+
+    .icon-box-v7-body {
+        padding: 20px 10px;
+    }
+
+    .icon-box-v7-text {
+        color: $color-white;
+    }
+}
+
+
+/*--------------------------------------------------
+    [Icons Box v8]
+----------------------------------------------------*/
+
+.icon-box-v8 {
+    @include clearfix;
+
+    .icon-box-v8-media {
+        float: left;
+        margin-right: 25px;
+    }
+    
+    .icon-box-v8-media-icon {
+        @include font($size: $font-size-36);
+        color: $color-dark;
+        margin: 5px 0 0 2px;
+    }
+
+    .icon-box-v8-content {
+        overflow: hidden;
+    }
+    
+    .icon-box-v8-content-title {
+        @include font($size: $font-size-24);
+
+        &.icon-box-v8-content-title-element {
+            position: relative;
+            margin-bottom: 30px;
+            
+            &:after {
+                @include position(absolute, $bottom: -12px, $left: 0);
+                @include size(40px, 1px);
+            }
+
+            &:before {
+                @include position(absolute, $bottom: -17px, $left: 0);
+                @include size(30px, 1px);
+            }
+            
+            &:after,
+            &:before {
+                background: $color-dark;
+                content: " ";
+            }
+        }
+    }
+}
+
+/* White Version */
+.icon-box-v8 {
+    &.icon-box-v8-white {
+        .icon-box-v8-media-icon {
+            color: $color-white;
+        }
+
+        .icon-box-v8-content-title {
+            color: $color-white;
+
+            &.icon-box-v8-content-title-element {
+                &:after,
+                &:before {
+                    background: $color-white;
+                }
+            }
+        }
+
+        .icon-box-v8-text {
+            color: $color-white;
+            opacity: .8;
+        }
+    }
+}

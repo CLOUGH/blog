@@ -215,6 +215,7 @@
             min-width: auto;
             @include font($size: $font-size-16, $weight: $font-weight-300, $family: $font-family-base);
             color: $color-base;
+            line-height: $line-height-base;
             border: 1px solid $color-base;
             padding: 12px 25px;
 
@@ -359,6 +360,7 @@
 
         .theme-portfolio-lightbox {
             @include position(absolute, $top: 50%, $left: 50%);
+            z-index: 1;
             opacity: 0;
             @include translate3d(-50%,-20%,0);
             @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
@@ -594,4 +596,58 @@
             }
         }
     }
+}
+
+
+/*--------------------------------------------------
+    [Theme Portfolio v3]
+----------------------------------------------------*/
+
+.theme-portfolio-v3 {
+    .cbp-l-filters-button {
+        margin-bottom: 15px;
+        
+        .cbp-filter-item {
+            @include font($size: $font-size-20, $weight: $font-weight-300, $family: $font-family-base);
+            color: $color-white;
+            background: transparent;
+            border: none;
+            padding: 0 3px;
+        }
+
+        .cbp-filter-item-active {
+            @include font($weight: $font-weight-400);
+        }
+    }
+}
+
+/* Hover Effect */
+.theme-portfolio-v3 {
+    .cbp-caption-zoom {
+        .cbp-caption-activeWrap {
+            @include bg-opacity($color-dark, .9);
+        }
+    }
+}
+
+
+/*--------------------------------------------------
+    [Theme Portfolio Filter v1]
+----------------------------------------------------*/
+
+.theme-portfolio-filter-v1 {
+    .cbp-filter-item {
+        @include font($size: $font-size-14);
+        color: $color-dark;
+        background: $color-white;
+        border-bottom: none;
+        padding: 10px 20px;
+        margin: 0 3px 40px;
+        
+        &.cbp-filter-item-active {
+            color: $color-base;
+            background: $color-white;
+        }
+    }        
+    
 }

@@ -15,6 +15,7 @@
     visibility: hidden;
     opacity: 0;
     padding: 10.5px;
+    @include translate3d(0,50px,0);
     @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
 
     &:after {
@@ -40,6 +41,7 @@
     &.back-to-top-is-visible {
         visibility: visible;
         opacity: .6;
+        @include translate3d(0,0,0);
         @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
 
         &:hover {

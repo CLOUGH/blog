@@ -2,9 +2,9 @@
 [Master Stylesheet]
 
 	Project:        Ark - Responsive Multi-Purpose Theme
-	Version:        1.2
+	Version:        2.8
 	Author:         Prothemes.net
-	Primary use:    Corporate, Business, Portfolio, Landing, Shop and Blog Themes.
+	Primary use:    Corporate, Business, Portfolio, Landing, Shop, Blog and One Page Themes.
 	Email: 			prothemes.net@gmail.com
 	Website:		http://www.prothemes.net
 
@@ -27,88 +27,99 @@
 	14. Dropcap
 	15. Heading
 	16. Icon List
-	17. Lists
-	18. Login Form
-	19. Pagination
-	20. Progress Bar
-	21. Scroll to Section
-	22. Tab
-	23. Tables
-	24. Table Wrap
-	25. Theme Icons
-	26. Timeline
-	27. Call to Action
-	28. Clients
-	29. Counters
-	30. Diagonal Content
-	31. Equal Height Block
-	32. Icon Box
-	33. Image Gallery
-	34. Interactive Banner
-	35. Newsletter
-	36. Banner Image
-	37. Parallax
-	38. Piecharts
-	39. Process
-	40. Promo Block
-	41. Services
-	42. Slider Block
-	43. Team Members
-	44. Testimonials
-	45. Video
-	46. Work
-	47. Footer (Default)
-	48. Footer v2
-	49. Footer v3
-	50. Footer v4
-	51. Footer v5
-	52. Footer v6
-	53. Footer v7
-	54. Footer v8
-	55. Header
-	56. Header Center Aligned
-	57. Header Center Aligned Transparent
-	58. Header Fullscreen
-	59. Header Section Scroll
-	60. Header Transparent
-	61. Header Vertical
-	62. Responsive
-	63. Form Modal
-	64. Search Default
-	65. Search Classic
-	66. Search Fullscreen
-	67. Search On Header
-	68. Search Push
-	69. Sidebar
-	70. Topbar Classic
-	71. Topbar e-Commerce
-	72. Topbar Transparent
-	73. Coming Soon
-	74. Contact Us
-	75. FAQ
-	76. Shopify
-	77. Animated Headline
-	78. Animsition
-	79. Back to Top
-	80. Bootstrap Components
-	81. Google Maps
-	82. Masonry Grid
-	83. Owl Carousel
-	84. Portfolio
-	85. Revolution Slider
-	86. Blue Theme Color
-	87. Base Theme Color
-	88. Blue Theme Color
-	89. Blue Grey Theme Color
-	90. Gold Theme Color
-	91. Green Theme Color
-	92. Grey Theme Color
-	93. Pink Theme Color
-	94. Purple Theme Color
-	95. Red Theme Color
-	96. Teal Theme Color
-	97. Colors
-	98. Helpers
+	17. Image Popup
+	18. Lists
+	19. Login Form
+	20. Pagination
+	21. Progress Bar
+	22. Radio Checkbox
+	23. Scroll to Section
+	24. Segment Controls
+	25. Sliding Background
+	26. Spinbox
+	27. Star Ratings
+	28. Tab
+	29. Tables
+	30. Table Wrap
+	31. Theme Icons
+	32. Timeline
+	33. Call to Action
+	34. Clients
+	35. Countdown
+	36. Counters
+	37. Diagonal Content
+	38. Equal Height Block
+	39. Icon Box
+	40. Image Gallery
+	41. Interactive Banner
+	42. Newsletter
+	43. Banner Image
+	44. Parallax
+	45. Piecharts
+	46. Process
+	47. Promo Block
+	48. Services
+	49. Slider Block
+	50. Team Members
+	51. Testimonials
+	52. Video
+	53. Work
+	54. Footer (Default)
+	55. Footer v2
+	56. Footer v3
+	57. Footer v4
+	58. Footer v5
+	59. Footer v6
+	60. Footer v7
+	61. Footer v8
+	62. Header
+	63. Header Center Aligned
+	64. Header Center Aligned Transparent
+	65. Header Fullscreen
+	66. Header Section Scroll
+	67. Header Transparent
+	68. Header Vertical
+	69. Language
+	70. Language Push
+	71. Responsive
+	72. Form Modal
+	73. Search Default
+	74. Search Classic
+	75. Search Fullscreen
+	76. Search On Header
+	77. Search Push
+	78. Sidebar
+	79. Topbar Classic
+	80. Topbar e-Commerce
+	81. Topbar Transparent
+	82. Coming Soon
+	83. Contact Us
+	84. FAQ
+	85. Shopify
+	86. Animated Headline
+	87. Animsition
+	88. Back to Top
+	89. Bootstrap Components
+	90. Google Maps
+	91. Masonry Grid
+	92. Owl Carousel
+	93. Portfolio
+	94. Revolution Slider
+	95. Swiper
+	96. Switch
+	97. Blue Theme Color
+	98. Base Theme Color
+	99. Blue Theme Color
+	100. Blue Grey Theme Color
+	101. Gold Theme Color
+	102. Green Theme Color
+	103. Grey Theme Color
+	104. Pink Theme Color
+	105. Purple Theme Color
+	106. Red Theme Color
+	107. Teal Theme Color
+	108. Colors
+	109. Helpers
 -----------------------------------------------------------------------*/
 
 /* =================================================================
@@ -152,11 +163,17 @@
 @import 'components/dropcap'; // Dropcap
 @import 'components/heading'; // Heading
 @import 'components/icon-list'; // Icon List
+@import 'components/image-popup'; // Image Popup
 @import 'components/lists'; // Lists
 @import 'components/login-form'; // Login Form
 @import 'components/paginations'; // Paginations
 @import 'components/progress-bar'; // Progress Bar
+@import 'components/radio-checkbox'; // Radio Checkbox
 @import 'components/scroll-to-section'; // Scroll To Section
+@import 'components/segment-controls'; // Segment Controls
+@import 'components/sliding-bg'; // Sliding Background
+@import 'components/spinbox'; // Spinbox
+@import 'components/star-ratings'; // Star Ratings
 @import 'components/tab'; // Tab
 @import 'components/tables'; // Tables
 @import 'components/table-wrap'; // Table Wrap
@@ -169,6 +186,7 @@
 
 @import 'gui/call-to-action'; // Call To Action
 @import 'gui/clients'; // Clients
+@import 'gui/countdown'; // Countdown
 @import 'gui/counters'; // Counters
 @import 'gui/diagonal-content'; // Diagonal Content
 @import 'gui/equal-height-block'; // Equal Height Block
@@ -209,6 +227,8 @@
 @import 'layout/header-slide'; // Header Slide
 @import 'layout/header-transparent'; // Header Transparent
 @import 'layout/header-vertical'; // Header Vertical
+@import 'layout/language'; // Language
+@import 'layout/language-push'; // Language Push
 @import 'layout/responsive'; // Responsive
 @import 'layout/form-modal'; // Form Modal
 @import 'layout/search'; // Search Default
@@ -243,12 +263,14 @@
 @import 'plugins/owl-carousel'; // Owl Carousel
 @import 'plugins/portfolio'; // Portfolio
 @import 'plugins/rev-slider'; // Revolution Slider
+@import 'plugins/swiper'; // Swiper
+@import 'plugins/switch'; // Switch
 
 
 // Theme
 // =================================================================
 
-/*@import 'theme/dark'; // Dark Theme Color
+@import 'theme/dark'; // Dark Theme Color
 @import 'theme/base-color'; // Base Theme Color
 @import 'theme/blue-color'; // Blue Theme Color
 @import 'theme/blue-grey-color'; // Blue Grey Theme Color
@@ -258,7 +280,7 @@
 @import 'theme/pink-color'; // Pink Theme Color
 @import 'theme/purple-color'; // Purple Theme Color
 @import 'theme/red-color'; // Red Theme Color
-@import 'theme/teal-color'; // Teal Theme Color*/
+@import 'theme/teal-color'; // Teal Theme Color
 
 
 // Utils

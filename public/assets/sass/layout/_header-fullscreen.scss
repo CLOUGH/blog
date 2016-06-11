@@ -4,6 +4,13 @@
 
 /* Navbar */
 .header-fullscreen {
+    /* Auto Hiding Navbar */
+    &.auto-hiding-navbar {
+        &.nav-up {
+            top: -80px;
+        }
+    }
+
     .navbar-fullscreen-navbar {
         z-index: 999;
         background: transparent;

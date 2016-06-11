@@ -4,7 +4,7 @@
  * Website: http://digitalzoomstudio.net/
  * Portfolio: http://codecanyon.net/user/ZoomIt/portfolio
  *
- * Version: 1.50
+ * Version: 2.62
  *
  */
 
@@ -17,7 +17,7 @@ window.dzsprx_self_options = {};
     $.fn.dzsparallaxer = function(o) {
 
         var defaults = {
-            settings_mode : 'scroll' // scroll or mouse or mouse_body
+            settings_mode : 'scroll' // scroll or mouse or mouse_body or oneelement
             , mode_scroll : 'normal' // -- normal or fromtop
             , easing : 'easeIn' // -- easeIn or easeOutQuad or easeInOutSine
             , animation_duration : '20' // -- animation duration in ms
@@ -29,9 +29,16 @@ window.dzsprx_self_options = {};
             ,init_delay: "0" // -- a delay on which to start the init function
             ,init_functional_delay: "0" // -- a delay on which to start the parallax movement
             ,settings_substract_from_th: 0 // -- if you only want to show some part of the image you can substract pixels from the total height
+            ,settings_detect_out_of_screen: true // -- detect if the parallax is outside the viewable area and not animate handleframe
             ,init_functional_remove_delay_on_scroll: "off" // -- remove the delay on which to start the parallax movement
             ,settings_makeFunctional: false
             ,settings_scrollTop_is_another_element_top: null // -- an object on which the scroll is actually simulated into an elements top position
+
+            ,settings_clip_height_is_window_height: false // -- replace the clip height to the window height
+            ,settings_listen_to_object_scroll_top: null // -- replace the scroll top listening with a value from the outside
+            ,settings_mode_oneelement_max_offset : '20'
+            ,simple_parallaxer_convert_simple_img_to_bg_if_possible:"on"
+            ,simple_parallaxer_max_offset:"30"
         }
 
         if(typeof o =='undefined'){
@@ -62,6 +69,9 @@ window.dzsprx_self_options = {};
         Math.easeInOutSine = function (t, b, c, d) {
             return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
         };
+
+        o.settings_mode_oneelement_max_offset = parseInt(o.settings_mode_oneelement_max_offset,10);
+        o.simple_parallaxer_max_offset = parseInt(o.simple_parallaxer_max_offset,10);
 
         this.each( function(){
             var cthis = $(this);
@@ -139,6 +149,8 @@ window.dzsprx_self_options = {};
             var stop_enter_frame = false
                 ,sw_suspend_functional = false
                 ,sw_stop_enter_frame = false
+                ,sw_out_of_display = false
+
                 ;
 
             var init_delay = 0
@@ -146,6 +158,8 @@ window.dzsprx_self_options = {};
                 ;
 
             var inter_debug_func=0
+                ,inter_suspend_enter_frame = 0
+                ,inter_scroll_from_resize = 0
                 ;
 
             // -- some rresponsive scaling options
@@ -170,6 +184,7 @@ window.dzsprx_self_options = {};
             function init(){
 
 
+                //console.warn('init()',cthis);
                 if (o.settings_makeFunctional == true) {
                     var allowed = false;
 
@@ -216,12 +231,16 @@ window.dzsprx_self_options = {};
                         duration_viy = Number(o.animation_duration);
                     },300);
                 }
+
+                cthis.addClass('mode-'+o.settings_mode);
+
                 //console.info(cthis,_theTarget, o);
 
 
                 //console.info(duration_viy);
 
                 //console.info(cthis,_theTarget,_blackOverlay, o);
+
 
                 ch = cthis.height();
                 if(o.settings_movexaftermouse=='on'){
@@ -237,6 +256,9 @@ window.dzsprx_self_options = {};
                 if(o.settings_substract_from_th){
                     th-= o.settings_substract_from_th;
                 }
+
+
+                //console.info(cthis,ch);
 
 
                 initialheight = ch;
@@ -341,11 +363,13 @@ window.dzsprx_self_options = {};
 
                             var aux = _t.attr('data-parallaxanimation');
                             aux = 'window.aux_opts2 = ' + aux;
+                            aux = aux.replace(/'/g, '"')
+                            // console.info(aux);
                             try {
                                 eval(aux);
                             }
                             catch(err) {
-                                console.info(err);
+                                console.info(aux, err);
                                 window.aux_opts2=null;
                             }
                             //console.info(aux_opts2);
@@ -386,7 +410,17 @@ window.dzsprx_self_options = {};
                 if(!cthis.hasClass('simple-parallax')){
                     handle_frame();
                 }else{
-                    _theTarget.wrap('<div class="simple-parallax-inner"></div>')
+                    _theTarget.wrap('<div class="simple-parallax-inner"></div>');
+
+                    if(o.simple_parallaxer_convert_simple_img_to_bg_if_possible=='on' && _theTarget.attr('data-src') && _theTarget.children().length==0){
+                        _theTarget.parent().addClass('is-image');
+                    }
+
+
+
+                    if(o.simple_parallaxer_max_offset>0){
+                        handle_frame();
+                    }
                 }
 
                 inter_debug_func = setInterval(debug_func, 1000);
@@ -441,7 +475,7 @@ window.dzsprx_self_options = {};
                 cthis.get(0).api_destroy_listeners = destroy_listeners;
 
 
-                if(o.settings_mode == 'scroll'){
+                if(o.settings_mode == 'scroll' || o.settings_mode=='oneelement'){
                     $(window).unbind('scroll',handle_scroll);
                     $(window).bind('scroll',handle_scroll);
                     handle_scroll();
@@ -491,6 +525,17 @@ window.dzsprx_self_options = {};
                     return;
                 }
 
+                //console.warn(wh, st, cthis.offset().top);
+
+                if(o.settings_mode=='oneelement'){
+                    cthis.css('transform','translate3d(0,0,0)');
+                }
+
+                cthis_ot = cthis.offset().top;
+
+                //console.info(cthis_ot);
+
+                //console.warn(responsive_reference_width, responsive_optimal_height);
 
                 if(responsive_reference_width && responsive_optimal_height){
                     if(cw<responsive_reference_width){
@@ -565,13 +610,23 @@ window.dzsprx_self_options = {};
                     th-= o.settings_substract_from_th;
                 }
 
+                if(o.settings_clip_height_is_window_height){
+                    ch = $(window).height();
+                }
+
+
+
 
                 //return;
 
                 //console.info(initialheight);
                 if(cthis.hasClass('allbody')==false && cthis.hasClass('dzsparallaxer---window-height')==false && responsive_reference_width==0){
+
+                    // console.info("hier");
                     if(th<=initialheight && th > 0){
-                        cthis.height(th);
+                        if(o.settings_mode!='oneelement' && cthis.hasClass('do-not-set-js-height')==false && cthis.hasClass('height-is-based-on-content')==false) {
+                            cthis.height(th);
+                        }
                         ch = cthis.height();
                         //_theTarget.css('top',0);
 
@@ -588,8 +643,14 @@ window.dzsprx_self_options = {};
                         }
                     }else{
 
-                        //console.log('why do we do this ? ');
-                        cthis.height(initialheight);
+                        //console.log(cthis, 'why do we do this ? ');
+
+                        console.info(cthis.hasClass('do-not-set-js-height'));
+                        if(o.settings_mode!='oneelement' && cthis.hasClass('do-not-set-js-height')==false && cthis.hasClass('height-is-based-on-content')==false){
+
+                            cthis.height(initialheight);
+                        }
+
                     }
                 }
                 if(_theTarget.attr('data-forcewidth_ratio')){
@@ -599,9 +660,15 @@ window.dzsprx_self_options = {};
                     }
                 }
 
+                clearTimeout(inter_scroll_from_resize);
+                inter_scroll_from_resize = setTimeout(handle_scroll,200);
+                // setTimeout(function(){
+                //
+                // }, 300);
 
             }
 
+            //console.info(th, ch);
 
             function handle_mousemove(e){
 
@@ -664,11 +731,39 @@ window.dzsprx_self_options = {};
 
 
 
+                if( (cthis_ot > st-100 && cthis_ot<st+wh) || o.mode_scroll=='fromtop'){
+
+
+                    sw_out_of_display = false;
+                    sw_suspend_functional = false;
+                }else{
+
+
+
+
+
+                    if(o.settings_detect_out_of_screen){
+                        sw_out_of_display = true;
+                        sw_suspend_functional = true;
+                    }
+                }
+
+
                 if(_scrollTop_is_another_element_top){
                     st = -parseInt(_scrollTop_is_another_element_top.css('top'),10);
                     //console.info('handle_scroll', cthis, e, _scrollTop_is_another_element_top, _scrollTop_is_another_element_top.css('top'), st);
+                    if(_scrollTop_is_another_element_top.data('targettop')){
+                        st = -_scrollTop_is_another_element_top.data('targettop');
+                    }
+
                 }
 
+                //console.info('scroll top is - ',st, o.settings_listen_to_object_scroll_top, _scrollTop_is_another_element_top.css('top'),'target top->',_scrollTop_is_another_element_top.data('targettop'));
+
+
+                if(o.settings_listen_to_object_scroll_top){
+                    st = o.settings_listen_to_object_scroll_top.val;
+                }
 
 
                 if(isNaN(st)){
@@ -695,12 +790,20 @@ window.dzsprx_self_options = {};
                     margs = $.extend(margs,pargs);
                 }
 
+
+                if(o.settings_clip_height_is_window_height){
+                    ch = $(window).height();
+                }
+
+                //console.info('ch pre force_ch',ch);
                 if(margs.force_ch!=null){
                     ch = margs.force_ch;
                 }
                 if(margs.force_th!=null){
                     th = margs.force_th;
                 }
+
+                //console.info('ch post force_ch',ch);
 
 
                 //console.info(margs);
@@ -721,208 +824,302 @@ window.dzsprx_self_options = {};
                 }
 
 
-                if(started===false || o.settings_mode!='scroll'){
+                //console.warn(st+wh, cthis_ot, started)
+                if(started===false || (o.settings_mode!='scroll' && o.settings_mode!='oneelement') ){
                     return;
                 }
+                //console.warn(st+wh, cthis_ot, 'what')
 
-                if(o.mode_scroll=='fromtop'){
-                    vi_y = ((st/ch))  * (ch-th);
-
-                    if(o.is_fullscreen=='on'){
-
-                        vi_y = st / ($('body').height() - wh)  * (ch-th);
+                if(o.settings_mode=='oneelement'){
 
 
-                        if(_scrollTop_is_another_element_top){
+                    var aux_r = (st-cthis_ot+wh) / wh;
 
-
-                            vi_y = st / (_scrollTop_is_another_element_top.height() - wh)  * (ch-th);
-
-                        }
+                    if(aux_r<0){
+                        aux_r = 0;
+                    }
+                    if(aux_r>1){
+                        aux_r = 1;
                     }
 
-                    if(o.direction=='reverse'){
-                        vi_y = (1-(st/ch))  * (ch-th);
-                        //console.info(st,th)
+
+                    if (o.direction == 'reverse') {
+                        aux_r = Math.abs(1-aux_r);
+                    }
+
+                    vi_y = (aux_r * ( o.settings_mode_oneelement_max_offset*2) ) - o.settings_mode_oneelement_max_offset ;
+
+                    finish_viy = vi_y;
+                    //console.warn(st+wh, cthis_ot, aux_r)
+
+                }
+                if(o.settings_mode=='scroll') {
 
 
-                        if(o.is_fullscreen=='on'){
-
-                            vi_y = (1- (st / ($('body').height() - wh)) )  * (ch-th);
 
 
-                            //console.info(_scrollTop_is_another_element_top);
-                            if(_scrollTop_is_another_element_top){
 
 
-                                vi_y = (1- (st / (_scrollTop_is_another_element_top.height() - wh)) )  * (ch-th);
 
-                                //console.log(st,_scrollTop_is_another_element_top.height(),wh,ch,th, vi_y);
-                                //vi_y = st / ( - wh)  * (ch-th);
+
+                    if (o.mode_scroll == 'fromtop') {
+                        vi_y = ((st / ch)) * (ch - th);
+
+                        if (o.is_fullscreen == 'on') {
+
+                            vi_y = st / ($('body').height() - wh) * (ch - th);
+
+
+                            if (_scrollTop_is_another_element_top) {
+
+
+                                vi_y = st / (_scrollTop_is_another_element_top.height() - wh) * (ch - th);
 
                             }
                         }
-                    }
+
+                        if (o.direction == 'reverse') {
+                            vi_y = (1 - (st / ch)) * (ch - th);
+                            //console.info(st,th)
 
 
-                }
-                cthis_ot = cthis.offset().top;
+                            if (o.is_fullscreen == 'on') {
+
+                                vi_y = (1 - (st / ($('body').height() - wh)) ) * (ch - th);
 
 
-
-                if(_scrollTop_is_another_element_top){
-                    cthis_ot = -parseInt(_scrollTop_is_another_element_top.css('top'),10);
-                }
-
-                //console.log(st, cthis_ot, wh, ch);
-                var auxer5 = (st-(cthis_ot-wh)) / ((cthis_ot+ch)-(cthis_ot-wh));
-
-                if(o.is_fullscreen=='on'){
+                                //console.info(_scrollTop_is_another_element_top);
+                                if (_scrollTop_is_another_element_top) {
 
 
+                                    vi_y = (1 - (st / (_scrollTop_is_another_element_top.height() - wh)) ) * (ch - th);
 
+                                    //console.log(st,_scrollTop_is_another_element_top.height(),wh,ch,th, vi_y);
+                                    //vi_y = st / ( - wh)  * (ch-th);
 
-                    auxer5 = st / ($('body').height() - wh);
-
-                    //console.info($('body').height(), wh);
-
-                    if(_scrollTop_is_another_element_top){
-
-
-                        auxer5 = st / (_scrollTop_is_another_element_top.outerHeight() - wh);
-
-                        //cthis_ot = -parseInt(_scrollTop_is_another_element_top.css('top'),10);
-                    }
-                }
-                //console.info(auxer5);
-
-                if(auxer5>1){ auxer5 = 1; }
-                if(auxer5< 0){ auxer5 = 0; }
-
-                if(animator_objects_arr){
-                    for(i=0;i<animator_objects_arr.length;i++){
-
-                        var _c = animator_objects_arr[i];
-                        var cdata =  _c.data('parallax_options');
-
-
-                        //console.info(cdata);
-                        if(cdata){
-                            for(var j=0;j<cdata.length;j++){
-
-                                if(auxer5<=0.5){
-                                    var auxer5_doubled = auxer5*2;
-                                    var auxer5_doubled_inverse = (auxer5*2)-1;
-                                    if(auxer5_doubled_inverse<0) { auxer5_doubled_inverse=-auxer5_doubled_inverse; }
-
-                                    //var auxval = cdata[j].initial + (auxer5*2) * cdata[j].mid;
-                                    //if(cdata[j].initial > cdata[j].mid){
-                                    //    auxval = (auxer5*2) * cdata[j].mid - cdata[j].initial;
-                                    //}
-
-                                    var auxval = auxer5_doubled_inverse*cdata[j].initial + auxer5_doubled*cdata[j].mid;
-                                    var cval = cdata[j].value;
-
-                                    cval = cval.replace('{{val}}', auxval);
-                                    //console.log(cval);
-                                    //console.info(cdata[j].property, auxval);
-                                    _c.css(cdata[j].property, cval);
-                                }else{
-
-                                    var auxer5_doubled = (auxer5-0.5)*2;
-                                    var auxer5_doubled_inverse = auxer5_doubled-1;
-                                    if(auxer5_doubled_inverse<0) { auxer5_doubled_inverse=-auxer5_doubled_inverse; }
-
-                                    //var auxval = cdata[j].initial + (auxer5*2) * cdata[j].mid;
-                                    //if(cdata[j].initial > cdata[j].mid){
-                                    //    auxval = (auxer5*2) * cdata[j].mid - cdata[j].initial;
-                                    //}
-
-                                    var auxval = auxer5_doubled_inverse*cdata[j].mid + auxer5_doubled*cdata[j].final;
-
-                                    //console.info(auxval,auxer5_doubled_inverse,auxer5_doubled)
-                                    var cval = cdata[j].value;
-                                    cval = cval.replace('{{val}}', auxval);
-                                    _c.css(cdata[j].property, cval);
                                 }
                             }
-
                         }
 
 
-                        //console.info(animator_objects_arr[i],);
                     }
-                }
-
-                //console.info(auxer5);
-                if(o.mode_scroll=='normal'){
+                    cthis_ot = cthis.offset().top;
 
 
-
-
-                    vi_y = auxer5  * (ch-th);
-                    //consoel.info(auxer5, vi_y);
-
-                    if(o.direction=='reverse'){
-
-                        vi_y = (1-(auxer5))  * (ch-th);
+                    if (_scrollTop_is_another_element_top) {
+                        cthis_ot = -parseInt(_scrollTop_is_another_element_top.css('top'), 10);
                     }
 
-                    if(cthis.hasClass('debug-target')){ console.info(o.mode_scroll, st, cthis_ot, wh, ch, (cthis_ot+ch),auxer5); }
+                    //console.log(st, cthis_ot, wh, ch);
+                    var auxer5 = (st - (cthis_ot - wh)) / ((cthis_ot + ch) - (cthis_ot - wh));
+
+
+                    //console.info('is fullscreen ?? - ', o.is_fullscreen);
+                    if (o.is_fullscreen == 'on') {
 
 
 
+                        //console.info('scrolltop - ',st);
 
-                }
+                        auxer5 = st / ($('body').height() - wh);
 
-                if(_fadeouttarget){
+                        //console.info($('body').height(), wh);
 
-                    var auxer4 = Math.abs(((st-cthis_ot)/cthis.outerHeight())-1);
-                    if(auxer4>1){ auxer4 = 1; }
-                    if(auxer4< 0){ auxer4 = 0; }
-
-
-                    _fadeouttarget.css('opacity', auxer4);
-                }
+                        if (_scrollTop_is_another_element_top) {
 
 
+                            auxer5 = st / (_scrollTop_is_another_element_top.outerHeight() - wh);
 
-                bo_o = st/ch;
-                //console.info(st, vi_y,ch,th);
+                            //cthis_ot = -parseInt(_scrollTop_is_another_element_top.css('top'),10);
+                        }
+                    }
+                    //console.info('st and auxer5 - ',st, auxer5, o.settings_listen_to_object_scroll_top);
 
-                if(vi_y > 0){ vi_y = 0 };
-                if(vi_y < ch-th){ vi_y = ch-th };
-                if(bo_o > 1){ bo_o = 1 };
-                if(bo_o < 0){ bo_o = 0 };
+                    if (auxer5 > 1) {
+                        auxer5 = 1;
+                    }
+                    if (auxer5 < 0) {
+                        auxer5 = 0;
+                    }
+
+                    if (animator_objects_arr) {
+                        for (i = 0; i < animator_objects_arr.length; i++) {
+
+                            var _c = animator_objects_arr[i];
+                            var cdata = _c.data('parallax_options');
 
 
-                if(margs.force_vi_y){
-                    vi_y = margs.force_vi_y;
-                }
+                            //console.info(cdata);
+                            if (cdata) {
+                                for (var j = 0; j < cdata.length; j++) {
 
-                finish_viy = vi_y;
-                finish_bo = bo_o;
+                                    if (auxer5 <= 0.5) {
+                                        var auxer5_doubled = auxer5 * 2;
+                                        var auxer5_doubled_inverse = (auxer5 * 2) - 1;
+                                        if (auxer5_doubled_inverse < 0) {
+                                            auxer5_doubled_inverse = -auxer5_doubled_inverse;
+                                        }
+
+                                        //var auxval = cdata[j].initial + (auxer5*2) * cdata[j].mid;
+                                        //if(cdata[j].initial > cdata[j].mid){
+                                        //    auxval = (auxer5*2) * cdata[j].mid - cdata[j].initial;
+                                        //}
+
+                                        var auxval = auxer5_doubled_inverse * cdata[j].initial + auxer5_doubled * cdata[j].mid;
+                                        var cval = cdata[j].value;
+
+                                        cval = cval.replace('{{val}}', auxval);
+                                        //console.log(cval);
+                                        //console.info(cdata[j].property, auxval);
+                                        _c.css(cdata[j].property, cval);
+                                    } else {
+
+                                        var auxer5_doubled = (auxer5 - 0.5) * 2;
+                                        var auxer5_doubled_inverse = auxer5_doubled - 1;
+                                        if (auxer5_doubled_inverse < 0) {
+                                            auxer5_doubled_inverse = -auxer5_doubled_inverse;
+                                        }
+
+                                        //var auxval = cdata[j].initial + (auxer5*2) * cdata[j].mid;
+                                        //if(cdata[j].initial > cdata[j].mid){
+                                        //    auxval = (auxer5*2) * cdata[j].mid - cdata[j].initial;
+                                        //}
+
+                                        var auxval = auxer5_doubled_inverse * cdata[j].mid + auxer5_doubled * cdata[j].final;
+
+                                        //console.info(auxval,auxer5_doubled_inverse,auxer5_doubled)
+                                        var cval = cdata[j].value;
+                                        cval = cval.replace('{{val}}', auxval);
+                                        _c.css(cdata[j].property, cval);
+                                    }
+                                }
+
+                            }
 
 
-                //console.info(finish_viy);
-
-                if(duration_viy===0){
-
-                    target_viy = finish_viy;
-
-                    if(sw_suspend_functional==false || 1==1){
-                        //console.info('DURATION VIY = 0', st, vi_y, target_viy)
-                        if(is_ie()&&version_ie()<=10){
-                            _theTarget.css('top',''+target_viy+'px');
-                        }else{
-                            _theTarget.css('transform','translate3d(0,'+target_viy+'px,0)');
+                            //console.info(animator_objects_arr[i],);
                         }
                     }
 
+                    //console.info(auxer5, ch,th);
+
+                    //console.info('pre calculate vi_y', auxer5, ch, th);
+                    if (o.mode_scroll == 'normal') {
+
+
+                        vi_y = auxer5 * (ch - th);
+                        //consoel.info(auxer5, vi_y);
+
+                        if (o.direction == 'reverse') {
+
+                            vi_y = (1 - (auxer5)) * (ch - th);
+                        }
+
+                        if (cthis.hasClass('debug-target')) {
+                            console.info(o.mode_scroll, st, cthis_ot, wh, ch, (cthis_ot + ch), auxer5);
+                        }
+
+
+                    }
+
+
+                    if(cthis.hasClass('simple-parallax')){
+                        var aux_r = (st-cthis_ot+(th)+wh) / wh;
+
+                        if(aux_r<0){
+                            aux_r = 0;
+                        }
+                        if(aux_r>1){
+                            aux_r = 1;
+                        }
+
+                        aux_r = Math.abs(1-aux_r);
+
+
+                        vi_y = (aux_r * ( o.simple_parallaxer_max_offset*2) ) - o.simple_parallaxer_max_offset ;
+
+                        // console.warn(aux_r, vi_y);
+                    }
+
+                    //console.info('calculate vi_y', vi_y);
+
+                    if (_fadeouttarget) {
+
+                        var auxer4 = Math.abs(((st - cthis_ot) / cthis.outerHeight()) - 1);
+                        if (auxer4 > 1) {
+                            auxer4 = 1;
+                        }
+                        if (auxer4 < 0) {
+                            auxer4 = 0;
+                        }
+
+
+                        _fadeouttarget.css('opacity', auxer4);
+                    }
+
+
+                    bo_o = st / ch;
+                    //console.info(st, vi_y,ch,th);
+
+
+                    if(cthis.hasClass('simple-parallax')==false){
+                        if (vi_y > 0) {
+                            vi_y = 0
+                        }
+                        ;
+                        if (vi_y < ch - th) {
+                            vi_y = ch - th
+                        }
+                        ;
+                    }
+
+                    if (bo_o > 1) {
+                        bo_o = 1
+                    }
+                    ;
+                    if (bo_o < 0) {
+                        bo_o = 0
+                    }
+                    ;
+
+                    //console.log(vi_y);
+
+
+                    if (margs.force_vi_y) {
+                        vi_y = margs.force_vi_y;
+                    }
+
+                    finish_viy = vi_y;
+                    finish_bo = bo_o;
+
+
+                    //console.info(finish_viy);
+
+                    if (duration_viy === 0) {
+
+                        target_viy = finish_viy;
+
+                        if (sw_suspend_functional == false || 1 == 1) {
+                            //console.info('DURATION VIY = 0', st, vi_y, target_viy)
+                            if (is_ie() && version_ie() <= 10) {
+                                _theTarget.css('top', '' + target_viy + 'px');
+                            } else {
+
+
+                                _theTarget.css('transform', 'translate3d(0,' + target_viy + 'px,0)');
+                            }
+                        }
+
+
+                    }
+
+                    //clearTimeout(inter_suspend_enter_frame);
+                    //if(sw_suspend_functional==false){
+                    //    inter_suspend_enter_frame = setTimeout(switch_suspend_enter_frame,700);
+                    //}
+                    //sw_suspend_functional = false;
 
                 }
-
-
                 var time=0;
                 //console.info(vi_y);
 
@@ -932,15 +1129,19 @@ window.dzsprx_self_options = {};
 
             }
 
+            function switch_suspend_enter_frame(){
+                sw_suspend_functional=true;
+            }
+
             function handle_frame(){
 
-                //console.info('handle_frame', finish_viy, duration_viy, target_viy);
 
                 if(sw_suspend_functional){
                     requestAnimFrame(handle_frame);
                     return false;
                 }
 
+                //console.info('handle_frame', finish_viy, duration_viy, target_viy);
                 //console.info('handle_frame()' , cthis);
 
                 if(isNaN(target_viy)){
@@ -998,11 +1199,28 @@ window.dzsprx_self_options = {};
                 //console.log(begin_viy, change_viy, target_viy);
 
                 //console.info('DURATION VIY = many', vi_y, target_viy)
-                if(is_ie()&&version_ie()<=10){
-                    _theTarget.css('top',''+target_viy+'px');
+
+                if(cthis.hasClass('simple-parallax')){
+
+                    if(_theTarget.parent().hasClass('is-image')){
+                        //_theTarget.css('background-position-y',target_viy+'px')
+                        _theTarget.css('background-position-y','calc(50% - '+parseInt(target_viy,10)+'px)')
+                    }
+
                 }else{
-                    _theTarget.css('transform','translate3d('+target_vix+'px,'+target_viy+'px,0)');
+                    if(is_ie()&&version_ie()<=10){
+                        _theTarget.css('top',''+target_viy+'px');
+                    }else{
+                        _theTarget.css('transform','translate3d('+target_vix+'px,'+target_viy+'px,0)');
+
+
+                        if(o.settings_mode=='oneelement'){
+                            cthis.css('transform','translate3d('+target_vix+'px,'+target_viy+'px,0)');
+                        }
+                    }
                 }
+
+
 
 
                 //console.info(_blackOverlay,target_bo);;

@@ -136,3 +136,24 @@
     background-size: cover;
     background-position: center center;
 }
+
+
+/*------------------------------------------------------------------
+    [Banner Image v11]
+------------------------------------------------------------------*/
+
+.banner-img-v11 {
+    position: relative;
+    z-index: 1;
+    background: url(../../assets/img/1920x1080/40.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    &:before {
+        @include position(absolute, $top: 0, $left: 0);
+        z-index: -1;
+        @include size(100%);
+        @include bg-opacity($color-dark, .97);
+        content: " ";
+    }
+}

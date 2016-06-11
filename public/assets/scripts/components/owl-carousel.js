@@ -359,6 +359,92 @@ var OwlCarousel = function() {
         });
     }
 
+    // Handle Owl Carousel News v12
+    var handleNewsV12 = function() {
+        $(document).ready(function() {
+            var owl = $(".owl-carousel-news-v12");
+            owl.owlCarousel({
+                items: 3,
+                loop: true,
+                dots: true,
+                nav: false,
+                margin: 30,
+                autoplay: false,
+                smartSpeed: 450,
+                responsive: {
+                    // breakpoint from 0 up
+                    0: {
+                        items: 1
+                    },
+                    // breakpoint from 480 up
+                    480: {
+                        items: 1
+                    },
+                    // breakpoint from 550 up
+                    550: {
+                        items: 1
+                    },
+                    // breakpoint from 768 up
+                    768: {
+                        items: 2
+                    },
+                    // breakpoint from 992 up
+                    992: {
+                        items: 3
+                    },
+                    // breakpoint from 1199 up
+                    1199: {
+                        items: 3
+                    }
+                }
+            });
+        });
+    }
+
+    // Handle Owl Carousel Team v12
+    var handleTeamV12 = function() {
+        $(document).ready(function() {
+            var owl = $(".owl-carousel-team-v12");
+            owl.owlCarousel({
+                items: 3,
+                loop: true,
+                dots: false,
+                nav: false,
+                margin: 30,
+                autoplay: false,
+                autoplay: true,
+                smartSpeed: 450,
+                autoplaySpeed: 1000,
+                responsive: {
+                    // breakpoint from 0 up
+                    0: {
+                        items: 1
+                    },
+                    // breakpoint from 480 up
+                    480: {
+                        items: 1
+                    },
+                    // breakpoint from 550 up
+                    600: {
+                        items: 2
+                    },
+                    // breakpoint from 768 up
+                    768: {
+                        items: 2
+                    },
+                    // breakpoint from 992 up
+                    992: {
+                        items: 3
+                    },
+                    // breakpoint from 1199 up
+                    1199: {
+                        items: 3
+                    }
+                }
+            });
+        });
+    }
+
     return {
         init: function() {
             handleTestimonialsOneItem(); // initial setup for testimonials one item
@@ -371,6 +457,8 @@ var OwlCarousel = function() {
             handleOneItem(); // initial setup for one item
             fandleFourItem(); // initial setup for four item
             handleMockupSliderV1(); // initial setup for mockup slider v1
+            handleNewsV12(); // initial setup for news v12
+            handleTeamV12(); // initial setup for team v12
         }
     }
 }();

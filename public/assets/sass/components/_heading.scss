@@ -22,9 +22,13 @@
 
 /* White Version */
 .heading-v1.heading-v1-white {
-    .heading-v1-title,
+    .heading-v1-title {
+        color: $color-white;
+    }
+
     .heading-v1-text {
         color: $color-white;
+        opacity: .8;
     }
 }
 

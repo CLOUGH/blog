@@ -20,11 +20,12 @@
   [Font]
 ----------------------------------------------------*/
 
-/* eg: @include font($size: 14px, $style: italic, $weight: 400, $family: $font-family-base); */
-@mixin font($size: null, $style: null, $weight: null, $family: null) {
+/* eg: @include font($size: 14px, $style: italic, $weight: 400, $variant: normal, $family: $font-family-base); */
+@mixin font($size: null, $style: null, $weight: null, $variant: null, $family: null) {
     font-size: $size;
     font-style: $style;
     font-weight: $weight;
+    font-variant: $variant;
     font-family: $family;
 }
 
@@ -52,31 +53,6 @@
 @mixin size($width, $height: $width) {
     width: $width;
     height: $height;
-}
-
-
-/*--------------------------------------------------
-  [Center Vertically and/or Horizontally an absolute positioned element]
-----------------------------------------------------*/
-
-@mixin center($xy:xy) {
-    @if $xy == xy {
-        top: 50%;
-        left: 50%;
-        right: auto;
-        bottom: auto;
-        @include transform(translateg(-50%) translateY(-50%));
-    }
-    @else if $xy == x {
-        left: 50%;
-        right: auto;
-        @include transform(translateg(-50%));
-    }
-    @else if $xy == y {
-        top: 50%;
-        bottom: auto;
-        @include transform(translateY(-50%));
-    }
 }
 
 
@@ -120,8 +96,8 @@
   [Theme Buttons]
 ----------------------------------------------------*/
 
-/* eg: @include buttons($color-base, $color-white, transparent, $color-base, 1px, $color-base, $color-base); */
-@mixin buttons($btn-color, $btn-color-hover, $btn-bg-color, $btn-bg-hover-color, $btn-border-width, $btn-border-color, $btn-border-hover-color) {
+/* eg: @include buttons($color-base, $color-white, transparent, $color-base, 1px, $color-base, $color-base, $color-base); */
+@mixin buttons($btn-color, $btn-color-hover, $btn-bg-color, $btn-bg-hover-color, $btn-border-width, $btn-border-color, $btn-border-hover-color, $btn-bg-after-before-color) {
     position: relative;
     display: inline-block;
     line-height: $line-height-base;
@@ -137,10 +113,7 @@
     -ms-touch-action: manipulation;
         touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    @include user-select(none);
 
     &:focus,
     &:active:focus,
@@ -162,6 +135,11 @@
         background: $btn-bg-hover-color;
         border-color: $btn-border-hover-color;
         text-decoration: none;
+    }
+
+    &:after,
+    &:before {
+        background: $btn-bg-after-before-color;
     }
 
     &:active,
@@ -346,6 +324,18 @@
 
 
 /*--------------------------------------------------
+  [RotateX]
+----------------------------------------------------*/
+
+/* eg: @include rotateX(45deg); */
+@mixin rotateX($degrees) {
+    -webkit-transform: rotateX($degrees);
+    -moz-transform: rotateX($degrees);
+    transform: rotateX($degrees);
+}
+
+
+/*--------------------------------------------------
   [Transform Scale]
 ----------------------------------------------------*/
 
@@ -367,6 +357,19 @@
     -moz-animation-duration: $animation-duration;
     animation-duration: $animation-duration;
 }
+
+
+/*--------------------------------------------------
+  [Animation Delay]
+----------------------------------------------------*/
+
+/* eg: @include animation-delay(.3s); */
+@mixin animation-delay($animation-delay) {
+    -webkit-animation-delay: $animation-delay;
+    -moz-animation-delay: $animation-delay;
+    animation-delay: $animation-delay;
+}
+
 
 /*--------------------------------------------------
   [Animation Timing Function]
@@ -497,6 +500,40 @@
     background-image:     -ms-linear-gradient(top, $start-colour, $end-colour);
     background-image:      -o-linear-gradient(top, $start-colour, $end-colour);
     background-image:         linear-gradient(top, $start-colour, $end-colour);
-    filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}');
 }
 
+
+/*--------------------------------------------------
+  [User Select]
+----------------------------------------------------*/
+
+/* eg: @include user-select(none); */
+@mixin user-select($user-select) {
+    -webkit-user-select: ($user-select);
+    -moz-user-select: ($user-select);
+    -ms-user-select: ($user-select);
+    user-select: ($user-select);
+}
+
+
+/*--------------------------------------------------
+  [Box Sizing]
+----------------------------------------------------*/
+
+/* eg: @include box-sizing(border-box); */
+@mixin box-sizing($box-sizing) {
+    -webkit-box-sizing: ($box-sizing);
+    -moz-box-sizing: ($box-sizing);
+    box-sizing: ($box-sizing);
+}
+
+
+/*--------------------------------------------------
+  [If, For, Each, While]
+----------------------------------------------------*/
+
+$control-count: 6 !default;
+
+@for $i from 1 through $control-count {
+    .#{$control-count}-#{$i} {}
+}

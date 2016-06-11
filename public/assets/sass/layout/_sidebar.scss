@@ -13,7 +13,7 @@
 
     .sidebar-trigger-icon {
         position: relative;
-        @include size(15px, 1px);
+        @include size(18px, 1px);
         display: inline-block;
         background: $color-dark;
         @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
@@ -21,17 +21,17 @@
         &:before,
         &:after {
             @include position(absolute, $left: 0);
-            @include size(15px, 1px);
+            @include size(18px, 1px);
             background: $color-dark;
             content: " ";
         }
         &:before {
-            bottom: 10px;
+            bottom: 12px;
             @include rotate(0);
             @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
         }
         &:after {
-            top: -5px;
+            top: -6px;
             @include rotate(0);
             @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
         }

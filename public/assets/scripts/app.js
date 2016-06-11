@@ -130,6 +130,33 @@ var App = function() {
         });
     }
 
+    // Language Dropdown
+    var handleLanguageBarDropdown = function() {
+        $('.js-language-trigger').on('click', function() {
+            $('.js-language-dropdown').toggle();
+        });
+    }
+
+    // Language Push
+    var handleLanguagePush = function() {
+        $('.language-push-btn').on('click', function() {
+            $('.language-push-open').slideToggle(400);
+        });
+
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 1) $('.language-push-open').slideUp();
+        });
+    }
+    
+    // Team v7 Collapse
+    var handleTeamV7 = function() {
+        $('.team-v7-collapse').hide();
+        $('.team-v7').on('click', function() {
+            $(this).find('.team-v7-trigger').toggleClass('is-clicked');
+            $(this).find('.team-v7-collapse').slideToggle(300);
+        });
+    }
+
     // Footer Toggle Expand
     var handleFooterToggleExpand = function() {
         $('.footer-toggle-collapse').hide();
@@ -302,6 +329,9 @@ var App = function() {
             handleTopbarTShoppingDropdown(); // initial setup for topbar transparent shopping dropdown
             handleTopbarEDropdown(); // initial setup for topbar e-commerce dropdown
             handleTopbarEShoppingDropdown(); // initial setup for topbar e-commerce shopping dropdown
+            handleLanguageBarDropdown(); // initial setup for language dropdown
+            handleLanguagePush(); // initial setup for language piush
+            handleTeamV7(); // initial setup for team v7
             handleFooterToggleExpand(); // initial setup for footer toggle expand
             handleScrollToSection(); // initial setup for scroll to section
             handleEqualIBannerBg(); // initial setup for equal height interactive banner

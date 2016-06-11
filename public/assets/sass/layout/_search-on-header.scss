@@ -13,9 +13,9 @@
         .search-on-header-btn-default,
         .search-on-header-btn-active {
             position: relative;
-            @include size(25px, 0);
+            @include size(30px, 0);
             display: block;
-            @include font($size: $font-size-13, $family: $font-family-font-awesome);
+            @include font($size: $font-size-13);
             color: $color-dark;
             @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
 
@@ -25,15 +25,13 @@
         }
         
         .search-on-header-btn-default {
-            top: 1px;
-            content: "\f002";
+            top: 0;
             opacity: 1;
         }
 
         .search-on-header-btn-active {
             top: 12px;
             @include font($size: $font-size-15);
-            content: "\f00d";
             opacity: 0;
         }
 
@@ -44,7 +42,7 @@
             }
 
             .search-on-header-btn-active {
-                top: 1px;
+                top: 0;
                 z-index: 9;
                 opacity: 1;
             }

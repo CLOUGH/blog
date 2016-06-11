@@ -370,6 +370,12 @@
 	background-position: center center;
 	padding-top: 100px;
 
+	&.promo-block-v7-bg-img-v2 {
+		background: url(../img/1920x1080/59.jpg) no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
+
 	.promo-block-v7-title {
 		@include font($size: $font-size-50);
 		color: $color-white;

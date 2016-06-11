@@ -326,10 +326,11 @@
     }
 
     .breadcrumbs-v5-title {
+        display: block;
         @include font($size: $font-size-70, $weight: $font-weight-300);
         color: $color-white;
         line-height: 1.1;
-        margin: 0;
+        margin-bottom: 10px;
     }
 
     .breadcrumbs-v5-subtitle {
@@ -364,3 +365,34 @@
     }
 }
 
+
+/*--------------------------------------------------
+    [Breadcrumbs v6]
+----------------------------------------------------*/
+
+.breadcrumbs-v6 {
+    padding: 150px 0;
+
+    .breadcrumbs-v6-title {
+        @include font($size: $font-size-70, $weight: $font-weight-700);
+        margin: 0;
+        line-height: 1.1;
+    }
+
+    .breadcrumbs-v6-title-child {
+        @include font($size: $font-size-100, $style: italic, $family: $font-family-lora);
+    }
+}
+
+/* Media Queries below 480px */
+@media (max-width: $screen-xs-min) {
+    .breadcrumbs-v6 {
+        .breadcrumbs-v6-title {
+            @include font($size: $font-size-50);
+        }
+
+        .breadcrumbs-v6-title-child {
+            @include font($size: $font-size-70);
+        }
+    }
+}

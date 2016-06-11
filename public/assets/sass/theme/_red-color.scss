@@ -386,9 +386,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Button Base Color */
+/* Button Red Color */
 .btn-base {
-    @include buttons($color-red, $color-white, transparent, $color-red, 1px, transparent, $color-red);
+    @include buttons($color-red, $color-white, transparent, $color-red, 1px, transparent, $color-red, transparent);
 
     .btn-base-element-xs {
         @include buttons-element(transparent, darken($color-red, 4%), 4px 9px);
@@ -407,9 +407,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Buttons Border Base Color */
+/* Buttons Border Red Color */
 .btn-base-brd {
-    @include buttons($color-red, $color-white, transparent, $color-red, 1px, $color-red, $color-red);
+    @include buttons($color-red, $color-white, transparent, $color-red, 1px, $color-red, $color-red, transparent);
 
     .btn-base-element-xs {
         @include buttons-element(transparent, darken($color-red, 4%), 4px 9px);
@@ -428,9 +428,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Button Background Base Color */
+/* Button Background Red Color */
 .btn-base-bg {
-    @include buttons($color-white, $color-white, $color-red, $color-red-light, 1px, transparent, transparent);
+    @include buttons($color-white, $color-white, $color-red, $color-red-light, 1px, transparent, transparent, transparent);
 
     .btn-base-element-xs {
         @include buttons-element(darken($color-red, 4%), transparent, 4px 9px);
@@ -451,7 +451,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Button Background White Color */
 .btn-white-bg {
-    @include buttons($color-dark, $color-white, $color-white, $color-red, 1px, $color-white, $color-red);
+    @include buttons($color-dark, $color-white, $color-white, $color-red, 1px, $color-white, $color-red, transparent);
 
     .btn-base-element-xs {
         @include buttons-element(transparent, darken($color-white, 6%), 6px 9px);
@@ -467,6 +467,132 @@ h1, h2, h3, h4, h5, h6 {
 
     .btn-base-element-lg {
         @include buttons-element(transparent, darken($color-white, 6%), 15px 15px);
+    }
+}
+
+/* Button Red Color Slide */
+.btn-base-bg-slide {
+    @include buttons($color-white, $color-white, $color-red, $color-red, 0, tranparent, tranparent, $color-red-light);
+
+    .btn-base-element-xs {
+        @include buttons-element(transparent, darken($color-base, 4%), 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(transparent, darken($color-base, 4%), 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(transparent, darken($color-base, 4%), 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(transparent, darken($color-base, 4%), 15px 15px);
+    }
+}
+
+/* Button White Color Slide */
+.btn-white-bg-slide {
+    @include buttons($color-dark, $color-white, $color-white, $color-white, 0, transparent, transparent, $color-red);
+
+    .btn-base-element-xs {
+        @include buttons-element(transparent, darken($color-white, 6%), 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(transparent, darken($color-white, 6%), 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(transparent, darken($color-white, 6%), 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(transparent, darken($color-white, 6%), 15px 15px);
+    }
+}
+
+/* Button Red Color Slide */
+.btn-base-brd-slide {
+    @include buttons($color-red, $color-white, transparent, transparent, 1px, $color-red, $color-red, $color-red);
+
+    .btn-base-element-xs {
+        @include buttons-element(transparent, darken($color-base, 4%), 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(transparent, darken($color-base, 4%), 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(transparent, darken($color-base, 4%), 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(transparent, darken($color-base, 4%), 15px 15px);
+    }
+}
+
+/* Button Background Red Color */
+.btn-base-bg-anim {
+    @include buttons($color-white, $color-white, $color-red, $color-red, 0, transparent, transparent, darken($color-red, 5%));
+
+    .btn-base-element-xs {
+        @include buttons-element(darken($color-base, 4%), transparent, 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(darken($color-base, 4%), transparent, 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(darken($color-base, 4%), transparent, 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(darken($color-base, 4%), transparent, 15px 15px);
+    }
+}
+
+/* Button Background White Color */
+.btn-white-bg-anim {
+    @include buttons($color-dark, $color-white, $color-white, $color-white, 0, transparent, transparent, $color-red);
+
+    .btn-base-element-xs {
+        @include buttons-element(transparent, darken($color-white, 6%), 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(transparent, darken($color-white, 6%), 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(transparent, darken($color-white, 6%), 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(transparent, darken($color-white, 6%), 15px 15px);
+    }
+}
+
+/* Button Border Red Color */
+.btn-base-brd-anim {
+    @include buttons($color-red, $color-white, transparent, transparent, 1px, $color-red, $color-red, $color-red);
+
+    .btn-base-element-xs {
+        @include buttons-element(darken($color-base, 4%), transparent, 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(darken($color-base, 4%), transparent, 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(darken($color-base, 4%), transparent, 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(darken($color-base, 4%), transparent, 15px 15px);
     }
 }
 
@@ -1412,6 +1538,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.header {
+    .topbar-toggle-trigger-icon-style {
+        &:hover {
+            color: $color-red;
+        }
+    }
+}
+
 /* Shopping Cart */
 .header {
     .shopping-cart {
@@ -1419,6 +1554,10 @@ h1, h2, h3, h4, h5, h6 {
             &:hover {
                 color: $color-red;
             }
+        }
+
+        .shopping-cart-amount {
+            background: $color-red;
         }
 
         .shopping-cart-menu {
@@ -1581,6 +1720,10 @@ h1, h2, h3, h4, h5, h6 {
     .header {
         .navbar-nav {
             .nav-item {
+                .dropdown-menu {
+                    border-top-color: $color-red;
+                }
+
                 &:hover {
                     .nav-item-child {
                         color: $color-red;
@@ -1636,6 +1779,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.header-center-aligned {
+    .topbar-toggle-trigger-icon-style {
+        &:hover {
+            color: $color-red;
+        }
+    }
+}
+
 /* Shopping Cart */
 .header-center-aligned {
     .shopping-cart {
@@ -1643,6 +1795,10 @@ h1, h2, h3, h4, h5, h6 {
             &:hover {
                 color: $color-red;
             }
+        }
+
+        .shopping-cart-amount {
+            background: $color-red;
         }
 
         .shopping-cart-menu {
@@ -1804,6 +1960,10 @@ h1, h2, h3, h4, h5, h6 {
     .header-center-aligned {
         .navbar-nav {
             .nav-item {
+                .dropdown-menu {
+                    border-top-color: $color-red;
+                }
+
                 &:hover {
                     .nav-item-child {
                         color: $color-red;
@@ -1858,6 +2018,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.header-center-aligned-transparent {
+    .topbar-toggle-trigger-icon-style {
+        &:hover {
+            color: $color-red;
+        }
+    }
+}
+
 /* Shopping Cart */
 .header-center-aligned-transparent {
     .shopping-cart {
@@ -1865,6 +2034,10 @@ h1, h2, h3, h4, h5, h6 {
             &:hover {
                 color: $color-red;
             }
+        }
+
+        .shopping-cart-amount {
+            background: $color-red;
         }
 
         .shopping-cart-menu {
@@ -2037,6 +2210,10 @@ h1, h2, h3, h4, h5, h6 {
     .header-center-aligned-transparent {
         .navbar-nav {
             .nav-item {
+                .dropdown-menu {
+                    border-top-color: $color-red;
+                }
+
                 &:hover {
                     .nav-item-child {
                         color: $color-red;
@@ -2257,6 +2434,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.header-transparent {
+    .topbar-toggle-trigger-icon-style {
+        &:hover {
+            color: $color-red;
+        }
+    }
+}
+
 /* Shopping Cart */
 .header-transparent {
     .shopping-cart {
@@ -2264,6 +2450,10 @@ h1, h2, h3, h4, h5, h6 {
             &:hover {
                 color: $color-red;
             }
+        }
+
+        .shopping-cart-amount {
+            background: $color-red;
         }
 
         .shopping-cart-menu {
@@ -2436,6 +2626,10 @@ h1, h2, h3, h4, h5, h6 {
     .header-transparent {
         .navbar-nav {
             .nav-item {
+                .dropdown-menu {
+                    border-top-color: $color-red;
+                }
+
                 &:hover {
                     .nav-item-child {
                         color: $color-red;
@@ -3075,7 +3269,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Animsition Loading */
 .animsition-loading {
-    border-left-color: $color-base;
+    border-left-color: $color-red;
 }
 
 /* Back To Top */
@@ -3353,10 +3547,178 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Language V1 */
+.language-v1 {
+    .language-v1-toggle {
+        &:hover {
+            color: $color-red;
+        }
+    }
+
+    .language-v1-dropdown-link {
+        &:hover {
+            background: $color-red;
+        }
+    }
+}
+
+/* Language V1 White */
+/* Media Queries above 992px */
+@media (min-width: $screen-md-min) {
+    .language-v1 {
+        &.language-v1-style-white {
+            .language-v1-toggle {
+                &:hover {
+                    color: $color-red;
+                }
+            }
+        }
+    }
+
+    /* Header Shrink */
+    .header-shrink {
+        .language-v1 {
+            &.language-v1-style-white {
+                .language-v1-toggle {
+                    &:hover {
+                        color: $color-red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Language Push */
+.language-push {
+    .language-push-btn-icon {
+        &:hover {
+            color: $color-red;
+        }
+    }
+}
+
+/* Language Push White */
+/* Media Queries above 992px */
+@media (min-width: $screen-md-min) {
+    .language-push {
+        &.language-push-style-white {
+            .language-push-btn-icon {
+                &:hover {
+                    color: $color-red;
+                }
+            }
+        }
+    }
+
+    /* Header Shrink */
+    .header-shrink {
+        .language-push {
+            &.language-push-style-white {
+                .language-push-btn-icon {
+                    &:hover {
+                        color: $color-red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Newsletter v6 */
+.newsletter-v6 {
+    .newsletter-v6-btn {
+        &:hover {
+            color: $color-red;
+        }
+    }
+}
+
+/* News v11 */
+.news-v11 {
+    .news-v11-subtitle {
+        color: $color-red;
+    }
+}
+
 /* Handle */
 .image-comparison-container {
     .image-comparison-handle {
         background: $color-red;
+    }
+}
+
+/* Testimonials v2 Arrows */
+.testimonials-v2-arrows {
+    .arrow-next,
+    .arrow-prev {
+        &:hover {
+            @include bg-opacity($color-red, 1);
+        }
+    }
+}
+
+/* Background Icon */
+.fuelux {
+    .radio-checkbox-bg-icon {
+        &.checked {
+            &:before {
+                background: $color-red;
+                border-color: $color-red;
+            }
+        }
+    }
+}
+
+/* Background Color */
+.fuelux {
+    .radio-checkbox-bg-color {
+        &.checked {
+            &:before {
+                background: $color-red;
+                border-color: $color-red;
+            }
+        }
+    }
+}
+
+/* Border */
+.fuelux {
+    .radio-checkbox-brd {
+        &.checked {
+            &:before {
+                border-color: $color-red;
+            }
+        }
+    }
+}
+
+/* Border with Dot */
+.fuelux {
+    .radio-checkbox-brd-dot {
+        &.checked {
+            &:before {
+                border-color: $color-red;
+            }
+
+            &:after {
+                background: $color-red;
+            }
+        }
+    }
+}
+
+.segment-controls {
+    border-color: $color-red;
+}
+
+
+/* Label */
+.segment-controls {
+    .segment-controls-label {
+        &:before {
+            background: $color-red;
+        }
     }
 }
 
@@ -3369,3 +3731,4 @@ h1, h2, h3, h4, h5, h6 {
 .bg-color-base {
     background: $color-red !important;
 }
+

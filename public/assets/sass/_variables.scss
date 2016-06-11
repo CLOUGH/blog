@@ -10,8 +10,13 @@
 
 $font-family-base:                                                      Roboto, sans-serif !default; // Default Roboto font family
 $font-family-droid:                                              		Droid Serif, serif !default; // Secondary Playfari Display font family
+$font-family-hind:                                              		Hind, sans-serif !default; // Hind font family
+$font-family-lora:                                              		Lora, serif !default; // Lora font family
+$font-family-open-sans:                                              	Open Sans, sans-serif !default; // Open Sans font family
+$font-family-dancing:                                              		Dancing Script, cursive !default; // Dancing Script font family
 $font-family-font-awesome:                                              FontAwesome !default; // Font Awesome third-party icons plugin
 $font-family-et-line:                                         			et-line !default; // Et Line Icons third-party icons plugin
+$font-family-themify:                                         			themify !default; // Themify Icons third-party icons plugin
 
 $font-size-10:                                                          10px !default;
 $font-size-11:                                                          11px !default;
@@ -58,6 +63,7 @@ $color-sky-light:                                                       #f7f8fa 
 $color-tint-light:                                                      #ebeef6 !default;
 $color-white:                                                           #fff !default;
 $color-dark:                                                            #34343c !default;
+$color-black:                                                           #000 !default;
 $color-blue:                                                            #536dfe !default;
 $color-blue-grey:                                                       #546e7a !default;
 $color-grey:                                                            #9e9e9e !default;
@@ -83,6 +89,13 @@ $color-tw:                                                              #55acee 
 $color-dr:                                                              #ea4c89 !default;
 $color-yt:                                                              #cc181e !default;
 $color-ig:                                                              #125688 !default;
+$color-vm:                                                              #45bbff !default;
+$color-bt-primary:                                                      #337ab7 !default;
+$color-bt-info:                                                         #5bc0de !default;
+$color-bt-warning:                                                      #5cb85c !default;
+$color-bt-danger:                                                       #f0ad4e !default;
+$color-bt-success:                                                      #d9534f !default;
+$color-bt-default:                                                      #eee !default;
 
 
 //==================================
@@ -92,7 +105,7 @@ $color-ig:                                                              #125688 
 //The CSS padding, margin, widht, and height properties
 
 $gutter:                                                        		10px !default; // IMPORTANT! Please do not change the space-property, it will affect the predefined theme classes
-
+	
 
 //==================================
 //	Media queries breakpoints
@@ -119,3 +132,4 @@ $screen-lg-med:                     									1260px !default;
 $screen-xs-max:             											($screen-sm-min - 1) !default;
 $screen-sm-max:                											($screen-md-min - 1) !default;
 $screen-md-max:                											($screen-lg-min - 1) !default;
+

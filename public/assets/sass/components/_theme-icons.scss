@@ -52,7 +52,7 @@
         &[href] {
             > .theme-icons-white-hover {
                 color: $color-white;
-                
+
                 &:hover {
                     color: $color-dark;
                     background: $color-white;
@@ -1114,6 +1114,355 @@
 
         .theme-icons-body {
             text-align: center;
+        }
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [Animate Icons]
+------------------------------------------------------------------*/
+
+.animate-icon {
+    margin: 5px 0;
+
+    .animate-icon-wrap {
+        display: block;
+        overflow: hidden;
+        text-align: center;
+        cursor: pointer;
+        color: $color-dark-light;
+        @include transition(all, .3s ease);
+        margin: 0;
+
+        &:hover {
+            .animate-icon-item:last-child {
+                color: $color-white;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .animate-icon-item {
+        position: relative;
+        display: block;
+        @include transition(all, .3s ease);
+    }
+
+    .animate-icon-item-shadow {
+        text-shadow: 1px 1px 1px lighten($color-dark, 30%);
+    }
+}
+
+/*------------------------------------------------------------------
+    [Animate Icons Sizes]
+------------------------------------------------------------------*/
+
+/* Extra Small Size */
+.animate-icon {
+    .animate-icon-xs {
+        @include size(30px);
+        @include font($size: 14px);
+
+        .animate-icon-item {
+            padding: 8px 0;
+        }
+
+        &:hover {
+            .animate-icon-item:first-child {
+                margin-top: -30px;
+            }
+        }
+    }
+}
+
+/* Small Size */
+.animate-icon {
+    .animate-icon-sm {
+        @include size(35px);
+        @include font($size: 16px);
+
+        .animate-icon-item {
+            padding: 10px 0;
+        }
+
+        &:hover {
+            .animate-icon-item:first-child {
+                margin-top: -35px;
+            }
+        }
+    }
+}
+
+/* Medium Size */
+.animate-icon {
+    .animate-icon-md {
+        @include size(45px);
+        @include font($size: 22px);
+
+        .animate-icon-item {
+            padding: 12px 0;
+        }
+
+        &:hover {
+            .animate-icon-item:first-child {
+                margin-top: -45px;
+            }
+        }
+    }
+}
+
+/* Large Size */
+.animate-icon {
+    .animate-icon-lg {
+        @include size(55px);
+        @include font($size: 26px);
+
+        .animate-icon-item {
+            padding: 15px 0;
+        }
+
+        &:hover {
+            .animate-icon-item:first-child {
+                margin-top: -55px;
+            }
+        }
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [Animate Transition Icons Bordered Color]
+------------------------------------------------------------------*/
+
+/* Animate Transition Icons Border Grey */
+.animate-icon .animate-icon-grey-brd {
+    border: 1px solid $color-grey;
+
+    &:hover {
+        border-color: transparent;
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [Animate Transition Icons Tooltips]
+------------------------------------------------------------------*/
+
+/* Animate Icons Tooltip */
+.animate-icon {
+    position: relative;
+
+    .icon-tooltip {
+        display: block;
+        font-size: $font-size-14;
+        color: $color-white;
+        background: $color-dark-light;
+        visibility: hidden;
+        opacity: 0;
+        white-space: nowrap;
+        @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+        padding: 15px 25px;
+    }
+
+    &:hover {
+        .icon-tooltip-top,
+        .icon-tooltip-bottom {
+            z-index: 1;
+            visibility: visible;
+            opacity: 1;
+            @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+        }
+
+        .icon-tooltip-top {
+            transform: translateX(-50%) translateY(-80%);
+        }
+
+        .icon-tooltip-bottom {
+            transform: translateX(-50%) translateY(80%);
+        }
+    }
+}
+
+/* Animate Icons Tooltip Top */
+.animate-icon {
+    .icon-tooltip-top {
+        @include position(absolute, $top: 0, $left: 50%);
+        transform: translateX(-50%) translateY(-100%);
+        margin-top: -30px;
+    }
+
+    .icon-tooltip-arrow-top {
+        bottom: -14px;
+        border-bottom-color: transparent !important;
+    }
+}
+
+/* Animate Icons Tooltip Bottom */
+.animate-icon {
+    .icon-tooltip-bottom {
+        @include position(absolute, $bottom: 0, $left: 50%);
+        transform: translateX(-50%) translateY(100%);
+        margin-bottom: -30px;
+    }
+
+    .icon-tooltip-arrow-bottom {
+        top: -14px;
+        border-top-color: transparent !important;
+    }
+}
+
+/* Animate Icons Tooltip Arrow */
+.animate-icon {
+    .icon-tooltip-arrow {
+        @include position(absolute, $left: 50%);
+        border-color: $color-dark-light;
+        border-right-color: transparent !important;
+        border-left-color: transparent !important;
+        border-style: solid;
+        border-width: 7px;
+        margin-left: -7px;
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [Animate Icons Horizontal]
+------------------------------------------------------------------*/
+
+.animate-icon {
+    .animate-icon-horizontal {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        transform: translate3d(0, 0, 0);
+        text-align: center;
+        vertical-align: middle;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+/* Animated Icon Horizontal Wrap */
+.animate-icon {
+    .animate-icon-horizontal-wrap {
+        @include position(relative, $top: 0, $left: 0);
+        display: block;
+        @include size(80px);
+        @include transition(all, .3s ease);
+        padding: 20px;
+    }
+}
+
+/* Animated Icon Left To Right Hover */
+.animate-icon {
+    .animate-icon-horizontal {
+        &:hover {
+            .animate-icon-left-to-right:first-child {
+                transform: translate(100%, 0);
+            }
+
+            .animate-icon-left-to-right:last-child {
+                transform: translate(0, 0);
+            }
+        }
+    }
+}
+
+/* Animated Icon Left To Right */
+.animate-icon {
+    .animate-icon-left-to-right:first-child {
+        transform: translate(0, 0);
+    }
+
+    .animate-icon-left-to-right:last-child {
+        @include position(absolute, $top: 0, $left: 0);
+        display: block;
+        transform: translate(-100%, 0);
+    }
+}
+
+/* Animated Icon Right To Left Hover */
+.animate-icon {
+    .animate-icon-horizontal {
+        &:hover {
+            .animate-icon-right-to-left:first-child {
+                transform: translate(-100%, 0);
+            }
+
+            .animate-icon-right-to-left:last-child {
+                transform: translate(0, 0);
+            }
+        }
+    }
+}
+
+/* Animated Icon Right To Left */
+.animate-icon {
+    .animate-icon-right-to-left:first-child {
+        transform: translate(0, 0);
+    }
+
+    .animate-icon-right-to-left:last-child {
+        @include position(absolute, $top: 0, $left: 0);
+        display: block;
+        transform: translate(100%, 0);
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [Animate Icons Border Style]
+------------------------------------------------------------------*/
+
+/* Animated Icons With Solid Border */
+.animate-icon {
+    .brd-solid {
+        border: 1px solid darken($color-grey, 10%);
+    }
+}
+
+/* Animated Icons With Dashed Border */
+.animate-icon {
+    .brd-dashed {
+        border: 1px dashed darken($color-grey, 10%);
+    }
+}
+
+
+/* Animated Icons With Dotted Border */
+.animate-icon {
+    .brd-dotted {
+        border: 1px dotted darken($color-grey, 10%);
+    }
+}
+
+/* Animated Icons With Double Line Border */
+.animate-icon {
+    .brd-double-square,
+    .brd-double-circle {
+        position: relative;
+        border: 1px double darken($color-grey, 10%);
+
+        &:after {
+            @include position(absolute, $top: 2px, $right: 2px, $left: 2px, $bottom: 2px);
+            z-index: -1;
+            @include size(auto);
+            border: 1px solid darken($color-grey, 10%);
+            content: " ";
+        }
+    }
+
+    .brd-double-circle {
+        &:after {
+            border-radius: 50%;
         }
     }
 }

@@ -12,6 +12,15 @@
     }
 }
 
+/* Auto Hiding Navbar */
+.header-transparent {
+    &.auto-hiding-navbar {
+        &.nav-up {
+            top: -80px;
+        }
+    }
+}
+
 /* Navbar */
 .header-transparent {
     .navbar {
@@ -142,6 +151,20 @@
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.header-transparent {
+    .topbar-toggle-trigger-icon-style {
+        color: $color-dark;
+        padding: 2px 5px;
+        @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+
+        &:hover {
+            color: $color-base;
+            @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+        }
+    }
+}
+
 /* Navbar Actions */
 .header-transparent {
     .navbar-actions {
@@ -162,9 +185,9 @@
         position: relative;
 
         .shopping-cart-icon {
-            @include font($size: $font-size-13);
+            @include font($size: $font-size-18);
             color: $color-white;
-            text-align: center; 
+            text-align: center;
             cursor: pointer;
             padding: 0 9px;
             @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
@@ -174,9 +197,23 @@
             }
         }
 
+        .shopping-cart-amount {
+            @include position(absolute, $top: 20px, $right: -3px);
+            @include size(20px);
+            display: inline-block;
+            @include font($size: $font-size-12, $weight: $font-weight-500);
+            color: $color-white;
+            line-height: $line-height-base;
+            text-align: center;
+            background: $color-base;
+            vertical-align: middle;
+            padding: 2px;
+            @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+        }
+
         .shopping-cart-menu {
             @include position(absolute, $top: 100%, $right: 0);
-            width: 270px;
+            width: 310px;
             display: none;
             line-height: $line-height-base;
             z-index: 1;
@@ -187,7 +224,7 @@
 
         .shopping-cart-menu-title {
             display: block;
-            @include font($size: $font-size-18);
+            @include font($size: $font-size-20, $weight: $font-weight-400);
             color: $color-dark;
             border-bottom: 1px solid $color-tint-light;
             padding: 15px;
@@ -217,9 +254,8 @@
 
         .shopping-cart-menu-product-name {
             display: block;
-            @include font($size: $font-size-13);
+            @include font($size: $font-size-15);
             color: $color-dark;
-            margin-bottom: -2px;
 
             &:hover {
                 color: $color-base;
@@ -229,7 +265,7 @@
 
         .shopping-cart-menu-product-price {
             display: block;
-            @include font($size: $font-size-12);
+            @include font($size: $font-size-14);
             color: darken($color-subtitle, 5%);
             margin-top: 5px;
         }
@@ -257,12 +293,12 @@
         }
 
         .shopping-cart-subtotal-title {
-            @include font($size: $font-size-14);
+            @include font($size: $font-size-16);
             color: $color-dark;
         }
 
         .shopping-cart-subtotal-price {
-            @include font($size: $font-size-13);
+            @include font($size: $font-size-16);
             color: $color-base;
             float: right;
         }
@@ -274,7 +310,7 @@
         }
 
         .shopping-cart-subtotal-view-link {
-            @include font($size: $font-size-12);
+            @include font($size: $font-size-13);
             color: $color-dark;
 
             &:hover {
@@ -333,12 +369,12 @@
 .header-transparent {
     .navbar-nav {
         .nav-item-child {
-            @include font($size: $font-size-12, $weight: $font-weight-400);
+            @include font($size: $font-size-13, $weight: $font-weight-500);
             color: $color-white;
             background: transparent;
             letter-spacing: $letter-spacing-1;
             text-transform: uppercase;
-            padding: 5px 15px;
+            padding: 5px 17px;
             @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
 
             &.active {
@@ -373,7 +409,7 @@
 /* Dropdown Menu */
 .header-transparent {
     .dropdown-menu {
-        min-width: 200px;
+        min-width: 235px;
         line-height: $line-height-base;
         border: none;
         border-radius: 0;
@@ -385,10 +421,11 @@
             color: lighten($color-dark, 10%);
 
             .dropdown-menu-item-child {
-                @include font($size: $font-size-12, $weight: $font-weight-400);
+                @include font($size: $font-size-13, $weight: $font-weight-400);
                 color: lighten($color-dark, 10%);
                 text-transform: uppercase;
                 padding: 8px 20px;
+                @include transition(all, .3s ease-in-out);
 
                 &.active {
                     color: $color-base;
@@ -406,6 +443,8 @@
                 &:hover {
                     color: $color-white;
                     background: $color-base;
+                    padding-left: 25px;
+                    @include transition(all, .3s ease-in-out);
                 }
             }
 
@@ -440,12 +479,13 @@
 
         .dropdown-submenu-child {
             display: block;
-            @include font($size: $font-size-12, $weight: $font-weight-400);
+            @include font($size: $font-size-13, $weight: $font-weight-400);
             color: lighten($color-dark, 10%);
             text-transform: uppercase;
             cursor: pointer;
             padding: 8px 20px;
             margin: 0;
+            @include transition(all, .3s ease-in-out);
 
             &:after {
                 @include position(absolute, $top: 8px, $right: 12px);
@@ -470,6 +510,8 @@
             &:hover {
                 color: $color-white;
                 background: $color-base;
+                padding-left: 25px;
+                @include transition(all, .3s ease-in-out);
 
                 &:after {
                     color: $color-white;
@@ -506,7 +548,7 @@
     .mega-menu-list {
         .mega-menu-title {
             display: block;
-            @include font($size: $font-size-13, $weight: $font-weight-500);
+            @include font($size: $font-size-14, $weight: $font-weight-500);
             color: $color-dark;
             text-transform: uppercase;
             margin-bottom: 10px;
@@ -514,12 +556,13 @@
 
         .mega-menu-child {
             display: block;
-            @include font($size: $font-size-12, $weight: $font-weight-400);
+            @include font($size: $font-size-13, $weight: $font-weight-400);
             color: lighten($color-dark, 10%);
             text-transform: uppercase;
             text-decoration: none;
-            padding: 8px 20px;
+            padding: 8px 15px 8px 0;
             margin: 0;
+            @include transition(all, .3s ease-in-out);
 
             &.active {
                 color: $color-base;
@@ -534,6 +577,8 @@
                 color: $color-white;
                 background: $color-base;
                 text-decoration: none;
+                padding-left: 10px;
+                @include transition(all, .3s ease-in-out);
             }
         }
     }
@@ -609,7 +654,7 @@
             float: none;
             text-align: center;
             margin: 0 70px;
-            
+
             .navbar-logo-img {
                 &.navbar-logo-img-white {
                     display: none;
@@ -809,10 +854,10 @@
         &.header-transparent {
             background: $color-white;
             @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
-            
+
             &:before,
             &:after {
-                @include position(absolute, $top: 50%, $left: 10px, $right: 10px, $bottom: 0); 
+                @include position(absolute, $top: 50%, $left: 10px, $right: 10px, $bottom: 0);
                 z-index: -1;
                 box-shadow: 0 0 15px lighten($color-dark-light, 67%);
                 border-radius: 1000px / 30px;
@@ -855,6 +900,11 @@
                     line-height: 70px;
                     @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
                 }
+
+                .shopping-cart-amount {
+                    top: 10px;
+                    @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+                }
             }
 
             /* Shopping Cart */
@@ -893,9 +943,10 @@
 
                 .dropdown-menu {
                     z-index: 9999;
-                    min-width: 200px;
+                    min-width: 235px;
                     border: none;
                     border-radius: 0;
+                    border-top: 2px solid $color-base;
                 }
 
                 .open {
@@ -918,7 +969,7 @@
 
             .nav-item-child {
                 margin: 30px 5px;
-                
+
                 &.active {
                     color: $color-base;
                     @include bg-opacity($color-white, .9);
@@ -972,12 +1023,12 @@
             .dropdown-menu {
                 left: 15px;
                 right: 15px;
-                padding: 20px 0;
+                padding: 25px 0;
             }
         }
 
         .mega-menu-content {
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
         .mega-menu-list {
@@ -988,7 +1039,7 @@
             }
 
             .mega-menu-title {
-                padding-left: 20px;
+                display: block;
             }
         }
     }

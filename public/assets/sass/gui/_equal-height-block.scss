@@ -7,6 +7,14 @@
     height: 500px;
     overflow: hidden;
 
+    &.equal-height-ib-400 {
+        height: 400px;
+    }
+
+    &.equal-height-ib-600 {
+        height: 600px;
+    }
+
     &.equal-height-ib-700 {
         height: 700px;
     }
@@ -15,6 +23,16 @@
     .equal-height-ib-two {
         position: absolute;
         height: 500px;
+
+        &.equal-height-ib-one-400,
+        &.equal-height-ib-two-400 {
+            height: 400px;
+        }
+
+        &.equal-height-ib-one-600,
+        &.equal-height-ib-two-600 {
+            height: 600px;
+        }
 
         &.equal-height-ib-one-700,
         &.equal-height-ib-two-700 {
@@ -46,6 +64,8 @@
             position: static;
             height: auto;
 
+            &.equal-height-ib-400,
+            &.equal-height-ib-600,
             &.equal-height-ib-700 {
                 height: auto;
             }
@@ -73,6 +93,8 @@
         position: static;
         height: auto;
 
+        &.equal-height-ib-400,
+        &.equal-height-ib-600,
         &.equal-height-ib-700 {
             height: auto;
         }

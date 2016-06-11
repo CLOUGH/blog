@@ -1,6 +1,6 @@
 /**************************************************************************
  * jquery.themepunch.revolution.js - jQuery Plugin for Revolution Slider
- * @version: 5.2 (02.03.2016)
+ * @version: 5.2.3 (16.03.2016)
  * @requires jQuery v1.7 or later (tested on 1.9)
  * @author ThemePunch
 **************************************************************************/
@@ -1446,7 +1446,7 @@ var initSlider = function (container,opt) {
 				}
 			}
 
-			loop =  loop=="none" && _nc.hasClass('rs-background-video-layer') ?  "loopandnoslidestop" : loop;
+			//loop =  loop=="none" && _nc.hasClass('rs-background-video-layer') ?  "loopandnoslidestop" : loop;
 
 			_nc.data('videoloop',loop);
 			

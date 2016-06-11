@@ -386,9 +386,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Button Base Color */
+/* Button Gold Color */
 .btn-base {
-    @include buttons($color-gold, $color-white, transparent, $color-gold, 1px, transparent, $color-gold);
+    @include buttons($color-gold, $color-white, transparent, $color-gold, 1px, transparent, $color-gold, transparent);
 
     .btn-base-element-xs {
         @include buttons-element(transparent, darken($color-gold, 4%), 4px 9px);
@@ -407,9 +407,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Buttons Border Base Color */
+/* Buttons Border Gold Color */
 .btn-base-brd {
-    @include buttons($color-gold, $color-white, transparent, $color-gold, 1px, $color-gold, $color-gold);
+    @include buttons($color-gold, $color-white, transparent, $color-gold, 1px, $color-gold, $color-gold, transparent);
 
     .btn-base-element-xs {
         @include buttons-element(transparent, darken($color-gold, 4%), 4px 9px);
@@ -428,9 +428,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Button Background Base Color */
+/* Button Background Gold Color */
 .btn-base-bg {
-    @include buttons($color-white, $color-white, $color-gold, $color-gold-light, 1px, transparent, transparent);
+    @include buttons($color-white, $color-white, $color-gold, $color-gold-light, 1px, transparent, transparent, transparent);
 
     .btn-base-element-xs {
         @include buttons-element(darken($color-gold, 4%), transparent, 4px 9px);
@@ -451,7 +451,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Button Background White Color */
 .btn-white-bg {
-    @include buttons($color-dark, $color-white, $color-white, $color-gold, 1px, $color-white, $color-gold);
+    @include buttons($color-dark, $color-white, $color-white, $color-gold, 1px, $color-white, $color-gold, transparent);
 
     .btn-base-element-xs {
         @include buttons-element(transparent, darken($color-white, 6%), 6px 9px);
@@ -467,6 +467,132 @@ h1, h2, h3, h4, h5, h6 {
 
     .btn-base-element-lg {
         @include buttons-element(transparent, darken($color-white, 6%), 15px 15px);
+    }
+}
+
+/* Button Gold Color Slide */
+.btn-base-bg-slide {
+    @include buttons($color-white, $color-white, $color-gold, $color-gold, 0, tranparent, tranparent, $color-gold-light);
+
+    .btn-base-element-xs {
+        @include buttons-element(transparent, darken($color-base, 4%), 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(transparent, darken($color-base, 4%), 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(transparent, darken($color-base, 4%), 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(transparent, darken($color-base, 4%), 15px 15px);
+    }
+}
+
+/* Button White Color Slide */
+.btn-white-bg-slide {
+    @include buttons($color-dark, $color-white, $color-white, $color-white, 0, transparent, transparent, $color-gold);
+
+    .btn-base-element-xs {
+        @include buttons-element(transparent, darken($color-white, 6%), 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(transparent, darken($color-white, 6%), 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(transparent, darken($color-white, 6%), 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(transparent, darken($color-white, 6%), 15px 15px);
+    }
+}
+
+/* Button Gold Color Slide */
+.btn-base-brd-slide {
+    @include buttons($color-gold, $color-white, transparent, transparent, 1px, $color-gold, $color-gold, $color-gold);
+
+    .btn-base-element-xs {
+        @include buttons-element(transparent, darken($color-base, 4%), 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(transparent, darken($color-base, 4%), 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(transparent, darken($color-base, 4%), 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(transparent, darken($color-base, 4%), 15px 15px);
+    }
+}
+
+/* Button Background Gold Color */
+.btn-base-bg-anim {
+    @include buttons($color-white, $color-white, $color-gold, $color-gold, 0, transparent, transparent, darken($color-gold, 5%));
+
+    .btn-base-element-xs {
+        @include buttons-element(darken($color-base, 4%), transparent, 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(darken($color-base, 4%), transparent, 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(darken($color-base, 4%), transparent, 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(darken($color-base, 4%), transparent, 15px 15px);
+    }
+}
+
+/* Button Background White Color */
+.btn-white-bg-anim {
+    @include buttons($color-dark, $color-white, $color-white, $color-white, 0, transparent, transparent, $color-gold);
+
+    .btn-base-element-xs {
+        @include buttons-element(transparent, darken($color-white, 6%), 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(transparent, darken($color-white, 6%), 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(transparent, darken($color-white, 6%), 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(transparent, darken($color-white, 6%), 15px 15px);
+    }
+}
+
+/* Button Border Gold Color */
+.btn-base-brd-anim {
+    @include buttons($color-gold, $color-white, transparent, transparent, 1px, $color-gold, $color-gold, $color-gold);
+
+    .btn-base-element-xs {
+        @include buttons-element(darken($color-base, 4%), transparent, 6px 9px);
+    }
+
+    .btn-base-element-sm {
+        @include buttons-element(darken($color-base, 4%), transparent, 9px 11px);
+    }
+
+    .btn-base-element-md {
+        @include buttons-element(darken($color-base, 4%), transparent, 12px 13px);
+    }
+
+    .btn-base-element-lg {
+        @include buttons-element(darken($color-base, 4%), transparent, 15px 15px);
     }
 }
 
@@ -1412,6 +1538,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.header {
+    .topbar-toggle-trigger-icon-style {
+        &:hover {
+            color: $color-gold;
+        }
+    }
+}
+
 /* Shopping Cart */
 .header {
     .shopping-cart {
@@ -1419,6 +1554,10 @@ h1, h2, h3, h4, h5, h6 {
             &:hover {
                 color: $color-gold;
             }
+        }
+
+        .shopping-cart-amount {
+            background: $color-gold;
         }
 
         .shopping-cart-menu {
@@ -1581,6 +1720,10 @@ h1, h2, h3, h4, h5, h6 {
     .header {
         .navbar-nav {
             .nav-item {
+                .dropdown-menu {
+                    border-top-color: $color-gold;
+                }
+
                 &:hover {
                     .nav-item-child {
                         color: $color-gold;
@@ -1636,6 +1779,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.header-center-aligned {
+    .topbar-toggle-trigger-icon-style {
+        &:hover {
+            color: $color-gold;
+        }
+    }
+}
+
 /* Shopping Cart */
 .header-center-aligned {
     .shopping-cart {
@@ -1643,6 +1795,10 @@ h1, h2, h3, h4, h5, h6 {
             &:hover {
                 color: $color-gold;
             }
+        }
+
+        .shopping-cart-amount {
+            background: $color-gold;
         }
 
         .shopping-cart-menu {
@@ -1804,6 +1960,10 @@ h1, h2, h3, h4, h5, h6 {
     .header-center-aligned {
         .navbar-nav {
             .nav-item {
+                .dropdown-menu {
+                    border-top-color: $color-gold;
+                }
+
                 &:hover {
                     .nav-item-child {
                         color: $color-gold;
@@ -1858,6 +2018,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.header-center-aligned-transparent {
+    .topbar-toggle-trigger-icon-style {
+        &:hover {
+            color: $color-gold;
+        }
+    }
+}
+
 /* Shopping Cart */
 .header-center-aligned-transparent {
     .shopping-cart {
@@ -1865,6 +2034,10 @@ h1, h2, h3, h4, h5, h6 {
             &:hover {
                 color: $color-gold;
             }
+        }
+
+        .shopping-cart-amount {
+            background: $color-gold;
         }
 
         .shopping-cart-menu {
@@ -2037,6 +2210,10 @@ h1, h2, h3, h4, h5, h6 {
     .header-center-aligned-transparent {
         .navbar-nav {
             .nav-item {
+                .dropdown-menu {
+                    border-top-color: $color-gold;
+                }
+
                 &:hover {
                     .nav-item-child {
                         color: $color-gold;
@@ -2257,6 +2434,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.header-transparent {
+    .topbar-toggle-trigger-icon-style {
+        &:hover {
+            color: $color-gold;
+        }
+    }
+}
+
 /* Shopping Cart */
 .header-transparent {
     .shopping-cart {
@@ -2264,6 +2450,10 @@ h1, h2, h3, h4, h5, h6 {
             &:hover {
                 color: $color-gold;
             }
+        }
+
+        .shopping-cart-amount {
+            background: $color-gold;
         }
 
         .shopping-cart-menu {
@@ -2436,6 +2626,10 @@ h1, h2, h3, h4, h5, h6 {
     .header-transparent {
         .navbar-nav {
             .nav-item {
+                .dropdown-menu {
+                    border-top-color: $color-gold;
+                }
+
                 &:hover {
                     .nav-item-child {
                         color: $color-gold;
@@ -3075,7 +3269,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Animsition Loading */
 .animsition-loading {
-    border-left-color: $color-base;
+    border-left-color: $color-gold;
 }
 
 /* Back To Top */
@@ -3353,10 +3547,178 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* Language V1 */
+.language-v1 {
+    .language-v1-toggle {
+        &:hover {
+            color: $color-gold;
+        }
+    }
+
+    .language-v1-dropdown-link {
+        &:hover {
+            background: $color-gold;
+        }
+    }
+}
+
+/* Language V1 White */
+/* Media Queries above 992px */
+@media (min-width: $screen-md-min) {
+    .language-v1 {
+        &.language-v1-style-white {
+            .language-v1-toggle {
+                &:hover {
+                    color: $color-gold;
+                }
+            }
+        }
+    }
+
+    /* Header Shrink */
+    .header-shrink {
+        .language-v1 {
+            &.language-v1-style-white {
+                .language-v1-toggle {
+                    &:hover {
+                        color: $color-gold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Language Push */
+.language-push {
+    .language-push-btn-icon {
+        &:hover {
+            color: $color-gold;
+        }
+    }
+}
+
+/* Language Push White */
+/* Media Queries above 992px */
+@media (min-width: $screen-md-min) {
+    .language-push {
+        &.language-push-style-white {
+            .language-push-btn-icon {
+                &:hover {
+                    color: $color-gold;
+                }
+            }
+        }
+    }
+
+    /* Header Shrink */
+    .header-shrink {
+        .language-push {
+            &.language-push-style-white {
+                .language-push-btn-icon {
+                    &:hover {
+                        color: $color-gold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Newsletter v6 */
+.newsletter-v6 {
+    .newsletter-v6-btn {
+        &:hover {
+            color: $color-gold;
+        }
+    }
+}
+
+/* News v11 */
+.news-v11 {
+    .news-v11-subtitle {
+        color: $color-gold;
+    }
+}
+
 /* Handle */
 .image-comparison-container {
     .image-comparison-handle {
         background: $color-gold;
+    }
+}
+
+/* Testimonials v2 Arrows */
+.testimonials-v2-arrows {
+    .arrow-next,
+    .arrow-prev {
+        &:hover {
+            @include bg-opacity($color-gold, 1);
+        }
+    }
+}
+
+/* Background Icon */
+.fuelux {
+    .radio-checkbox-bg-icon {
+        &.checked {
+            &:before {
+                background: $color-gold;
+                border-color: $color-gold;
+            }
+        }
+    }
+}
+
+/* Background Color */
+.fuelux {
+    .radio-checkbox-bg-color {
+        &.checked {
+            &:before {
+                background: $color-gold;
+                border-color: $color-gold;
+            }
+        }
+    }
+}
+
+/* Border */
+.fuelux {
+    .radio-checkbox-brd {
+        &.checked {
+            &:before {
+                border-color: $color-gold;
+            }
+        }
+    }
+}
+
+/* Border with Dot */
+.fuelux {
+    .radio-checkbox-brd-dot {
+        &.checked {
+            &:before {
+                border-color: $color-gold;
+            }
+
+            &:after {
+                background: $color-gold;
+            }
+        }
+    }
+}
+
+.segment-controls {
+    border-color: $color-gold;
+}
+
+
+/* Label */
+.segment-controls {
+    .segment-controls-label {
+        &:before {
+            background: $color-gold;
+        }
     }
 }
 
@@ -3369,3 +3731,4 @@ h1, h2, h3, h4, h5, h6 {
 .bg-color-base {
     background: $color-gold !important;
 }
+

@@ -226,6 +226,43 @@
 }
 
 
+/*--------------------------------------------------
+    [Carousel Control Arrows v3]
+----------------------------------------------------*/
+
+.theme-carousel-control-v3 {
+    position: static;
+    opacity: .8;
+    
+    .carousel-controls-arrow-v3 {
+        @include position(absolute, $top: 50%);
+        display: inline-block;
+        @include size(44px);
+        @include font($size: $font-size-36);
+        color: $color-white;
+        @include bg-opacity($color-white, .3);
+        text-shadow: 0 3px 0px rgba(52,52,60,.3);
+        margin-top: -22px;
+        padding: 4px;
+    }
+
+    &.left {
+        .carousel-controls-arrow-v3 {
+            left: 0;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+    }
+    &.right {
+        .carousel-controls-arrow-v3 {
+            right: 0;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+    }
+}
+
+
 /*------------------------------------------------------------------
     [Theme Carousel Indicators v1]
 ------------------------------------------------------------------*/
@@ -482,3 +519,72 @@
     }
 }
 
+
+/*------------------------------------------------------------------
+    [Theme Carousel Indicators v6]
+------------------------------------------------------------------*/
+
+.theme-carousel-indicators-v6 {
+    @include position(absolute, $top: 30px, $bottom: auto);
+
+    > li {
+        position: relative;
+        @include size(15px);
+        margin: 1px 3px;
+        border: 3px solid $color-white;
+
+        &:before {
+            @include position(absolute, $top: 0, $left: 0, $right: 0, $bottom: 0);
+            @include size(100%);
+            background: $color-white;
+            @include border-radius(50%);
+            content: " ";
+            @include transform-scale(1,1);
+            @include cubic-transition($delay: 0, $duration: 200ms, $property: (all));
+        }
+
+        &.active {
+            @include size(17px);
+            margin: 0 2px;
+            background: transparent;
+            
+            &:before {
+                @include transform-scale(0,0);
+                @include cubic-transition($delay: 0, $duration: 200ms, $property: (all));
+            }
+        }
+    }
+}
+
+
+/*--------------------------------------------------
+    [Bootstrap Carousel with Animation]
+----------------------------------------------------*/
+
+.carousel-caption {
+    .carousel-caption-wrap {
+        position: relative;
+    }
+
+    .carousel-caption-element {
+        @include position(absolute, $bottom: -20px, $left: 50%);
+        @include translate3d(-50%,0,0);
+    }
+
+    .carousel-animation-one {
+        @include animation-delay(.5s);
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [Modal]
+------------------------------------------------------------------*/
+
+.modal-open {
+    padding-right: 0 !important;
+    
+    .modal {
+        padding-right: 0 !important;
+    }
+}

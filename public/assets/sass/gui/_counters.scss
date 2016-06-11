@@ -195,3 +195,89 @@
     }
 }
 
+
+/*--------------------------------------------------
+    [Counters v5]
+----------------------------------------------------*/
+
+.counters-v5 {
+    .counters-v5-step-one {
+        background: $color-dark;
+    }
+    .counters-v5-step-two {
+        background: darken($color-dark, 1%);
+    }
+    .counters-v5-step-three {
+        background: darken($color-dark, 2%);
+    }
+    .counters-v5-step-four {
+        background: darken($color-dark, 2.5%);
+    }
+
+    .counters-v5-body {
+        text-align: center;
+        padding-top: 80px;
+        padding-bottom: 80px;
+
+        .counters-v5-number {
+            @include font($size: $font-size-50);
+            color: $color-white;
+            margin-bottom: 30px;
+        }
+
+        .counters-v5-element {
+            @include position(relative, $top: -12px, $left: 50%);
+            display: block;
+            @include size(40px, 0);
+            color: $color-white;
+            border-bottom: 1.5px solid lighten($color-white, 20%);
+            margin-left: -20px;
+            content: " ";
+
+            &:before,
+            &:after {
+                border-bottom: 1.5px solid lighten($color-white, 20%);
+                content: " ";
+            }
+
+            &:before {
+                @include position(absolute, $bottom: 9px, $left: 50%);
+                @include size(40px, 0);
+                margin-left: -20px;
+            }
+
+            &:after {
+                @include position(absolute, $top: -5px, $left: 50%);
+                @include size(20px, 0);
+                margin-left: -10px;
+            }
+        }
+
+        .counters-v5-title {
+            position: relative;
+            @include font($size: $font-size-20);
+            color: $color-white;
+            margin: 0;
+        }
+    }
+}
+
+
+/*--------------------------------------------------
+    [Counters v6]
+----------------------------------------------------*/
+
+.counters-v6 {
+    .counters-v6-number {
+        display: block;
+        @include font($size: $font-size-50, $weight: $font-weight-400);
+        color: $color-white;
+        margin-bottom: 10px;
+    }
+
+    .counters-v6-title {
+        @include font($size: $font-size-20);
+        color: $color-white;
+        margin: 0;
+    }
+}

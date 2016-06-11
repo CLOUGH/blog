@@ -325,7 +325,7 @@
     .services-v4-media {
         max-width: 90px;
         min-width: 90px;
-        
+
         .services-v4-icon {
             @include size(70px);
         }
@@ -525,7 +525,7 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
-    
+
     &:before {
         @include position(absolute, $top: 0, $left: 0);
         @include size(100%);
@@ -617,7 +617,7 @@
             @include size(100%, 450px);
             @include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
         }
-        
+
         &.services-v7-img-one {
             background: url(../../assets/img/970x970/20.jpg) no-repeat;
             background-size: cover;
@@ -702,7 +702,7 @@
             color: $color-white;
             margin-right: 3px;
         }
-        
+
         .services-v8-like-icon {
             @include font($size: $font-size-18);
         }
@@ -765,5 +765,221 @@
         color: $color-white;
         opacity: .85;
         margin-bottom: 20px;
+    }
+}
+
+
+/*--------------------------------------------------
+    [Services v10]
+----------------------------------------------------*/
+
+.services-v10 {
+    padding: 60px;
+
+    &.services-v10-border-l {
+        position: relative;
+        border-left: 1px solid $color-tint-light;
+
+        &:before {
+            @include position(absolute, $top: 50%, $left: 0);
+            @include size(20px);
+            background: lighten($color-subtitle, 45%);
+            box-shadow: 0 0 0 4px $color-white;
+            border: 1px solid $color-sky-light;
+            content: " ";
+            margin: -10px 0 0 -10px;
+            @include rotate(45deg);
+        }
+    }
+
+    &.services-v10-border-r {
+        position: relative;
+        border-right: 1px solid $color-tint-light;
+
+        &:after {
+            @include position(absolute, $top: 50%, $right: 0);
+            @include size(20px);
+            background: lighten($color-subtitle, 45%);
+            box-shadow: 0 0 0 4px $color-white;
+            border: 1px solid $color-sky-light;
+            content: " ";
+            margin: -10px -10px 0 0;
+            @include rotate(45deg);
+        }
+    }
+
+    .services-v10-no {
+        display: block;
+        @include font($size: $font-size-70, $weight: $font-weight-700, $style: italic, $family: $font-family-droid);
+        color: $color-dark;
+    }
+
+    .services-v10-title {
+        @include font($size: $font-size-24);
+        letter-spacing: $letter-spacing-1;
+        text-transform: inherit;
+        margin-bottom: 20px;
+    }
+
+    .services-v10-subtitle {
+        display: block;
+        @include font($size: $font-size-14);
+        color: $color-subtitle;
+        margin-bottom: 20px;
+    }
+
+    .services-v10-text {
+        margin-bottom: 30px;
+    }
+}
+
+/* Media Queries below 768px */
+@media (max-width: $screen-sm-min) {
+    .services-v10 {
+        &.services-v10-border-l {
+            border-top: 1px solid $color-tint-light;
+            border-left: none;
+
+            &:before {
+                @include position(absolute, $top: 0, $left: 50%);
+                margin: -10px 0 0 -10px;
+            }
+        }
+
+        &.services-v10-border-r {
+            border-bottom: 1px solid $color-tint-light;
+            border-right: none;
+
+            &:after {
+                @include position(absolute, $top: auto, $left: 50%, $right: auto, $bottom: -10px);
+                margin: 0 0 0 -10px;
+            }
+        }
+    }
+}
+
+
+/*--------------------------------------------------
+    [Servives v11]
+----------------------------------------------------*/
+
+.services-v11 {
+    padding: 30px;
+
+    .services-v11-subtitle {
+        display: block;
+        @include font($size: $font-size-14, $weight: $font-weight-400, $style: italic, $family: $font-family-droid);
+        color: $color-white;
+        letter-spacing: $letter-spacing-1;
+        margin-bottom: 5px;
+    }
+
+    .services-v11-title {
+        position: relative;
+        @include font($size: $font-size-22);
+        color: $color-white;
+        margin: 0 0 30px;
+
+        &:after {
+            @include position(absolute, $bottom: -10px, $left: 0);
+            @include size(30px, 2px);
+            background: $color-white;
+            content: " ";
+        }
+    }
+
+    .services-v11-text {
+        color: $color-white;
+    }
+}
+
+
+/*--------------------------------------------------
+    [Services v12]
+----------------------------------------------------*/
+
+.services-v12 {
+    padding: 60px 30px;
+
+    &.services-v12-bg-color {
+        background: $color-dark;
+    }
+
+    &.services-v12-bg-img-one {
+        background: url(../../assets/img/970x970/01.jpg) no-repeat;
+    }
+
+    &.services-v12-bg-img-two {
+        background: url(../../assets/img/970x970/04.jpg) no-repeat;
+    }
+
+    &.services-v12-bg-img-one,
+    &.services-v12-bg-img-two {
+        position: relative;
+        z-index: 1;
+        background-size: cover;
+        background-position: center center;
+
+        &:before {
+            @include position(absolute, $top: 0, $left: 0);
+            @include size(100%);
+            z-index: -1;
+            @include bg-opacity($color-dark, .92);
+            content: " ";
+        }
+    }
+
+    .services-v12-icon {
+        @include font($size: $font-size-30);
+        color: $color-white;
+        margin-bottom: 20px;
+    }
+
+    .services-v12-title {
+        @include font($size: $font-size-24);
+        color: $color-white;
+        margin-bottom: 10px;
+
+        &.services-v12-title-element {
+            position: relative;
+            margin-bottom: 30px;
+
+            &:after {
+                @include position(absolute, $bottom: -12px, $left: 0);
+                @include size(30px, 1px);
+            }
+
+            &:before {
+                @include position(absolute, $bottom: -15px, $left: 0);
+                @include size(20px, 1px);
+            }
+
+            &:after,
+            &:before {
+                background: lighten($color-white, 20%);
+                content: " ";
+            }
+        }
+    }
+
+    .services-v12-text {
+        @include font($size: $font-size-13);
+        color: $color-white;
+    }
+
+    .services-v12-link {
+        display: block;
+        text-decoration: none;
+        opacity: 0;
+        @include translate3d(-5%,0,0);
+        @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+    }
+
+    &:hover {
+        .services-v12-link {
+            opacity: 1;
+            @include translate3d(0,0,0);
+            @include cubic-transition($delay: 0, $duration: 400ms, $property: (all));
+        }
     }
 }

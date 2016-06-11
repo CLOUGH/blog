@@ -23,6 +23,14 @@
     hr {
         border-top: lighten($color-dark-light, 10%);
     }
+
+    label{
+        color: $color-white;
+    }
+
+    span {
+        color: $color-white;
+    }
 }
 
 
@@ -363,7 +371,53 @@
         }
     }
 }
+/*--------------------------------------------------
+    [Divider v4]
+----------------------------------------------------*/
+/* Divider Center V4 */
+.dark-theme {
+    .divider-v4 {
+        &.divider-v4-center-single,
+        &.divider-v4-center-double {
+            .divider-v4-title {
+                &:after,
+                &:before {
+                    background: $color-white;
+                }
+            }
+        }
+    }
+}
 
+/* Divider Left V4 */
+.dark-theme {
+    .divider-v4 {
+        &.divider-v4-left-single,
+        &.divider-v4-left-double {
+            .divider-v4-title {
+                &:after,
+                &:before {
+                    background: $color-white;
+                }
+            }
+        }
+    }
+}
+
+/* Divider Right V4 */
+.dark-theme {
+    .divider-v4 {
+        &.divider-v4-right-single,
+        &.divider-v4-right-double {
+            .divider-v4-title {
+                &:after,
+                &:before {
+                    background: $color-white;
+                }
+            }
+        }
+    }
+}
 
 /*--------------------------------------------------
     [Heading v2]
@@ -746,7 +800,7 @@
 
 .dark-theme {
     .btn-dark-brd {
-        @include buttons(darken($color-white, 10%), $color-white, transparent, darken($color-dark, 5%), 1px, darken($color-dark, 2%), darken($color-dark, 6%));
+        @include buttons(darken($color-white, 10%), $color-white, transparent, darken($color-dark, 5%), 1px, darken($color-dark, 2%), darken($color-dark, 6%), transparent);
     }
 }
 
@@ -757,7 +811,7 @@
 
 .dark-theme {
     .btn-dark-bg {
-        @include buttons($color-white, $color-white, $color-dark, lighten($color-dark-light, 3%), 1px, transparent, transparent);
+        @include buttons($color-white, $color-white, $color-dark, lighten($color-dark-light, 3%), 1px, transparent, transparent, transparent);
     }
 }
 
@@ -768,7 +822,7 @@
 
 .dark-theme {
     .btn-dark-bg {
-        @include buttons($color-white, $color-white, darken($color-dark, 2%), $color-dark-light, 1px, transparent, darken($color-dark, 3%));
+        @include buttons($color-white, $color-white, darken($color-dark, 2%), $color-dark-light, 1px, transparent, darken($color-dark, 3%), transparent);
     }
 }
 
@@ -779,7 +833,34 @@
 
 .dark-theme {
     .btn-dark {
-        @include buttons($color-white, $color-white, transparent, $color-dark, 1px, transparent, $color-dark);
+        @include buttons($color-white, $color-white, transparent, $color-dark, 1px, transparent, $color-dark, transparent);
+    }
+}
+
+/*--------------------------------------------------
+    [Button Dark Color Slide]
+----------------------------------------------------*/
+.dark-theme {
+    .btn-dark-brd-slide {
+        @include buttons($color-white, $color-white, transparent, transparent, 1px, darken($color-dark, 2%), darken($color-dark, 2%), darken($color-dark, 2%));
+    }
+}
+
+/*--------------------------------------------------
+    [Button Dark Color Slide]
+-----------------------------------------------------*/
+.dark-theme {
+    .btn-dark-bg-slide {
+        @include buttons($color-white, $color-white, darken($color-dark, 5%), darken($color-dark, 5%), 0, transparent, transparent, darken($color-dark, 2%));
+    }
+}
+
+/*--------------------------------------------------
+    [Button Border Dark Color]
+-----------------------------------------------------*/
+.dark-theme {
+    .btn-dark-brd-anim {
+        @include buttons($color-white, $color-white, transparent, transparent, 1px, darken($color-dark, 5%), darken($color-dark, 5%), darken($color-dark, 2%));
     }
 }
 
@@ -1938,6 +2019,27 @@
     }
 }
 
+/*--------------------------------------------------
+    [Icons Box v8]
+----------------------------------------------------*/
+
+.dark-theme {
+    .icon-box-v8 {
+        .icon-box-v8-media-icon {
+            color: $color-white;
+        }
+
+        .icon-box-v8-content-title {
+            &.icon-box-v8-content-title-element {
+                &:after,
+                &:before {
+                    background: $color-white;
+                }
+            }
+        }
+    }
+}
+
 
 /*--------------------------------------------------
     [Interactive Banner v2]
@@ -2029,6 +2131,57 @@
 
 
 /*--------------------------------------------------
+    [Services v10]
+----------------------------------------------------*/
+
+.dark-theme {
+    .services-v10 {
+        &.services-v10-border-l {
+            border-left-color: $color-dark-light;
+
+            &:before {
+                background: lighten($color-dark, 45%);
+                box-shadow: 0 0 0 4px $color-dark;
+                border-color: $color-dark-light;
+            }
+        }
+
+        &.services-v10-border-r {
+            border-right-color: $color-dark-light;
+
+            &:after {
+                background: lighten($color-dark, 45%);
+                box-shadow: 0 0 0 4px $color-dark;
+                border-color: $color-dark-light;
+            }
+        }
+
+        .services-v10-no {
+            color: $color-white;
+        }
+
+        .services-v10-subtitle {
+            color: $color-dark-light;
+        }
+    }
+}
+
+/* Media Queries below 768px */
+@media (max-width: $screen-sm-min) {
+    .dark-theme {
+        .services-v10 {
+            &.services-v10-border-l {
+                border-top: 1px solid $color-tint-light;
+            }
+
+            &.services-v10-border-r {
+                border-bottom: 1px solid $color-tint-light;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------
     [Slider Block v1]
 ----------------------------------------------------*/
 
@@ -2039,6 +2192,40 @@
 
         .slider-block-v1-content-right-border {
             border-right-color: lighten($color-dark-light, 5%);
+        }
+    }
+}
+
+/*--------------------------------------------------
+    [Slider Block v2]
+----------------------------------------------------*/
+
+.dark-theme {
+    .slider-block-v2 {
+        border-top-color: lighten($color-dark-light, 5%);
+        border-bottom-color: lighten($color-dark-light, 5%);
+
+        .slider-block-v2-content-right-border {
+            border-right-color: lighten($color-dark-light, 5%);
+        }
+    }
+}
+
+
+/*--------------------------------------------------
+    [Newsletter v1]
+----------------------------------------------------*/
+
+.dark-theme {
+    .newsletter-v1 {
+        .newsletter-v1-form {
+            color: $color-sky-light;
+            @include placeholder($color-sky-light);
+
+            &:focus {
+                color: $color-sky-light;
+                @include placeholder($color-sky-light);
+            }
         }
     }
 }
@@ -2064,9 +2251,44 @@
 .dark-theme {
     .newsletter-v4 {
         .newsletter-v4-form {
-            color: $color-white;
-            background: lighten($color-dark-light, 10%);
-            @include placeholder ($color-subtitle);
+            color: $color-sky-light;
+            @include placeholder ($color-sky-light);
+        }
+    }
+}
+
+
+/*--------------------------------------------------
+    [Newsletter v6]
+----------------------------------------------------*/
+
+.dark-theme {
+    .newsletter-v6 {
+        .newsletter-v6-form {
+            color: $color-sky-light;
+            @include placeholder($color-sky-light);
+
+            &:focus {
+                color: $color-sky-light;
+                @include placeholder($color-sky-light);
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------
+    [Newsletter v7]
+----------------------------------------------------*/
+
+.dark-theme {
+    .newsletter-v7 {
+        background: lighten($color-dark-light, 7%);
+        border-top-color: lighten($color-dark-light, 5%);
+        border-bottom-color: lighten($color-dark-light, 5%);
+
+        .newsletter-v7-form {
+            color: $color-sky-light;
+            @include placeholder ($color-sky-light);
         }
     }
 }
@@ -2294,6 +2516,98 @@
             .news-v8-more-info-text {
                 color: lighten($color-grey, 15%);
             }
+        }
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [News v10]
+------------------------------------------------------------------*/
+
+.dark-theme {
+    .news-v10 {
+        border-bottom-color: $color-dark-light;
+
+        .news-v10-lists {
+            .news-v10-lists-item {
+                color: $color-white;
+
+                &:before {
+                    background: $color-sky-light;
+                }
+
+                .news-v10-lists-link {
+                    &:hover {
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [News v11]
+------------------------------------------------------------------*/
+
+.dark-theme {
+    .news-v11 {
+        background: $color-dark;
+
+        .news-v11-content {
+            &.news-v11-content-arrow-bottom {
+                &:after {
+                    border-color: transparent transparent $color-dark transparent;
+                }
+            }
+
+            &.news-v11-content-arrow-left {
+                &:after {
+                    border-color: transparent $color-dark transparent transparent;
+                }
+            }
+
+            &.news-v11-content-arrow-right {
+                &:after {
+                    border-color: transparent transparent transparent $color-dark;
+                }
+            }
+        }
+
+        .news-v11-title {
+            &:after {
+                background: $color-white;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------
+    [News v12]
+----------------------------------------------------*/
+
+.dark-theme {
+    .news-v12 {
+        border: 1px solid $color-dark-light;
+
+        .news-v12-info {
+            .news-v12-info-title {
+                color: $color-white;
+            }
+        }
+
+        .news-v12-content {
+            background: lighten($color-dark-light, 1%);
+        }
+
+        .news-v12-subtitle {
+            color: $color-sky-light;
+        }
+
+        &:hover {
+            box-shadow: 0 0 40px -6px darken($color-dark-light, 10%);
         }
     }
 }
@@ -2832,6 +3146,32 @@
 
         .theme-carousel-indicators-item {
             border-color: lighten($color-dark-light, 8%);
+        }
+    }
+}
+
+
+/*--------------------------------------------------
+    [Theme Carousel Indicators v7]
+----------------------------------------------------*/
+
+.dark-theme {
+    .theme-carousel-indicators-v7 {
+        li {
+            color: $color-white;
+            background: $color-dark;
+
+            .theme-carousel-indicators-v7-no {
+                color: $color-tint-light;
+            }
+
+            &.active {
+                color: $color-white;
+
+                .theme-carousel-indicators-v7-no {
+                    color: darken($color-sky-light, 10%);
+                }
+            }
         }
     }
 }
@@ -3444,6 +3784,15 @@
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.dark-theme {
+    .header {
+        .topbar-toggle-trigger-icon-style {
+            color: $color-white;
+        }
+    }
+}
+
 /* Shopping Cart */
 .dark-theme {
     .header {
@@ -3659,6 +4008,15 @@
                     background: $color-white;
                 }
             }
+        }
+    }
+}
+
+/* Topbar Toggle Trigger Icon */
+.dark-theme {
+    .header-transparent {
+        .topbar-toggle-trigger-icon-style {
+            color: $color-white;
         }
     }
 }
@@ -3909,6 +4267,15 @@
     }
 }
 
+/* Topbar Toggle Trigger Icon */
+.dark-theme {
+    .header-center-aligned {
+        .topbar-toggle-trigger-icon-style {
+            color: $color-white;
+        }
+    }
+}
+
 /* Shopping Cart */
 .dark-theme {
     .header-center-aligned {
@@ -4127,6 +4494,15 @@
                     background: $color-white;
                 }
             }
+        }
+    }
+}
+
+/* Topbar Toggle Trigger Icon */
+.dark-theme {
+    .header-center-aligned-transparent {
+        .topbar-toggle-trigger-icon-style {
+            color: $color-white;
         }
     }
 }
@@ -5077,6 +5453,155 @@
     }
 }
 
+
+/*--------------------------------------------------
+    [Language v1 Dropdown]
+----------------------------------------------------*/
+
+.dark-theme {
+    .language-v1 {
+        color: $color-white;
+
+        .language-v1-toggle {
+            color: $color-white;
+        }
+
+        .language-v1-dropdown {
+            background: $color-dark;
+        }
+
+        .language-v1-dropdown-item {
+            color: $color-white;
+        }
+
+        .language-v1-dropdown-link {
+            color: $color-white;
+        }
+    }
+}
+
+/*--------------------------------------------------
+    [Language Push White]
+----------------------------------------------------*/
+
+/* Media Queries above 992px */
+@media (min-width: $screen-md-min) {
+    .dark-theme {
+        .language-v1 {
+            &.language-v1-style-white {
+                .language-v1-toggle {
+                    color: $color-dark;
+                }
+            }
+        }
+    }
+
+    /* Header Shrink */
+    .dark-theme {
+        .header-shrink {
+            .language-v1 {
+                &.language-v1-style-white {
+                    .language-v1-toggle {
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------
+    [Language Push]
+----------------------------------------------------*/
+
+.dark-theme {
+    .language-push {
+        .language-push-btn-icon {
+            color: $color-white;
+        }
+    }
+}
+
+/* Language Push Open */
+.dark-theme {
+    .language-push-open {
+        background: $color-dark-light;
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [Language Push White]
+------------------------------------------------------------------*/
+
+/* Media Queries above 992px */
+@media (min-width: $screen-md-min) {
+    .dark-theme {
+        .language-push {
+            &.language-push-style-white {
+                .language-push-btn-icon {
+                    color: $color-dark;
+                }
+            }
+        }
+    }
+
+    /* Header Shrink */
+    .dark-theme {
+        .header-shrink {
+            .language-push {
+                &.language-push-style-white {
+                    .language-push-btn-icon {
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*------------------------------------------------------------------
+    [Language Push White]
+------------------------------------------------------------------*/
+
+/* Media Queries above 992px */
+@media (min-width: $screen-md-min) {
+    .dark-theme {
+        .language-push {
+            &.language-push-style-white {
+                .language-push-btn-icon {
+                    color: $color-dark;
+                }
+            }
+        }
+    }
+
+    /* Header Shrink */
+    .dark-theme {
+        .header-shrink {
+            .language-push {
+                &.language-push-style-white {
+                    .language-push-btn-icon {
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*------------------------------------------------------------------
+    [Banner Image 12]
+------------------------------------------------------------------*/
+
+.dark-theme {
+    .banner-img-12 {
+        &:before {
+            @include bg-opacity($color-dark, .89);
+        }
+    }
+}
 
 /* Color Dark*/
 .dark-theme {
