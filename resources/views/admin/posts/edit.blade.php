@@ -36,8 +36,7 @@
 
 @section('scripts')
 	<!-- Plugins -->
-    <script src="{{ url('admin-assets/js/plugins/summernote/summernote.min.js') }}"></script>
-	<script src="{{ url('admin-assets/js/plugins/iCheck/icheck.min.js') }}"></script>
+	    <script src="{{ url('admin-assets/js/plugins/summernote/summernote.min.js') }}"></script>
     <script src="{{ url('admin-assets/js/plugins/fullcalendar/moment.min.js') }}"></script>
     <script src="{{ url('admin-assets/js/plugins/datapicker/bootstrap-datepicker.js') }}"></script>
     <script src="{{ url('admin-assets/js/plugins/select2/select2.full.min.js') }}"></script>

@@ -12,10 +12,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::firstOrCreate([
-        	'name' => 'Admin',
-        	'email' => 'admin@warrenclough.me',
-        	'password' => 'password'
-        ]);
+        if(User::where('email','admin@warrenclough.me')->count()==0){
+            User::firstOrCreate([
+            	'name' => 'Admin',
+            	'email' => 'admin@warrenclough.me',
+            	'password' => 'password'
+            ]);
+            
+        }
     }
 }

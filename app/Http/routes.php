@@ -48,6 +48,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['prefix'=>'api'], function(){
         Route::get('/tags','TagController@index');
+        Route::get('/categories','CategoryController@index');
     });
 
     Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
@@ -57,5 +58,6 @@ Route::group(['middleware' => 'web'], function () {
 
         Route::get('dashboard', 'DashboardController@index');
         Route::resource('posts','ManagePostController');
+        Route::resource('portfolios','AdminPortfolioController');
     });
 });

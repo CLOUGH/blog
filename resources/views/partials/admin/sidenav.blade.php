@@ -20,7 +20,7 @@
             <li class="{{ Request::is('admin/posts*') ? 'active' : ''}}">
                 <a href="{{ url('admin/posts') }}"><i class="fa fa-edit"></i> <span class="nav-label">Posts</span></a>
             </li>
-            <li class="{{ Request::is('admin/portfolio*') ? 'active' : ''}}">
+            <li class="{{ Request::is('admin/portfolios*') ? 'active' : ''}}">
                 <a href="{{ url('admin/portfolio') }}"><i class="fa fa-camera"></i> <span class="nav-label">Portfolio</span></a>
             </li>
         </ul>

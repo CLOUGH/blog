@@ -94,20 +94,16 @@
 @endsection
 
 @section('scripts')
-	<!-- iCheck -->
-	<script src="{{ url('admin-assets/js/plugins/iCheck/icheck.min.js') }}"></script>
-	<script>
-	    $(document).ready(function () {
-	        $('.i-checks').iCheck({
-	            checkboxClass: 'icheckbox_square-green',
-	            radioClass: 'iradio_square-green',
-	        });
-	    });
+	<script type="text/javascript">
+		$(document).ready(function () {
+		    $('.i-checks').iCheck({
+		        checkboxClass: 'icheckbox_square-green',
+		        radioClass: 'iradio_square-green',
+		    });
+		});
+		var deletePost = function($postId){
 
-	    var deletePost = function($postId){
-
-	    	return false;
-	    }
+			return false;
+		}
 	</script>
-
 @endsection

@@ -35,7 +35,9 @@
   background: url("/images/rsz_2jeqzi01ru2hbhgltbgb_mg_5236.jpg") no-repeat; }
 
 .page.index-portfolio .breadcrumbs-v5.breadcrumbs-v5-bg-img-v4 {
-  background: url("/images/rsz_photo-1441471349424-351990746ff4ixlib.jpg") no-repeat; }
+  background: url("/images/rsz_photo-1422246358533-95dcd3d48961.jpg") no-repeat;
+  background-position: center bottom;
+  background-size: cover; }
 
 .page.breadcrumbs-v5.breadcrumbs-v5-bg-img-v4 {
   background-size: cover;
@@ -49,5 +51,8 @@
 
 .modal-content {
   border-radius: 0px; }
+
+.clickable:hover {
+  cursor: pointer; }
 
 /*# sourceMappingURL=app.css.map */
