@@ -17,7 +17,7 @@
 			<div class="ibox-content">
 				<div class="row">
 					<div class="col-lg-12 text-right">
-						<a href="{{ url('admin/Portfolio/create') }}" class="btn btn-primary">Create Portfolios</a>
+						<a href="{{ url('admin/portfolios/create') }}" class="btn btn-primary">Create Portfolios</a>
 						<br>
 						<br>
 					</div>

@@ -24,6 +24,7 @@
     <link href="{{ url('/assets/plugins/scrollbar/jquery.mCustomScrollbar.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ url('/assets/css/animate.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ url('/assets/plugins/magnific-popup/magnific-popup.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url('assets/plugins/cubeportfolio/css/cubeportfolio.min.css') }}" rel="stylesheet" type="text/css"/>
     <!-- END THEME PLUGINS STYLE -->
  
     <!-- THEME STYLES -->

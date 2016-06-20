@@ -32,7 +32,7 @@
 			<input type="hidden" name="_method" value="PUT">
 			<div class="row">
 				<div class="col-md-2 col-md-push-10">
-					<div class="ibox" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+					<div class="ibox">
 						<div class="ibox-title">
 							<h5>Settings</h5>
 						</div>

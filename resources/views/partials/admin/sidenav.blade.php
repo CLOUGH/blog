@@ -21,7 +21,7 @@
                 <a href="{{ url('admin/posts') }}"><i class="fa fa-edit"></i> <span class="nav-label">Posts</span></a>
             </li>
             <li class="{{ Request::is('admin/portfolios*') ? 'active' : ''}}">
-                <a href="{{ url('admin/portfolio') }}"><i class="fa fa-camera"></i> <span class="nav-label">Portfolio</span></a>
+                <a href="{{ url('admin/portfolios') }}"><i class="fa fa-camera"></i> <span class="nav-label">Portfolios</span></a>
             </li>
         </ul>
 

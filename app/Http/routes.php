@@ -46,6 +46,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('portfolio', 'PortfolioController', ['only'=>['index','show']]);
     Route::get('/', 'HomeController@index');
 
+    Route::get('/images/{imageName}', 'UploadsController@getImages');
+
     Route::group(['prefix'=>'api'], function(){
         Route::get('/tags','TagController@index');
         Route::get('/categories','CategoryController@index');
