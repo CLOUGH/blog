@@ -19,6 +19,8 @@ class PortfolioController extends Controller
     }
 
     public function show($id){
-    	return view('portfolio.show');
+    	$portfolio = Portfolio::published()->findOrFail($id);
+    	return view('portfolio.show')
+    		->with(compact('portfolio'));
     }
 }

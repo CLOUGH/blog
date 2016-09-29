@@ -134,7 +134,8 @@ class ManagePostController extends Controller
         if (!file_exists('public/uploads/images/')) {
             mkdir('public/uploads/images/', 0777, true);
         }
-        $newImageName = 'image_' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
+        
+        $newImageName = md5(time()).'.jpg';
         $img->save('public/uploads/images/'.$newImageName);
         dd($img);
 

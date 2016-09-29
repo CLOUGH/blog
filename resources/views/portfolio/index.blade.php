@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="theme-portfolio-title-heading">
-                                    <h4 class="theme-portfolio-title"><a href="portfolio_single_item.html">{{ $portfolio->name }}</a></h4>
+                                    <h4 class="theme-portfolio-title"><a href="{{ url("portfolios/$portfolio->id") }}">{{ $portfolio->name }}</a></h4>
                                     <span class="theme-portfolio-subtitle">Lorem impsum dolor</span>
                                 </div>
                             </div>

@@ -12,7 +12,7 @@
 
 <!-- Portfolio -->
 <li class="nav-item">
-    <a class="nav-item-child radius-3 {{ Request::is('portfolio*') ? 'active' : '' }}" href="{{ url('/portfolio') }}">Portfolio</a>
+    <a class="nav-item-child radius-3 {{ Request::is('portfolios*') ? 'active' : '' }}" href="{{ url('/portfolios') }}">Portfolio</a>
 </li>
 <!-- End Portfolio -->
 

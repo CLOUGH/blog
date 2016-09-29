@@ -25,10 +25,12 @@ class AdminPortfolioController extends Controller
     public function create(){
     	return view('admin.portfolios.create');
     }
+    
     public function show($id)
     {
         return redirect("/admin/portfolios/$id/edit");
     }
+
     public function edit($id){
     	$portfolio = Portfolio::findOrFail($id);
 
